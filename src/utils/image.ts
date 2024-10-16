@@ -14,7 +14,7 @@ const Images = {
   Insidemaps,
   Upwork,
   Quadque,
-  Github
+  Github,
 };
 
 export default Images;
