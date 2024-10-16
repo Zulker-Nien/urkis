@@ -4,7 +4,7 @@ import { laptopStore, sidebarStore } from "@/store/store";
 import Images from "@/utils/image";
 import { laptopType, sidebarType } from "@/utils/types";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 const Sidebar = () => {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);

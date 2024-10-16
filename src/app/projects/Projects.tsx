@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { projects } from "@/utils/constant";
-import Image from "next/image";
-import Images from "@/utils/image";
 import Techstack from "./Techstack";
 import { projectStore } from "@/store/store";
 import { projectType } from "@/utils/types";

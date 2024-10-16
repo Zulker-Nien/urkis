@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { aboutStore } from "@/store/store";
 import Images from "@/utils/image";
 import { aboutType } from "@/utils/types";

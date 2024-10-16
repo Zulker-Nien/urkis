@@ -1,4 +1,4 @@
-import { useRef } from "react";
+"use client"
 import { useSpring, animated, useInView } from "@react-spring/web";
 import { projectStore } from "@/store/store";
 import { projectType } from "@/utils/types";

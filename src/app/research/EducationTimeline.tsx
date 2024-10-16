@@ -1,3 +1,4 @@
+"use client"
 import { animated, useInView, useSpring } from "@react-spring/web";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import Image from "next/image";
