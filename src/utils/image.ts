@@ -4,7 +4,7 @@ import Aveneur from "/public/aveneur.png";
 import Cerulean from "/public/cerulean.png";
 import Insidemaps from "/public/insidemaps.png";
 import Upwork from "/public/upwork.png";
-import Quadque from "/public/quadque.png";
+import Quadque from "/public/Quadque.png";
 import Github from "/public/github.png";
 
 const Images = {
