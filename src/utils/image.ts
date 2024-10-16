@@ -1,11 +1,11 @@
 // Landing
-import Logo from "/public/Zulker_Logo_W.png";
-import Aveneur from "/public/aveneur.png";
-import Cerulean from "/public/cerulean.png";
-import Insidemaps from "/public/insidemaps.png";
-import Upwork from "/public/upwork.png";
-import Quadque from "/public/quadque.png";
-import Github from "/public/github.png";
+import Logo from "/Zulker_Logo_W.png";
+import Aveneur from "/aveneur.png";
+import Cerulean from "/cerulean.png";
+import Insidemaps from "/insidemaps.png";
+import Upwork from "/upwork.png";
+import Quadque from "/quadque.png";
+import Github from "/github.png";
 
 const Images = {
   Logo,
@@ -14,7 +14,7 @@ const Images = {
   Insidemaps,
   Upwork,
   Quadque,
-  Github
+  Github,
 };
 
 export default Images;
