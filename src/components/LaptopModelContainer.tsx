@@ -11,10 +11,14 @@ import { laptopType } from "@/utils/types";
 import ArrowDown from "./ArrowDown";
 
 const LaptopModelContainer = () => {
-  const [isLargeScreen, setIsLargeScreen] = useState(0);
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(true);
   useEffect(() => {
-    window.innerWidth >= 1024 && setIsLargeScreen(1024);
-  },[]);
+    if (window.innerWidth >= 1024) {
+      setIsLargeScreen(true);
+    } else {
+      setIsLargeScreen(false); // Explicitly set a default for smaller screens
+    }
+  }, []);
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
   const setOpenLaptop = laptopStore((state: laptopType) => state.setOpenLaptop);
   const props = useSpring({ open: Number(openLaptop) });
