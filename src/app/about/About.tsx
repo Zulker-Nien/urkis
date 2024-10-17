@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { aboutStore } from "@/store/store";
 import Images from "@/utils/image";
 import { aboutType } from "@/utils/types";
@@ -14,6 +14,7 @@ const About = () => {
     (state: aboutType) => state.setOpenAboutSlider
   );
   const aboutTextStyle = useSpring({ open: Number(openAboutSlider) });
+  const [viewCV, setViewCV] = useState(false);
 
   useEffect(() => {
     const scrollContainer = document.querySelector(".snap-mandatory");
@@ -85,11 +86,40 @@ const About = () => {
             implement in my daily tasks.
           </p>
           <div className="min-w-screen py-4 px-8 gap-4 flex items-center justify-center sticky bottom-20 ">
-            <button className="duration-300 lg:text-2xl text-xl py-2 px-4 rounded-3xl border border-white hover:bg-violet-500 text-white absolute shadow-xl">
-              Get to know me in depth
+            <button
+              onClick={() => {
+                setViewCV(true);
+              }}
+              className="duration-300 lg:text-2xl text-xl py-2 px-4 rounded-3xl border border-white hover:bg-violet-500 text-white absolute shadow-xl"
+            >
+              View CV
             </button>
           </div>
         </web.div>
+        {viewCV && (
+          <div className="absolute w-screen h-screen flex items-start justify-center">
+            <iframe
+              src="/Zulker_CV.pdf"
+              className="w-3/4 h-full"
+              title="Zulker CV"
+              seamless={true}
+            />
+            <div
+              className={`relative top-8 left-4 flex flex-col gap-1.5 items-end
+               justify-center rounded-md ease-in duration-100 cursor-pointer`}
+              onClick={() => {
+                setViewCV(false);
+              }}
+            >
+              <div
+                className={`rotate-45 origin-center translate-y-1.5 w-10 h-1.5 rounded-sm bg-white transition-all duration-300 ease-in-out `}
+              ></div>
+              <div
+                className={`-rotate-45 origin-center -translate-y-1.5 w-10 h-1.5 rounded-sm bg-white transition-all duration-300 ease-in-out`}
+              ></div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
