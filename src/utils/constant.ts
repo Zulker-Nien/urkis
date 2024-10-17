@@ -1,5 +1,5 @@
 import Images from "./image";
-import { educationType, experienceType, researchType } from "./types";
+import { educationType, experienceType, projectType, researchType,projectItem } from "./types";
 
 const experiences: experienceType = [
   {
@@ -142,7 +142,7 @@ const testimonials = [
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
-const projects = [
+const projects:projectItem = [
   {
     name: "Tecbix",
     description:

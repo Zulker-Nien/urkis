@@ -36,6 +36,17 @@ export type researchType = {
   journal?: string;
   book?: string;
 }[];
+export type tagType = {
+  name: string;
+  color: string;
+};
+export type projectItem = {
+  name: string;
+  description: string;
+  tags: tagType[];
+  image: string;
+  source_code_link: string;
+}[];
 
 export type projectType = {
   selectedStack: string;

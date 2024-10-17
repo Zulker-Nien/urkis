@@ -2,13 +2,18 @@
 import Image from "next/image";
 import Images from "@/utils/image";
 import { useInView, useSpring, animated } from "@react-spring/web";
+import { tagType } from "@/utils/types";
 const ProjectCard = ({
   index,
   name,
-  description,
   tags,
   source_code_link,
-}: any) => {
+}: {
+  index: number;
+  name: string;
+  tags: tagType[];
+  source_code_link: string;
+}) => {
   const [ref, inView] = useInView({
     rootMargin: "-50px 0px",
   });
@@ -46,7 +51,7 @@ const ProjectCard = ({
         </div>
         <h3 className="text-gray-800 font-semibold text-xl">{name}</h3>
         <div className=" flex flex-wrap gap-2">
-          {tags.map((tag: any, index: number) => (
+          {tags.map((tag: tagType) => (
             <p
               key={`${name}-${tag.name}`}
               className="text-md font-semibold text-blue-500"

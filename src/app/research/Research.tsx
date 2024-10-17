@@ -16,7 +16,7 @@ const Research = () => {
           </h5>
           <VerticalTimeline lineColor="#232d3b" className="flex flex-col gap-8">
             {education.map((education, index) => (
-              <EducationTimeline education={education} index={index} />
+              <EducationTimeline education={education} key={index} index={index} />
             ))}
           </VerticalTimeline>
         </div>

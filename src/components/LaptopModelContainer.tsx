@@ -14,7 +14,7 @@ const LaptopModelContainer = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(0);
   useEffect(() => {
     window.innerWidth >= 1024 && setIsLargeScreen(1024);
-  });
+  },[]);
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
   const setOpenLaptop = laptopStore((state: laptopType) => state.setOpenLaptop);
   const props = useSpring({ open: Number(openLaptop) });

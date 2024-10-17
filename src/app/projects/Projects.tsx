@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { projects } from "@/utils/constant";
 import Techstack from "./Techstack";
 import { projectStore } from "@/store/store";
-import { projectType } from "@/utils/types";
+import { projectType, tagType } from "@/utils/types";
 import ProjectCard from "./ProjectCard";
 import TechstackMobile from "./TechstackMobile";
 
@@ -15,7 +15,7 @@ const Projects = () => {
     selectedStack === "All Projects"
       ? true
       : project.tags.some(
-          (tag: any) => tag.name.toLowerCase() === selectedStack.toLowerCase()
+          (tag: tagType) => tag.name.toLowerCase() === selectedStack.toLowerCase()
         )
   );
 

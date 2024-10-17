@@ -70,7 +70,7 @@ const About = () => {
         <web.div
           style={{
             opacity: aboutTextStyle.open.to([1, 0], [1, 0]),
-            transform: aboutTextStyle.open.to((o) => `translateY(-25%,0)`),
+            transform: aboutTextStyle.open.to(() => `translateY(-25%,0)`),
             color: "#000",
           }}
           className={"flex flex-col gap-8 absolute "}
