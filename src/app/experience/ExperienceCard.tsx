@@ -13,10 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { SheetIcon } from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
 const ExperienceCard = ({
   experience,

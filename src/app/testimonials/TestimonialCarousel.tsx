@@ -1,6 +1,5 @@
-import * as React from "react";
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -10,7 +9,6 @@ import {
 } from "@/components/ui/carousel";
 import SpotlightCard from "@/components/SpotlightCard";
 import { testimonials } from "@/utils/constant";
-import Image from "next/image";
 
 const TestimonialCarousel = () => {
   return (

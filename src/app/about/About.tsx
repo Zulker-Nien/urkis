@@ -6,7 +6,6 @@ import { aboutType } from "@/utils/types";
 import Image from "next/image";
 import { useSpring, a as web } from "@react-spring/web";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 
 const About = () => {
   const openAboutSlider = aboutStore(
