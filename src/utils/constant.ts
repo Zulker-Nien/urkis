@@ -4,6 +4,7 @@ import {
   experienceType,
   researchType,
   projectItem,
+  testimonialType,
 } from "./types";
 
 const experiences: experienceType = [
@@ -14,9 +15,7 @@ const experiences: experienceType = [
     iconBg: "#fff",
     date: "Aug 2020 - Present",
     points: [
-      "With over 10 clients and 5 star reviews, most of my projects included 3d frontend interactions achieved using three js. Two of my interesting projects are as follows:",
-      "AR incorporated web application game for Meta Verse - My responsibility was to add 3-dimensional movement to characters based on user interactions with the application. This was achieved in Next.js using aframe and three.js for augmented reality implementation in the vector space.",
-      "A Sweden based enterprise ordering system for sportswear- My responsibility was to create the software architecture, 3d customization of products by customers in real time when ordering, Invoice and Product specification document generation. This was achieved using Nest.js, reactjs.js, three.js and GraphQL with PostgreSQL.",
+      "As a dedicated freelance developer, I create engaging web and mobile applications using React, Next, Three.js, and React Native, significantly boosting user engagement and website traffic. I also design visually stunning elements with Adobe XD, Illustrator, Photoshop, and Blender, earning consistent 5-star reviews from clients. My work in web development, graphic design, and 3D modeling focuses on delivering high-quality results and building long-lasting client relationships through a collaborative approach.As a dedicated freelance developer, I create engaging web and mobile applications using React, Next, Three.js, and React Native, significantly boosting user engagement and website traffic. I also design visually stunning elements with Adobe XD, Illustrator, Photoshop, and Blender, earning consistent 5-star reviews from clients. My work in web development, graphic design, and 3D modeling focuses on delivering high-quality results and building long-lasting client relationships through a collaborative approach.",
     ],
   },
   {
@@ -26,8 +25,7 @@ const experiences: experienceType = [
     iconBg: "#fff",
     date: "Sep 2023 - Aug 2024",
     points: [
-      "During my time here, I was affiliated with two projects. A CRM software was already under development where I helped to update and add further features.",
-      "I am mostly proud of the Email Marketing application where I implemented all my knowledge that I accumulated this far into the journey of my career. Currently, more than 20 companies are using this application.",
+      "During my time here, I was affiliated with two projects. A CRM software was already under development where I helped to update and add further features. But I am mostly proud of the Email Marketing application where I implemented all my knowledge that I accumulated this far into the journey of my career. Currently, more than 20 companies are using this application.",
     ],
   },
 
@@ -38,8 +36,7 @@ const experiences: experienceType = [
     iconBg: "#fff",
     date: "Sep 2021 – Nov 2023",
     points: [
-      "As a Business Analyst at InsideMaps, I collaborated with a remote team to audit and resolve project issues, increasing completion rates and reducing customer complaints.",
-      " I assigned projects based on team members' skills, created analytics on Google Spreadsheets for US states, and strategically scheduled rework projects. My contributions helped enhance project accuracy and decrease delays.",
+      "As a Business Analyst at InsideMaps, I worked with a remote team to audit and resolve project issues, boosting completion rates and reducing customer complaints. I assigned projects based on team members' skills and created detailed analytics on Google Spreadsheets for US states, which improved project accuracy and reduced delays. I also strategically scheduled rework projects based on date, error rate, and completeness, contributing to the company's success.",
     ],
   },
 
@@ -50,8 +47,7 @@ const experiences: experienceType = [
     iconBg: "#f4f4f4",
     date: "Nov 2020 – Jul 2021",
     points: [
-      "Since it was a new found company, I had to take up responsibilities of different roles such as product management and product designing along with my primary role of software development which further improved my agile methodology and design thinking skills. ",
-      "I attended client meetings, performed requirement engineering, created specification documents, built design prototypes, delegated tasks to teammates and completed my own tickets for development.",
+      "As a skilled full stack developer and team leader, I have guided teams in developing web applications that increased revenue and client satisfaction. My experience includes designing and developing in-house products, implementing an agile environment, and creating seamless user experiences for mobile and web applications. With a strong background in UI/UX design, I craft efficient and visually appealing prototypes using Adobe XD and Figma. Committed to fostering collaboration and innovation, I leverage my technical expertise and leadership skills to deliver high-quality products and ensure project success.",
     ],
   },
   {
@@ -61,8 +57,7 @@ const experiences: experienceType = [
     iconBg: "#FFFFFF",
     date: "Jan 2020 – Nov 2020",
     points: [
-      "During my time at Cerulean Creative Technologies, I developed the front-end of 2 web applications(e-commerce & industrial blog) using reactjsjs.",
-      " This experience strengthened my front-end development skills, laying a solid foundation for my future in the tech industry.",
+      "During my internship at Cerulean Creative Technologies, I honed my front-end development and graphic design skills by developing and deploying websites using ASP.NET Core and React, ensuring seamless user experiences. I also created UI/UX prototypes with Adobe XD and Photoshop, enhancing the aesthetics and functionality of various projects. This experience provided me with a strong foundation in both front-end development and graphic design for my future in the tech industry.",
     ],
   },
 ];
@@ -70,15 +65,15 @@ const education: educationType = [
   {
     title: "Masters in Software Engineering",
     university: "United International University",
-    icon: Images.Quadque,
+    icon: Images.UIU,
     iconBg: "#fff",
-    date: "Sep 2022 - Nov 2024",
-    cgpa: "3.67",
+    date: "Sep 2022 - Jan 2025",
+    cgpa: "3.83",
   },
   {
     title: "Bachelor's in Computer Science",
     university: "Independent University, Bangladesh",
-    icon: Images.Quadque,
+    icon: Images.IUB,
     iconBg: "#fff",
     date: "Sep 2016 - Dec 2020",
     cgpa: "3.01",
@@ -87,7 +82,7 @@ const education: educationType = [
   {
     title: "A-levels",
     university: "Private",
-    icon: Images.Quadque,
+    icon: Images.PRIVATE,
     iconBg: "#fff",
     date: "Jan 2015 - Jan 2016",
     cgpa: null,
@@ -95,9 +90,17 @@ const education: educationType = [
   {
     title: "O-levels",
     university: "Private",
-    icon: Images.Quadque,
+    icon: Images.PRIVATE,
     iconBg: "#fff",
     date: "June 2013 - June 2014",
+    cgpa: null,
+  },
+  {
+    title: "Primary & Secondary School",
+    university: "Maple Leaf International School",
+    icon: Images.MLIS,
+    iconBg: "#fff",
+    date: "1999-2012",
     cgpa: null,
   },
 ];
@@ -106,29 +109,30 @@ const research: researchType = [
     title: "Use of Ai in advancing SRHR interventions",
     type: "Q1 Systematic Review",
     status: "In Peer Review",
-    journal: "npj Artificial Intelligence",
+    journal: "Heliyon",
   },
   {
     title: "Use of Ai in advancing Mental Health interventions",
     type: "Q1 Systematic Review",
     status: "In Peer Review",
-    journal: "Communications Psychology",
+    journal: "Heliyon",
   },
   {
     title: "Ai for screening common cancers",
     type: "Book Chapter",
     status: "Published",
     book: "Artificial Intelligence in e-Health Framework V1",
+    link: "https://www.sciencedirect.com/science/article/abs/pii/B9780443138164000164",
   },
 ];
-const testimonials = [
+const testimonials: testimonialType = [
   {
     testimonial:
       "Zulker brings in great energy in every conversation. Working with him is like working with a friend. Further, he is very passionate about the work and I believe he will do great things as we move forward. I highly recommend him.",
     name: "Zeno Saviour",
-    designation: "Founder",
+    designation: "Founder & Software Developer",
     company: "Characters.xyz",
-    image: "testimonial1",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
     testimonial:
@@ -136,7 +140,7 @@ const testimonials = [
     name: "Priyanka",
     designation: "Project Manager",
     company: "Magenta",
-    image: "testimonial2",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
   {
     testimonial:

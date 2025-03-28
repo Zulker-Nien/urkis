@@ -35,6 +35,7 @@ export type researchType = {
   status: string;
   journal?: string;
   book?: string;
+  link?: string;
 }[];
 export type tagType = {
   name: string;
@@ -52,3 +53,11 @@ export type projectType = {
   selectedStack: string;
   setSelectedStack: (stack: string) => void;
 };
+
+export type testimonialType = {
+  name: string;
+  image: string;
+  company: string;
+  testimonial: string;
+  designation: string;
+}[];

@@ -8,12 +8,15 @@ import Experience from "./experience/Experience";
 import Projects from "./projects/Projects";
 import Research from "./research/Research";
 import Contact from "./contact/Contact";
+import { Toaster } from "@/components/ui/toaster";
+import TestimonialCarousel from "./testimonials/TestimonialCarousel";
 
 export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
 
   return (
-    <div className="snap-mandatory overflow-x-hidden overflow-y-scroll h-screen w-screen">
+    <div className="snap-mandatory overflow-x-hidden overflow-y-scroll scroll-smooth h-screen w-screen">
+      <Toaster />
       <div className=" snap-start h-screen">
         <LaptopModelContainer />
       </div>
@@ -23,6 +26,7 @@ export default function Home() {
           <Experience />
           <Projects />
           <Research />
+          <TestimonialCarousel />
           <Contact />
         </>
       )}

@@ -32,8 +32,8 @@ const LaptopModelContainer = () => {
           {/* <div className="text-black text-3xl p-0 m-0">▼</div> */}
         </div>
       ) : (
-        <div className="absolute bottom-20 z-20 text-center w-screen animate-pulse duration-100">
-          <h2 className="text-black  text-2xl">Open the laptop</h2>
+        <div className="absolute bottom-20 z-20 text-center w-screen duration-100">
+          <h2 className="text-black text-2xl animate-pulse">Open the laptop</h2>
         </div>
       )}
       <web.main
@@ -67,7 +67,7 @@ const LaptopModelContainer = () => {
             intensity={1.5}
             color={props.open.to([0, 1], ["#00", "#000"])}
           />
-          <Suspense fallback={null}>
+          <Suspense fallback={"loading"}>
             <group
               rotation={[0, Math.PI, 0]}
               onClick={(e) => (e.stopPropagation(), setOpenLaptop(!open))}

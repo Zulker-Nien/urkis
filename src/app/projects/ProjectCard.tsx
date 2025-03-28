@@ -28,7 +28,7 @@ const ProjectCard = ({
       ref={ref}
       style={projectCardStyles}
       className={
-        " h-full w-full rounded-3xl flex items-center justify-center overflow-hidden gap-4 relative bg-white shadow-md shadow-black"
+        " h-full w-full rounded-md flex items-center justify-center overflow-hidden gap-4 relative bg-slate-900 shadow-md shadow-black"
       }
     >
       <Image
@@ -40,7 +40,7 @@ const ProjectCard = ({
         <div className="absolute inset-0 flex justify-end p-3 card-img_hover">
           <div
             onClick={() => window.open(source_code_link, "_blank")}
-            className="black-gradient w-10 h-10 flex justify-center items-center cursor-pointer"
+            className=" w-10 h-10 flex justify-center items-center cursor-pointer"
           >
             <Image
               src={Images.Github}
@@ -49,7 +49,7 @@ const ProjectCard = ({
             />
           </div>
         </div>
-        <h3 className="text-gray-800 font-semibold text-xl">{name}</h3>
+        <h3 className="text-white font-semibold text-xl">{name}</h3>
         <div className=" flex flex-wrap gap-2">
           {tags.map((tag: tagType) => (
             <p

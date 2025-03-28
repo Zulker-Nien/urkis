@@ -15,7 +15,8 @@ const Projects = () => {
     selectedStack === "All Projects"
       ? true
       : project.tags.some(
-          (tag: tagType) => tag.name.toLowerCase() === selectedStack.toLowerCase()
+          (tag: tagType) =>
+            tag.name.toLowerCase() === selectedStack.toLowerCase()
         )
   );
 

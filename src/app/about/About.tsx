@@ -5,6 +5,8 @@ import Images from "@/utils/image";
 import { aboutType } from "@/utils/types";
 import Image from "next/image";
 import { useSpring, a as web } from "@react-spring/web";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 const About = () => {
   const openAboutSlider = aboutStore(
@@ -51,7 +53,7 @@ const About = () => {
             Zulker {`{`}
           </div>
           <Image
-            className={`duration-300 animate-pulse ${
+            className={`duration-300 ${
               openAboutSlider
                 ? "lg:w-1/5 w-1/3 -translate-y-[250px]"
                 : "lg:w-1/3 w-1/2 translate-y-[0]"
@@ -67,7 +69,13 @@ const About = () => {
             {`}`} Nien{" "}
           </div>
         </div>
-
+        {!openAboutSlider && (
+          <div className="w-screen flex items-end justify-end">
+            <h1 className="h-full px-8 py-4 text-white animate-bounce">
+              Keep on scrolling ⇣
+            </h1>
+          </div>
+        )}
         <web.div
           style={{
             opacity: aboutTextStyle.open.to([1, 0], [1, 0]),
@@ -76,24 +84,54 @@ const About = () => {
           }}
           className={"flex flex-col gap-8 absolute "}
         >
-          <p className="lg:text-2xl tracking-wide text-xl text-justify lg:px-96 px-4 pb-4 pt-36 text-white">
-            As a skilled JavaScript web developer with expertise in frontend and
-            backend frameworks, I excel at creating dynamic React/Next web
-            applications and visually captivating 3D interactive websites using
-            three.js. Additionally, my certification in UI/Ux designing and the
-            technical analysis skills that I have gotten through academic
-            research are one of my most treasured and hard earned skills that I
-            implement in my daily tasks.
-          </p>
+          <div className="h-full tracking-wide lg:text-xl text-justify lg:px-96 px-4 pb-4 lg:pt-80 pt-64 text-white">
+            <h1>
+              I blend technology, design, and analysis to craft seamless digital
+              experiences. With a Master’s in Software Engineering and
+              experience across startups and industries, I merge technical
+              innovation with user-focused design to build impactful solutions.
+            </h1>
+            <hr className="lg:mt-4 mt-8 drop-shadow-md text-transparent" />
+            <br />
+            <h1>My Core Skills include:</h1>
+            <ul>
+              <li className="lg:text-xl text-sm">
+                <span className="text-yellow-300 lg:font-bold">
+                  Full-Stack Development:
+                </span>{" "}
+                React, Next.js, NestJS, Node.js, PostgreSQL
+              </li>
+              <li className="lg:text-xl text-sm">
+                <span className="text-yellow-300 lg:font-bold">3D Web:</span>{" "}
+                Immersive experiences with Three.js & WebGL
+              </li>
+              <li className="lg:text-xl text-sm">
+                <span className="text-yellow-300 lg:font-bold">UI/UX Design:</span>{" "}
+                Creating intuitive and engaging user experiences
+              </li>
+              <li className="lg:text-xl text-sm">
+                <span className="text-yellow-300 lg:font-bold">
+                  Team & Product Management:
+                </span>{" "}
+                Leading teams and driving product strategy
+              </li>
+              <li className="lg:text-xl text-sm">
+                <span className="text-yellow-300 lg:font-bold">
+                  AI & Research:
+                </span>{" "}
+                Technical analysis and AI applications in healthcare
+              </li>
+            </ul>
+          </div>
           <div className="min-w-screen py-4 px-8 gap-4 flex items-center justify-center sticky bottom-20 ">
-            <button
+            <Button
+              size={"lg"}
               onClick={() => {
                 setViewCV(true);
               }}
-              className="duration-300 lg:text-2xl text-xl py-2 px-4 rounded-3xl border border-white hover:bg-violet-500 text-white absolute shadow-xl"
             >
               View CV
-            </button>
+            </Button>
           </div>
         </web.div>
         {viewCV && (

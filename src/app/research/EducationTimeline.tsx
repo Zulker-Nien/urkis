@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import { animated, useInView, useSpring } from "@react-spring/web";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import Image from "next/image";
 import { educationType } from "@/utils/types";
+import SpotlightCard from "@/components/SpotlightCard";
 const EducationTimeline = ({
   education,
   index,
@@ -27,12 +28,11 @@ const EducationTimeline = ({
         position={index % 2 === 0 ? "left" : "right"}
         visible={true}
         contentStyle={{
-          background: "white",
+          background: "transparent",
           color: "#3d3d3d",
           fontWeight: "800",
-          borderRadius: "24px",
-          boxShadow: "0 4px 6px -1px #000",
-          // gap: "8px",
+          boxShadow: "0 0 0 0 #000",
+          padding: "0px",
         }}
         contentArrowStyle={{ borderRight: "7px solid #000" }}
         date={education.date}
@@ -51,28 +51,33 @@ const EducationTimeline = ({
           </div>
         }
       >
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-gray-800 text-2xl font-bold">
-              {education.title}
-            </h3>
-            <h3 className="text-md font-bold text-orange-500 !m-0">
-              {education.university}
-            </h3>
+        <SpotlightCard
+          className="custom-spotlight-card h-full"
+          spotlightColor="rgba(255, 170, 0, 0.38)"
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-white lg:text-xl font-bold">
+                {education.title}
+              </h3>
+              <h3 className="text-md font-bold text-orange-500 !m-0">
+                {education.university}
+              </h3>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <h3
+                className={`text-md font-bold text-white !m-0 ${
+                  education.cgpa === null && "hidden"
+                }`}
+              >
+                CGPA
+              </h3>
+              <h3 className="text-md font-bold text-orange-500 !m-0">
+                {education.cgpa}
+              </h3>
+            </div>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <h3
-              className={`text-md font-bold text-gray-800 !m-0 ${
-                education.cgpa === null && "hidden"
-              }`}
-            >
-              CGPA
-            </h3>
-            <h3 className="text-md font-bold text-orange-500 !m-0">
-              {education.cgpa}
-            </h3>
-          </div>
-        </div>
+        </SpotlightCard>
       </VerticalTimelineElement>
     </animated.div>
   );
