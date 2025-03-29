@@ -35,7 +35,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-800 via-blue-500 to-blue-800 flex flex-col items-center justify-start relative">
+    <div className="min-h-screen bg-gradient-to-b from-blue-800/80 via-blue-500/80 to-blue-800/80 flex flex-col items-center justify-start relative">
       <h5 className={`lg:text-[4em] text-[2em] text-center text-white`}>
         My Projects
       </h5>

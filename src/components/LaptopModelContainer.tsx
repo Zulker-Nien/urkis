@@ -29,7 +29,6 @@ const LaptopModelContainer = () => {
         <div className="w-full absolute bottom-20 z-20 text-center w-screen flex flex-col lg:items-end items-center justify-center lg:px-64 lg:px-0">
           <ArrowDown />
           <h2 className="text-black text-2xl p-0 m-0">Lets Go</h2>
-          {/* <div className="text-black text-3xl p-0 m-0">▼</div> */}
         </div>
       ) : (
         <div className="absolute bottom-20 z-20 text-center w-screen duration-100">

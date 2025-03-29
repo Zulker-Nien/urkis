@@ -12,7 +12,7 @@ import { testimonials } from "@/utils/constant";
 
 const TestimonialCarousel = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative  pb-0 lg:px-0 px-2">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950/80 via-slate-900/80 to-slate-950/80 relative  pb-0 px-0">
       <h5
         className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-full drop-shadow-lg drop-shadow-black z-30 bg-gradient-to-b from-slate-950 from-30% to-transparent`}
       >

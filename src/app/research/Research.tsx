@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Research = () => {
   return (
-    <div className="min-h-[150vh] bg-gradient-to-b from-orange-500 via-orange-600 to-orange-500 lg:px-0 px-2 z-40">
+    <div className="min-h-[150vh] bg-gradient-to-b from-orange-500/80 via-orange-600/80 to-orange-500/80 px-0">
       <div className="h-full w-full flex flex-col gap-4">
         <div className="h-full w-full flex flex-col relative">
           <h5
@@ -29,7 +29,7 @@ const Research = () => {
         </div>
         <div className="h-full flex flex-col gap-4 w-full relative">
           <h5
-            className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-fulldrop-shadow-lg drop-shadow-black z-30 bg-gradient-to-b from-orange-600 from-30% to-transparent`}
+            className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-fulldrop-shadow-lg drop-shadow-black z-30 `}
           >
             Publications
           </h5>

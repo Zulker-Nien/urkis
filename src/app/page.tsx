@@ -10,6 +10,7 @@ import Research from "./research/Research";
 import Contact from "./contact/Contact";
 import { Toaster } from "@/components/ui/toaster";
 import TestimonialCarousel from "./testimonials/TestimonialCarousel";
+import Threads from "@/components/ThreadsBg";
 
 export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
@@ -17,6 +18,9 @@ export default function Home() {
   return (
     <div className="snap-mandatory overflow-x-hidden overflow-y-scroll scroll-smooth h-screen w-screen">
       <Toaster />
+      <div className="absolute lg:top-0 w-screen h-screen min-h-screen">
+        <Threads amplitude={1} distance={0.3} enableMouseInteraction={false} />
+      </div>
       <div className=" snap-start h-screen">
         <LaptopModelContainer />
       </div>

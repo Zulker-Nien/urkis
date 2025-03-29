@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Images from "@/utils/image";
-import Threads from "@/components/ThreadsBg";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -82,9 +81,7 @@ const Contact = () => {
 
   return (
     <div className="relative lg:h-screen min-h-screen w-screen">
-      <div className="absolute lg:block hidden top-0 w-screen lg:h-screen min-h-screen">
-        <Threads amplitude={1} distance={0.3} enableMouseInteraction={false} />
-      </div>
+     
       <div className="absolute top-0 w-full h-full pb-0 lg:px-0 px-2 inset-shadow-indigo-500">
         <h5
           className={`lg:h-1/4 lg:text-[4em] text-[2em] text-center text-slate-800`}

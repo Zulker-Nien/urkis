@@ -39,7 +39,7 @@ const About = () => {
   return (
     <div className=" h-[200vh] relative flex flex-col">
       <div
-        className={` duration-300 bg-gradient-to-b from-violet-800 via-violet-500 via-75% to-violet-800 h-screen w-screen flex flex-col items-center justify-center gap-12 sticky top-0 lg:pr-0 pr-2`}
+        className={` duration-300 bg-gradient-to-b from-violet-800/80 via-violet-500/80 via-75% to-violet-800/80 h-screen w-screen flex flex-col items-center justify-center gap-12 sticky top-0 lg:pr-0 pr-2`}
       >
         <div
           className={`duration-300 flex justify-center items-center w-screen`}
@@ -81,7 +81,7 @@ const About = () => {
             transform: aboutTextStyle.open.to(() => `translateY(-25%,0)`),
             color: "#000",
           }}
-          className={"flex flex-col gap-8 absolute "}
+          className={"flex flex-col lg:gap-8 absolute "}
         >
           <div className="h-full tracking-wide lg:text-xl text-justify lg:px-96 px-4 pb-4 lg:pt-80 pt-64 text-white">
             <h1>
@@ -90,7 +90,7 @@ const About = () => {
               experience across startups and industries, I merge technical
               innovation with user-focused design to build impactful solutions.
             </h1>
-            <hr className="lg:mt-4 mt-8 drop-shadow-md text-transparent" />
+            <hr className="lg:block hidden mt-4 drop-shadow-md text-transparent" />
             <br />
             <h1>My Core Skills include:</h1>
             <ul>
