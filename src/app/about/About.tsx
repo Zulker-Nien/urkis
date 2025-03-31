@@ -103,8 +103,8 @@ const About = () => {
             <h1 className="font-bold pb-4">My Core Skills</h1>
             <div className="w-full bg-slate-950/80 p-4 rounded-2xl">
               <div className="w-full flex items-center justify-between ">
-                {coreSkills.map((skill, index) => (
-                  <TooltipProvider>
+                <TooltipProvider>
+                  {coreSkills.map((skill, index) => (
                     <Tooltip delayDuration={0} key={index}>
                       <TooltipTrigger
                         key={index}
@@ -122,8 +122,8 @@ const About = () => {
                         {skill.content}
                       </TooltipContent>
                     </Tooltip>
-                  </TooltipProvider>
-                ))}
+                  ))}
+                </TooltipProvider>
               </div>
             </div>
           </div>
