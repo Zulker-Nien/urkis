@@ -81,7 +81,7 @@ const Contact = () => {
 
   return (
     <div className="relative lg:h-screen min-h-screen w-screen">
-      <div className="absolute top-0 w-full h-full pb-0 lg:px-0 px-2 inset-shadow-indigo-500">
+      <div className="absolute top-0 w-full h-full pb-0 lg:px-0 lg:px-2 inset-shadow-indigo-500">
         <h5
           className={`lg:h-1/4 lg:text-[4em] text-[2em] text-center text-slate-800`}
         >
@@ -95,7 +95,7 @@ const Contact = () => {
                 alt="Logo"
                 width={"300"}
                 placeholder="blur"
-                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
               />
             </div>
             <Button variant={"outline"} className="w-full p-0">
@@ -184,6 +184,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
+        <div className="text-center py-4 bg-slate-950 text-slate-200 font-bold">Developed by Yours Truly</div>
       </div>
     </div>
   );

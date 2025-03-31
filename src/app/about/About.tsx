@@ -103,16 +103,16 @@ const About = () => {
             <br />
             <h1 className="font-bold pb-4">My Core Skills</h1>
             <div className="w-full bg-slate-950/80 p-4 rounded-2xl">
-              <div className="w-full flex items-center justify-between ">
+              <div className="w-full flex lg:flex-row flex-col items-center justify-between gap-4">
                 <TooltipProvider>
                   {coreSkills.map((skill, index) => (
                     <Tooltip delayDuration={0} key={index}>
                       <TooltipTrigger
                         key={index}
-                        className="w-1/6 h-full flex flex-col items-center justify-center gap-4 hover:scale-[1.1] duration-300"
+                        className="lg:w-1/6 w-full h-full flex lg:flex-col flex-row items-center lg:justify-center gap-4 hover:scale-[1.1] duration-300 "
                       >
                         <div className="h-1/2 rounded-full bg-slate-950 p-4">
-                          <skill.icon size={48} />
+                          <skill.icon className="lg:scale-[2]" />
                         </div>
                         <Label className="text-sm truncate">{skill.name}</Label>
                       </TooltipTrigger>

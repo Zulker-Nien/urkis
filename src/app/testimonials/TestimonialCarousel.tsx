@@ -25,7 +25,7 @@ const TestimonialCarousel = () => {
               <>
                 <CarouselItem
                   key={index}
-                  className="w-2xl px-4 md:basis-1/2 lg:basis-1/3 flex gap-4"
+                  className="w-2xl lg:px-4 md:basis-1/2 lg:basis-1/3 flex gap-4"
                 >
                   <SpotlightCard
                     className="custom-spotlight-card h-full"
