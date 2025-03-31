@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { aboutStore } from "@/store/store";
+import Images from "@/utils/image";
 import { aboutType } from "@/utils/types";
 import Image from "next/image";
 import { useSpring, a as web } from "@react-spring/web";
@@ -64,7 +65,7 @@ const About = () => {
                 ? "lg:w-1/5 w-1/3 -translate-y-[250px]"
                 : "lg:w-1/3 w-1/2 translate-y-[0]"
             } `}
-            src="/public/Zulker_Logo_W.png"
+            src={Images.Logo}
             alt="Logo"
             placeholder="blur"
           />

@@ -91,7 +91,7 @@ const Contact = () => {
           <div className="lg:w-1/3 w-full flex flex-col gap-4">
             <div className="flex items-center justify-center drop-shadow-[0_10px_0_rgba(255,213,1)] rounded-t-lg">
               <Image
-                src="/public/Zulker_Logo.png"
+                src={Images.LogoB}
                 alt="Logo"
                 width={"300"}
                 placeholder="blur"

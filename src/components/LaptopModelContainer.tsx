@@ -48,9 +48,7 @@ const LaptopModelContainer = () => {
             <span className="text-3xl">😉</span>
           </p>
           <br />
-          <h1 className="text-slate-300 font-bold">
-            Click the Laptop to begin
-          </h1>
+          <h1 className="text-slate-300 font-bold">Click the Laptop to begin</h1>
         </PopoverContent>
       </Popover>
       {openLaptop ? (
