@@ -30,7 +30,7 @@ const Sidebar = () => {
           >
             {openSidebar && (
               <Image
-                src={Images.Logo}
+                src="/public/Zulker_Logo_W.png"
                 alt="logo"
                 className={`2xl:h-16 h-20 w-20 rounded-md ease-in duration-100`}
                 placeholder="blur"

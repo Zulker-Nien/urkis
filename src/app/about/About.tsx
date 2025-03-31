@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { aboutStore } from "@/store/store";
-import Images from "@/utils/image";
 import { aboutType } from "@/utils/types";
 import Image from "next/image";
 import { useSpring, a as web } from "@react-spring/web";
@@ -65,7 +64,7 @@ const About = () => {
                 ? "lg:w-1/5 w-1/3 -translate-y-[250px]"
                 : "lg:w-1/3 w-1/2 translate-y-[0]"
             } `}
-            src={Images.Logo}
+            src="/public/Zulker_Logo_W.png"
             alt="Logo"
             placeholder="blur"
           />
@@ -92,7 +91,7 @@ const About = () => {
           }}
           className={"flex flex-col lg:gap-8 absolute "}
         >
-          <div className="h-full tracking-wide lg:text-xl text-center lg:px-72 px-4 pb-4 lg:pt-80 pt-64 text-white">
+          <div className="h-full lg:tracking-wide lg:text-xl text-center lg:px-72 px-4 pb-4 lg:pt-80 pt-64 text-white">
             <h1>
               I blend technology, design, and analysis to craft seamless digital
               experiences. With a Master’s in Software Engineering and
