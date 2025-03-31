@@ -95,6 +95,7 @@ const Contact = () => {
                 alt="Logo"
                 width={"300"}
                 placeholder="blur"
+                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
               />
             </div>
             <Button variant={"outline"} className="w-full p-0">

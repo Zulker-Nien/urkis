@@ -68,6 +68,7 @@ const About = () => {
             src={Images.Logo}
             alt="Logo"
             placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           />
           <div
             className={`duration-300 lg:text-5xl text-2xl text-white ${

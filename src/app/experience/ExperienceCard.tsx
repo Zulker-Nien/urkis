@@ -61,6 +61,7 @@ const ExperienceCard = ({
                     alt={experience.company_name}
                     className="w-full h-full object-contain"
                     placeholder="blur"
+                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
                   />
                 </div>
               }
@@ -87,6 +88,7 @@ const ExperienceCard = ({
                 alt={experience.company_name}
                 className="h-24 object-contain"
                 placeholder="blur"
+                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
               />
             </div>
             <SheetTitle>{experience.company_name}</SheetTitle>
