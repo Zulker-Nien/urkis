@@ -5,8 +5,9 @@ import {
   researchType,
   projectItem,
   testimonialType,
+  coreSkillsType,
 } from "./types";
-
+import { Box, BrainCircuit, FileStack, Palette, Rotate3D } from "lucide-react";
 const experiences: experienceType = [
   {
     title: "Freelance Web Developer | 3D Web developer",
@@ -214,26 +215,33 @@ const projects: projectItem = [
     source_code_link: "https://github.com/Zulker-Nien/mini-e-commerce",
   },
   {
-    name: "Tecbix",
+    name: "Quemailer",
     description:
       "The beauty of three.js can be seen here. I have multiple implementations in mind. Currently learning 3d modelling on top of my UI/UX and graphics designing certification.",
     tags: [
       {
-        name: "reactjs",
+        name: "nextjs",
         color: "yellow-500",
       },
       {
-        name: "threejs",
+        name: "nodejs",
         color: "orange-500",
       },
-
       {
         name: "typescript",
         color: "blue-500",
       },
+      {
+        name: "zustand",
+        color: "blue-500",
+      },
+      {
+        name: "sequelize",
+        color: "blue-500",
+      },
     ],
     image: "tecbix",
-    source_code_link: "https://github.com/Zulker-Nien/tecbix",
+    // source_code_link: "https://github.com/Zulker-Nien/tecbix",
   },
   {
     name: "Petopia",
@@ -275,5 +283,32 @@ const projects: projectItem = [
     source_code_link: "https://github.com/Zulker-Nien/mini-e-commerce",
   },
 ];
+const coreSkills: coreSkillsType = [
+  {
+    name: "Full Stack Development",
+    content: "React, Next.js, NestJS, Node.js, PostgreSQL",
+    icon: FileStack,
+  },
+  {
+    name: "3D Web",
+    content: "Immersive experiences with Three.js & WebGL",
+    icon: Rotate3D,
+  },
+  {
+    name: "UI/UX Design",
+    content: " Creating intuitive and engaging user experiences",
+    icon: Palette,
+  },
+  {
+    name: "Team & Product Management",
+    content: "Leading teams and driving product strategy",
+    icon: Box,
+  },
+  {
+    name: "Ai & Research",
+    content: "Technical analysis and AI applications in healthcare",
+    icon: BrainCircuit,
+  },
+];
 
-export { experiences, testimonials, projects, education, research };
+export { experiences, testimonials, projects, education, research, coreSkills };

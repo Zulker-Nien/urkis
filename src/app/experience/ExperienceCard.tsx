@@ -60,6 +60,7 @@ const ExperienceCard = ({
                     src={experience.icon}
                     alt={experience.company_name}
                     className="w-full h-full object-contain"
+                    placeholder="blur"
                   />
                 </div>
               }
@@ -85,6 +86,7 @@ const ExperienceCard = ({
                 src={experience.icon}
                 alt={experience.company_name}
                 className="h-24 object-contain"
+                placeholder="blur"
               />
             </div>
             <SheetTitle>{experience.company_name}</SheetTitle>

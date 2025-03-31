@@ -19,7 +19,9 @@ const Sidebar = () => {
       {openLaptop && (
         <div
           className={`h-full xl:px-4 px-2 flex flex-col xl:gap-8 gap-4 ease-in duration-100 drop-shadow-lg  ${
-            openSidebar ? "lg:w-1/6 w-full lg:bg-black/70 bg-black" : "lg:w-20 w-16"
+            openSidebar
+              ? "lg:w-1/6 w-full lg:bg-black/70 bg-black"
+              : "lg:w-20 w-16"
           } absolute z-50`}
         >
           <div
@@ -31,6 +33,7 @@ const Sidebar = () => {
                 src={Images.Logo}
                 alt="logo"
                 className={`2xl:h-16 h-20 w-20 rounded-md ease-in duration-100`}
+                placeholder="blur"
               />
             )}
             <div

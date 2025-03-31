@@ -12,7 +12,7 @@ const ProjectCard = ({
   index: number;
   name: string;
   tags: tagType[];
-  source_code_link: string;
+  source_code_link?: string;
 }) => {
   const [ref, inView] = useInView({
     rootMargin: "-50px 0px",
@@ -35,19 +35,23 @@ const ProjectCard = ({
         src={Images.Aveneur}
         alt="project_image"
         className="lg:w-1/5 w-1/4 z-10"
+        placeholder="blur"
       />
       <div className="lg:w-4/5 w-3/4 flex flex-col items-start justify-center z-10">
         <div className="absolute inset-0 flex justify-end p-3 card-img_hover">
-          <div
-            onClick={() => window.open(source_code_link, "_blank")}
-            className=" w-10 h-10 flex justify-center items-center cursor-pointer"
-          >
-            <Image
-              src={Images.Github}
-              alt="source code"
-              className="w-1/2 h-1/2 object-contain"
-            />
-          </div>
+          {source_code_link && (
+            <div
+              onClick={() => window.open(source_code_link, "_blank")}
+              className=" w-10 h-10 flex justify-center items-center cursor-pointer"
+            >
+              <Image
+                src={Images.Github}
+                alt="source code"
+                className="w-1/2 h-1/2 object-contain"
+                placeholder="blur"
+              />
+            </div>
+          )}
         </div>
         <h3 className="text-white font-semibold text-xl">{name}</h3>
         <div className=" flex flex-wrap gap-2">

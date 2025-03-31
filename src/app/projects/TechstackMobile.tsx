@@ -1,7 +1,16 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { projectStore } from "@/store/store";
 import { projectType } from "@/utils/types";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 const techStackItems = [
   "All Projects",
@@ -28,31 +37,29 @@ const TechstackMobile = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center px-4 mb-4 sticky top-20 z-30">
-      <button
-        className="w-full text-gray-800 py-2 border rounded-3xl px-8 bg-white font-bold"
-        onClick={handleDropdownToggle}
-      >
-        {selectedStack || "Select Tech Stack"}
-      </button>
-      {isDropdownOpen && (
-        <ul className="w-full bg-gray-700 absolute !z-40 rounded-3xl py-2 px-4">
+    <div className="w-full flex flex-col items-center px-4 mb-4 z-30">
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <Button>{selectedStack || "Select Tech Stack"}</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="">
           {techStackItems.map((item) => (
-            <li
+            <DropdownMenuItem
               key={item}
-              className={`py-2 px-4 cursor-pointer border-b ${
-                selectedStack === item ? "text-gray-800" : "text-white"
+              className={`py-2 px-4 cursor-pointer ${
+                selectedStack === item
+                  ? "text-white bg-slate-800"
+                  : "text-slate-950"
               }`}
               onClick={() => {
                 setSelectedStack(item);
-                setIsDropdownOpen(false);
               }}
             >
               {item}
-            </li>
+            </DropdownMenuItem>
           ))}
-        </ul>
-      )}
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 };

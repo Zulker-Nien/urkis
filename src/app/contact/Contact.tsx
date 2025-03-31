@@ -81,7 +81,6 @@ const Contact = () => {
 
   return (
     <div className="relative lg:h-screen min-h-screen w-screen">
-     
       <div className="absolute top-0 w-full h-full pb-0 lg:px-0 px-2 inset-shadow-indigo-500">
         <h5
           className={`lg:h-1/4 lg:text-[4em] text-[2em] text-center text-slate-800`}
@@ -91,7 +90,12 @@ const Contact = () => {
         <div className="w-full flex lg:flex-row flex-col items-center justify-center lg:px-4 lg:gap-16 gap-4 px-6">
           <div className="lg:w-1/3 w-full flex flex-col gap-4">
             <div className="flex items-center justify-center drop-shadow-[0_10px_0_rgba(255,213,1)] rounded-t-lg">
-              <Image src={Images.LogoB} alt="Logo" width={"300"} />
+              <Image
+                src={Images.LogoB}
+                alt="Logo"
+                width={"300"}
+                placeholder="blur"
+              />
             </div>
             <Button variant={"outline"} className="w-full p-0">
               <Mail /> zulkerb9b@gmail.com

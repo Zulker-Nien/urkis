@@ -14,12 +14,12 @@ const TestimonialCarousel = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950/80 via-slate-900/80 to-slate-950/80 relative  pb-0 px-0">
       <h5
-        className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-full drop-shadow-lg drop-shadow-black z-30 bg-gradient-to-b from-slate-950 from-30% to-transparent`}
+        className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-full drop-shadow-lg drop-shadow-black z-30 bg-gradient-to-b from-slate-950/40 from-30% to-transparent`}
       >
         Testimonials
       </h5>
       <div className="w-full h-full flex items-center justify-center mt-24 gap-4">
-        <Carousel className="w-4/5">
+        <Carousel className="w-4/5 h-full">
           <CarouselContent className="-ml-1">
             {testimonials.map((_, index) => (
               <>

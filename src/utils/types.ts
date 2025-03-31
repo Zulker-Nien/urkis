@@ -1,4 +1,6 @@
+import { LucideProps } from "lucide-react";
 import { StaticImageData } from "next/image";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 export interface laptopType {
   openLaptop: boolean;
@@ -46,13 +48,20 @@ export type projectItem = {
   description: string;
   tags: tagType[];
   image: string;
-  source_code_link: string;
+  source_code_link?: string;
 }[];
 
 export type projectType = {
   selectedStack: string;
   setSelectedStack: (stack: string) => void;
 };
+export type coreSkillsType = {
+  name: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
+  content: string;
+}[];
 
 export type testimonialType = {
   name: string;

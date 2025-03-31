@@ -9,6 +9,8 @@ import { Environment, ContactShadows } from "@react-three/drei";
 import { laptopStore } from "@/store/store";
 import { laptopType } from "@/utils/types";
 import ArrowDown from "./ArrowDown";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { TriangleAlert } from "lucide-react";
 
 const LaptopModelContainer = () => {
   const [isLargeScreen, setIsLargeScreen] = useState<boolean>(true);
@@ -25,6 +27,32 @@ const LaptopModelContainer = () => {
 
   return (
     <div className="h-screen w-screen overflow-hidden relative">
+      <Popover>
+        <PopoverTrigger className="absolute right-0 lg:py-8 py-3 lg:pr-12 pr-4 z-20">
+          <TriangleAlert size={36} className="animate-bounce" />
+        </PopoverTrigger>
+        <PopoverContent side="left" className="bg-slate-950">
+          <h1 className="text-slate-300 font-bold">
+            Viewer Discretion Advised
+          </h1>
+          <br />
+          <p className="text-yellow-300">
+            This website is designed with bold colors and high contrast to
+            reflect my creative energy. If you’re sensitive to vibrant visuals,
+            you may want to adjust your screen settings or take breaks while
+            browsing.
+          </p>
+          <br />
+          <p className="text-slate-300">
+            Enjoy the experience—just maybe not on an empty stomach.{" "}
+            <span className="text-3xl">😉</span>
+          </p>
+          <br />
+          <h1 className="text-slate-300 font-bold">
+            Click the Laptop to begin
+          </h1>
+        </PopoverContent>
+      </Popover>
       {openLaptop ? (
         <div className="w-full absolute bottom-20 z-20 text-center w-screen flex flex-col lg:items-end items-center justify-center lg:px-64 lg:px-0">
           <ArrowDown />
@@ -37,7 +65,7 @@ const LaptopModelContainer = () => {
       )}
       <web.main
         style={{
-          background: props.open.to([0, 1], ["#f0f0f0", "#eab208"]),
+          background: props.open.to([0, 1], ["#f0f0f0cf", "#eab208cf"]),
           padding: 0,
           margin: 0,
           height: "100%",

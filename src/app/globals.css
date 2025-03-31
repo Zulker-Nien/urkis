@@ -67,6 +67,15 @@ h4 {
   }
 }
 
+::-webkit-scrollbar {
+  background-color: black;
+  z-index: 500;
+}
+::-webkit-scrollbar-thumb {
+  background-color: yellow;
+  z-index: 500;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

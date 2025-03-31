@@ -47,6 +47,7 @@ const EducationTimeline = ({
               src={education.icon}
               alt={education.university}
               className="w-full h-full object-contain"
+              placeholder="blur"
             />
           </div>
         }

@@ -6,6 +6,17 @@ import { aboutType } from "@/utils/types";
 import Image from "next/image";
 import { useSpring, a as web } from "@react-spring/web";
 import { Button } from "@/components/ui/button";
+import { Box, BrainCircuit, FileStack, Palette, Rotate3D } from "lucide-react";
+import { Label } from "@radix-ui/react-label";
+import { Popover, PopoverContent } from "@/components/ui/popover";
+import { PopoverTrigger } from "@radix-ui/react-popover";
+import { coreSkills } from "@/utils/constant";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const About = () => {
   const openAboutSlider = aboutStore(
@@ -59,6 +70,7 @@ const About = () => {
             } `}
             src={Images.Logo}
             alt="Logo"
+            placeholder="blur"
           />
           <div
             className={`duration-300 lg:text-5xl text-2xl text-white ${
@@ -70,7 +82,7 @@ const About = () => {
         </div>
         {!openAboutSlider && (
           <div className="w-screen flex items-end justify-end">
-            <h1 className="h-full px-8 py-4 text-white animate-bounce">
+            <h1 className="h-full pr-48 pt-48 text-white animate-bounce">
               Keep on scrolling ⇣
             </h1>
           </div>
@@ -83,44 +95,40 @@ const About = () => {
           }}
           className={"flex flex-col lg:gap-8 absolute "}
         >
-          <div className="h-full tracking-wide lg:text-xl text-justify lg:px-96 px-4 pb-4 lg:pt-80 pt-64 text-white">
+          <div className="h-full tracking-wide lg:text-xl text-center lg:px-72 px-4 pb-4 lg:pt-80 pt-64 text-white">
             <h1>
               I blend technology, design, and analysis to craft seamless digital
               experiences. With a Master’s in Software Engineering and
               experience across startups and industries, I merge technical
               innovation with user-focused design to build impactful solutions.
             </h1>
-            <hr className="lg:block hidden mt-4 drop-shadow-md text-transparent" />
             <br />
-            <h1>My Core Skills include:</h1>
-            <ul>
-              <li className="lg:text-xl text-sm">
-                <span className="text-yellow-300 lg:font-bold">
-                  Full-Stack Development:
-                </span>{" "}
-                React, Next.js, NestJS, Node.js, PostgreSQL
-              </li>
-              <li className="lg:text-xl text-sm">
-                <span className="text-yellow-300 lg:font-bold">3D Web:</span>{" "}
-                Immersive experiences with Three.js & WebGL
-              </li>
-              <li className="lg:text-xl text-sm">
-                <span className="text-yellow-300 lg:font-bold">UI/UX Design:</span>{" "}
-                Creating intuitive and engaging user experiences
-              </li>
-              <li className="lg:text-xl text-sm">
-                <span className="text-yellow-300 lg:font-bold">
-                  Team & Product Management:
-                </span>{" "}
-                Leading teams and driving product strategy
-              </li>
-              <li className="lg:text-xl text-sm">
-                <span className="text-yellow-300 lg:font-bold">
-                  AI & Research:
-                </span>{" "}
-                Technical analysis and AI applications in healthcare
-              </li>
-            </ul>
+            <h1 className="font-bold pb-4">My Core Skills</h1>
+            <div className="w-full bg-slate-950/80 p-4 rounded-2xl">
+              <div className="w-full flex items-center justify-between ">
+                {coreSkills.map((skill, index) => (
+                  <TooltipProvider>
+                    <Tooltip delayDuration={0}>
+                      <TooltipTrigger
+                        key={index}
+                        className="w-1/6 h-full flex flex-col items-center justify-center gap-4 hover:scale-[1.1] duration-300"
+                      >
+                        <div className="h-1/2 rounded-full bg-slate-950 p-4">
+                          <skill.icon size={48} />
+                        </div>
+                        <Label className="text-sm truncate">{skill.name}</Label>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        side="top"
+                        className="bg-yellow-500 text-slate-950 font-bold p-2 rounded-md text-md"
+                      >
+                        {skill.content}
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="min-w-screen py-4 px-8 gap-4 flex items-center justify-center sticky bottom-20 ">
             <Button
