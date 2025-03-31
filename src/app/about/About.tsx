@@ -54,15 +54,15 @@ const About = () => {
         >
           <div
             className={`duration-300 origin-center ${
-              openAboutSlider ? "-translate-y-[250px]" : "translate-y-[0]"
-            } lg:text-5xl text-2xl text-white`}
+              openAboutSlider ? "-translate-y-[300px]" : "translate-y-[0]"
+            } lg:text-5xl text-2xl text-slate-200`}
           >
             Zulker {`{`}
           </div>
           <Image
             className={`duration-300 ${
               openAboutSlider
-                ? "lg:w-1/5 w-1/3 -translate-y-[250px]"
+                ? "lg:w-1/5 w-1/3 -translate-y-[300px]"
                 : "lg:w-1/3 w-1/2 translate-y-[0]"
             } `}
             src={Images.Logo}
@@ -71,16 +71,16 @@ const About = () => {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           />
           <div
-            className={`duration-300 lg:text-5xl text-2xl text-white ${
-              openAboutSlider ? "-translate-y-[250px]" : "translate-y-[0]"
+            className={`duration-300 lg:text-5xl text-2xl text-slate-200 ${
+              openAboutSlider ? "-translate-y-[300px]" : "translate-y-[0]"
             } `}
           >
             {`}`} Nien{" "}
           </div>
         </div>
         {!openAboutSlider && (
-          <div className="w-screen flex items-end justify-end">
-            <h1 className="h-full pr-48 pt-48 text-white animate-bounce">
+          <div className="w-screen absolute flex bottom-0 items-end justify-end">
+            <h1 className="h-full lg:pr-48 pr-4 pt-48  text-slate-200 animate-bounce">
               Keep on scrolling ⇣
             </h1>
           </div>
@@ -93,42 +93,47 @@ const About = () => {
           }}
           className={"flex flex-col lg:gap-8 absolute "}
         >
-          <div className="h-full lg:tracking-wide lg:text-xl text-center lg:px-72 px-4 pb-4 lg:pt-80 pt-64 text-white">
-            <h1>
-              I blend technology, design, and analysis to craft seamless digital
-              experiences. With a Master’s in Software Engineering and
-              experience across startups and industries, I merge technical
-              innovation with user-focused design to build impactful solutions.
-            </h1>
-            <br />
-            <h1 className="font-bold pb-4">My Core Skills</h1>
-            <div className="w-full bg-slate-950/80 p-4 rounded-2xl">
-              <div className="w-full flex lg:flex-row flex-col items-center justify-between gap-4">
-                <TooltipProvider>
-                  {coreSkills.map((skill, index) => (
-                    <Tooltip delayDuration={0} key={index}>
-                      <TooltipTrigger
-                        key={index}
-                        className="lg:w-1/6 w-full h-full flex lg:flex-col flex-row items-center lg:justify-center gap-4 hover:scale-[1.1] duration-300 "
-                      >
-                        <div className="h-1/2 rounded-full bg-slate-950 p-4">
-                          <skill.icon className="lg:scale-[2]" />
-                        </div>
-                        <Label className="text-sm truncate">{skill.name}</Label>
-                      </TooltipTrigger>
-                      <TooltipContent
-                        side="top"
-                        className="bg-yellow-500 text-slate-950 font-bold p-2 rounded-md text-md"
-                      >
-                        {skill.content}
-                      </TooltipContent>
-                    </Tooltip>
-                  ))}
-                </TooltipProvider>
+          {openAboutSlider && (
+            <div className="h-full lg:tracking-wide lg:text-xl text-center lg:px-72 px-4 pb-4 lg:pt-80 pt-64 text-slate-200">
+              <h1>
+                I blend technology, design, and analysis to craft seamless
+                digital experiences. With a Master’s in Software Engineering and
+                experience across startups and industries, I merge technical
+                innovation with user-focused design to build impactful
+                solutions.
+              </h1>
+              <br />
+              <h1 className="font-bold pb-4">My Core Skills</h1>
+              <div className="w-full bg-slate-950/80 p-4 rounded-2xl">
+                <div className="w-full flex lg:flex-row flex-col items-center justify-between gap-4">
+                  <TooltipProvider>
+                    {coreSkills.map((skill, index) => (
+                      <Tooltip delayDuration={0} key={index}>
+                        <TooltipTrigger
+                          key={index}
+                          className="lg:w-1/6 w-full h-full flex lg:flex-col flex-row items-center lg:justify-center gap-4 hover:scale-[1.1] duration-300 "
+                        >
+                          <div className="h-1/2 rounded-full bg-slate-950 p-4">
+                            <skill.icon className="lg:scale-[1.5]" />
+                          </div>
+                          <Label className="text-sm truncate">
+                            {skill.name}
+                          </Label>
+                        </TooltipTrigger>
+                        <TooltipContent
+                          side="top"
+                          className="bg-yellow-500 text-slate-950 font-bold p-2 rounded-md text-md"
+                        >
+                          {skill.content}
+                        </TooltipContent>
+                      </Tooltip>
+                    ))}
+                  </TooltipProvider>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="min-w-screen py-4 px-8 gap-4 flex items-center justify-center sticky bottom-20 ">
+          )}
+          <div className="min-w-screen py-4 px-8 gap-4 flex items-center justify-center sticky lg:bottom-20 bottom-0 ">
             <Button
               size={"lg"}
               onClick={() => {

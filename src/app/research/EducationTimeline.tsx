@@ -59,7 +59,7 @@ const EducationTimeline = ({
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-white lg:text-xl font-bold">
+              <h3 className="text-slate-200 lg:text-xl font-bold">
                 {education.title}
               </h3>
               <h3 className="text-md font-bold text-orange-500 !m-0">
@@ -68,7 +68,7 @@ const EducationTimeline = ({
             </div>
             <div className="flex flex-col items-center justify-center">
               <h3
-                className={`text-md font-bold text-white !m-0 ${
+                className={`text-md font-bold text-slate-200 !m-0 ${
                   education.cgpa === null && "hidden"
                 }`}
               >

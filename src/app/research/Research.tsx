@@ -33,7 +33,7 @@ const Research = () => {
           >
             Publications
           </h5>
-          <div className="w-screen flex flex-wrap gap-8 items-center justify-between lg:px-80 lg:pr-4 lg:pb-32 lg:pb-0 pb-8">
+          <div className="w-screen flex flex-wrap gap-8 items-center justify-between lg:px-80 lg:pb-32 lg:pb-0 pb-8">
             {research.map((research, index) => (
               <div
                 className="lg:w-1/4 w-3/4 flex-grow flex items-center justify-center gap-4 pl-4 pr-6"

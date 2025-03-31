@@ -80,8 +80,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative lg:h-screen min-h-screen w-screen">
-      <div className="absolute top-0 w-full h-full pb-0 lg:px-0 lg:px-2 inset-shadow-indigo-500">
+    <div className="relative h-full w-screen">
+      <div className="w-full h-full pb-0 lg:px-0 lg:px-2 inset-shadow-indigo-500">
         <h5
           className={`lg:h-1/4 lg:text-[4em] text-[2em] text-center text-slate-800`}
         >
@@ -184,7 +184,6 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="text-center py-4 bg-slate-950 text-slate-200 font-bold">Developed by Yours Truly</div>
       </div>
     </div>
   );

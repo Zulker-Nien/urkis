@@ -43,8 +43,8 @@ const Techstack = () => {
             style={techStyles}
             className={`min-w-max cursor-pointer ${
               selectedStack === techStackItems[index]
-                ? "text-gray-800"
-                : "text-white"
+                ? "text-slate-950"
+                : "text-slate-200"
             }`}
             onClick={() => setSelectedStack(techStackItems[index])}
           >

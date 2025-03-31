@@ -61,7 +61,7 @@ const ExperienceCard = ({
                     alt={experience.company_name}
                     className="w-full h-full object-contain"
                     placeholder="blur"
-                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
                   />
                 </div>
               }
@@ -70,7 +70,7 @@ const ExperienceCard = ({
                 className="custom-spotlight-card h-full"
                 spotlightColor="rgba(255, 0, 128, 0.53)"
               >
-                <h3 className="text-white lg:text-xl font-bold">
+                <h3 className="text-slate-200 lg:text-xl font-bold">
                   {experience.title}
                 </h3>
                 <h3 className="lg:text-md font-bold text-pink-500 !m-0">
@@ -88,7 +88,6 @@ const ExperienceCard = ({
                 alt={experience.company_name}
                 className="h-24 object-contain"
                 placeholder="blur"
-                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
               />
             </div>
             <SheetTitle>{experience.company_name}</SheetTitle>

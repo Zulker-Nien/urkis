@@ -36,7 +36,7 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-800/80 via-blue-500/80 to-blue-800/80 flex flex-col items-center justify-start relative">
-      <h5 className={`lg:text-[4em] text-[2em] text-center text-white`}>
+      <h5 className={`lg:text-[4em] text-[2em] text-center text-slate-200`}>
         My Projects
       </h5>
       {isLargeScreen ? <Techstack /> : <TechstackMobile />}
@@ -57,7 +57,7 @@ const Projects = () => {
               />
             ))
           ) : (
-            <p className=" py-2 px-4 text-xl border border-white rounded-3xl flex items-center justify-center text-white text-center h-full">
+            <p className=" py-2 px-4 text-xl border border-white rounded-3xl flex items-center justify-center text-slate-200 text-center h-full">
               No projects found for this stack.
             </p>
           )}

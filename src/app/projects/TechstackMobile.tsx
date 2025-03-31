@@ -40,7 +40,7 @@ const TechstackMobile = () => {
               key={item}
               className={`py-2 px-4 cursor-pointer ${
                 selectedStack === item
-                  ? "text-white bg-slate-800"
+                  ? "text-slate-200 bg-slate-800"
                   : "text-slate-950"
               }`}
               onClick={() => {
