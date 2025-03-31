@@ -6,10 +6,7 @@ import { aboutType } from "@/utils/types";
 import Image from "next/image";
 import { useSpring, a as web } from "@react-spring/web";
 import { Button } from "@/components/ui/button";
-import { Box, BrainCircuit, FileStack, Palette, Rotate3D } from "lucide-react";
 import { Label } from "@radix-ui/react-label";
-import { Popover, PopoverContent } from "@/components/ui/popover";
-import { PopoverTrigger } from "@radix-ui/react-popover";
 import { coreSkills } from "@/utils/constant";
 import {
   Tooltip,
