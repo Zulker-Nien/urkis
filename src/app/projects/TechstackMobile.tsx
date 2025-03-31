@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { projectStore } from "@/store/store";
 import { projectType } from "@/utils/types";
 import {
@@ -23,17 +22,12 @@ const techStackItems = [
 ];
 
 const TechstackMobile = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const selectedStack = projectStore(
     (state: projectType) => state.selectedStack
   );
   const setSelectedStack = projectStore(
     (state: projectType) => state.setSelectedStack
   );
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
-
   return (
     <div className="w-full flex flex-col items-center px-4 mb-4 z-30">
       <DropdownMenu>

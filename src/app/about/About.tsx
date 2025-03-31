@@ -105,7 +105,7 @@ const About = () => {
               <div className="w-full flex items-center justify-between ">
                 {coreSkills.map((skill, index) => (
                   <TooltipProvider>
-                    <Tooltip delayDuration={0}>
+                    <Tooltip delayDuration={0} key={index}>
                       <TooltipTrigger
                         key={index}
                         className="w-1/6 h-full flex flex-col items-center justify-center gap-4 hover:scale-[1.1] duration-300"
