@@ -172,8 +172,10 @@ const projects: projectItem = [
         color: "blue-500",
       },
     ],
-    image: "tecbix",
+    image:
+      "https://github.com/Zulker-Nien/tecbix/blob/master/public/2.png?raw=true",
     source_code_link: "https://github.com/Zulker-Nien/tecbix",
+    website: "https://tecbix-sandy.vercel.app/",
   },
   {
     name: "Petopia",
@@ -189,7 +191,6 @@ const projects: projectItem = [
         color: "orange-500",
       },
     ],
-    image: "petopia",
     source_code_link: "https://github.com/Zulker-Nien/petopia",
   },
   {
@@ -211,7 +212,6 @@ const projects: projectItem = [
         color: "blue-500",
       },
     ],
-    image: "",
     source_code_link: "https://github.com/Zulker-Nien/mini-e-commerce",
   },
   {
@@ -240,30 +240,35 @@ const projects: projectItem = [
         color: "blue-500",
       },
     ],
-    image: "tecbix",
-    // source_code_link: "https://github.com/Zulker-Nien/tecbix",
+    image: "/project/quemailer.png",
   },
   {
-    name: "Petopia",
+    name: "Juniper Jerseys",
     description:
-      "A Single page landing application demonstrating the structural, responsive and bright design to lure the users into taking better care of their pets because it has everything you need for a pet.",
+      "You can drag and drop logos, tweak colors and patterns in real-time, and see photorealistic 3D previews as you customize. Built for athletes, fans, and brands, it makes pro-level jersey design effortless with templates, material textures, and instant mockups, all exportable for production with one click.",
     tags: [
       {
-        name: "nextjs",
+        name: "reactjs",
         color: "yellow-500",
       },
       {
-        name: "tailwind",
+        name: "threejs",
         color: "orange-500",
       },
+      {
+        name: "typescript",
+        color: "blue-500",
+      },
     ],
-    image: "petopia",
-    source_code_link: "https://github.com/Zulker-Nien/petopia",
+    image:
+      "https://raw.githubusercontent.com/Zulker-Nien/juniper-beta/refs/heads/master/src/Assets/Logo.png",
+    source_code_link: "https://github.com/Zulker-Nien/mini-e-commerce",
+    website: "https://juniper-beta.vercel.app/",
   },
   {
-    name: "Mini e commerce",
+    name: "NEXT 3D Model A",
     description:
-      "Web application that enables users to search for products, view categories of products, add to cart and order a dummy product. Use of fakestore.api helped with the restfulness",
+      "This mini vehicle tracking dashboard provides real-time tracking and monitoring of vehicles, ensuring efficient fleet management and enhanced safety.",
     tags: [
       {
         name: "nextjs",
@@ -273,14 +278,54 @@ const projects: projectItem = [
         name: "restapi",
         color: "orange-500",
       },
-
+      {
+        name: "socketio",
+        color: "green-500",
+      },
       {
         name: "typescript",
         color: "blue-500",
       },
+      {
+        name: "leaflet",
+        color: "blue-500",
+      },
     ],
-    image: "",
-    source_code_link: "https://github.com/Zulker-Nien/mini-e-commerce",
+    source_code_link:
+      "https://github.com/Zulker-Nien/mini-vehicle-tracking-dashboard",
+    website: "https://mini-vehicle-tracking-dashboard.vercel.app/",
+  },
+  {
+    name: "Vehicle Tracking Dashboard",
+    description:
+      "This mini vehicle tracking dashboard provides real-time tracking and monitoring of vehicles, ensuring efficient fleet management and enhanced safety.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "yellow-500",
+      },
+      {
+        name: "restapi",
+        color: "orange-500",
+      },
+      {
+        name: "socketio",
+        color: "green-500",
+      },
+      {
+        name: "typescript",
+        color: "blue-500",
+      },
+      {
+        name: "leaflet",
+        color: "blue-500",
+      },
+    ],
+    source_code_link:
+      "https://github.com/Zulker-Nien/mini-vehicle-tracking-dashboard",
+    website: "https://mini-vehicle-tracking-dashboard.vercel.app/",
+    image:
+      "https://raw.githubusercontent.com/Zulker-Nien/mini-vehicle-tracking-dashboard/c32e86e014b4f4070288d64c270d25604e222c44/public/logo.svg",
   },
 ];
 const coreSkills: coreSkillsType = [

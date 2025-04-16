@@ -47,8 +47,9 @@ export type projectItem = {
   name: string;
   description: string;
   tags: tagType[];
-  image: string;
+  image?: string;
   source_code_link?: string;
+  website?: string;
 }[];
 
 export type projectType = {
