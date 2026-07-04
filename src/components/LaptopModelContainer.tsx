@@ -2,7 +2,7 @@
 import { Canvas } from "@react-three/fiber";
 import { useSpring, a as web } from "@react-spring/web";
 import LaptopModel from "./LaptopModel";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useSyncExternalStore } from "react";
 import { a as three } from "@react-spring/three";
 
 import { Environment, ContactShadows } from "@react-three/drei";
@@ -10,17 +10,18 @@ import { laptopStore } from "@/store/store";
 import { laptopType } from "@/utils/types";
 import ArrowDown from "./ArrowDown";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { TriangleAlert } from "lucide-react";
+import { ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
 
 const LaptopModelContainer = () => {
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(true);
-  useEffect(() => {
-    if (window.innerWidth >= 1024) {
-      setIsLargeScreen(true);
-    } else {
-      setIsLargeScreen(false); // Explicitly set a default for smaller screens
-    }
-  }, []);
+  const isLargeScreen = useSyncExternalStore(
+    (callback) => {
+      const mq = window.matchMedia("(min-width: 1024px)");
+      mq.addEventListener("change", callback);
+      return () => mq.removeEventListener("change", callback);
+    },
+    () => window.matchMedia("(min-width: 1024px)").matches,
+    () => true
+  );
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
   const setOpenLaptop = laptopStore((state: laptopType) => state.setOpenLaptop);
   const props = useSpring({ open: Number(openLaptop) });
@@ -28,31 +29,31 @@ const LaptopModelContainer = () => {
   return (
     <div className="h-screen w-screen overflow-hidden relative">
       <Popover>
-        <PopoverTrigger className="absolute right-0 lg:py-8 py-3 lg:pr-12 pr-4 z-20">
-          <TriangleAlert size={36} className="animate-bounce" />
+        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-slate-200 backdrop-blur-md transition-all duration-200">
+          <ShieldAlert size={20} className="animate-pulse" />
         </PopoverTrigger>
-        <PopoverContent side="left" className="bg-slate-950">
-          <h1 className="text-slate-300 font-bold">
-            Viewer Discretion Advised
-          </h1>
-          <br />
-          <p className="text-yellow-300">
-            This website is designed with bold colors and high contrast to
-            reflect my creative energy. If you’re sensitive to vibrant visuals,
-            you may want to adjust your screen settings or take breaks while
-            browsing.
-          </p>
-          <br />
-          <p className="text-slate-300">
-            Enjoy the experience—just maybe not on an empty stomach.{" "}
-            <span className="text-3xl">😉</span>
-          </p>
-          <br />
-          <h1 className="text-slate-300 font-bold">Click the Laptop to begin</h1>
+        <PopoverContent
+          side="left"
+          align="start"
+          className="bg-slate-950/95 border border-white/10 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-100 shadow-2xl z-40"
+        >
+          <div className="space-y-3 text-sm">
+            <h4 className="font-semibold tracking-wide text-amber-400 flex items-center gap-2">
+              <Sparkles className="w-4 h-4" /> Visual Experience Advised
+            </h4>
+            <p className="text-slate-400 font-light leading-relaxed">
+              This digital portfolio utilizes highly energetic contrast, deep black lines, and intentional physics simulations to reflect raw creative momentum.
+            </p>
+            <p className="text-slate-400 font-light leading-relaxed">
+              Interact directly with the 3D model environment to begin navigation.
+            </p>
+            <div className="w-full h-px bg-white/5 pt-1" />
+            <span className="text-xs font-mono text-slate-500 block">Click or tap the laptop to begin.</span>
+          </div>
         </PopoverContent>
       </Popover>
       {openLaptop ? (
-        <div className="w-full absolute bottom-20 z-20 text-center w-screen flex flex-col lg:items-end items-center justify-center lg:px-64 lg:px-0">
+        <div className="w-full absolute bottom-20 z-20 text-center flex flex-col lg:items-end items-center justify-center lg:px-64 lg:px-0">
           <ArrowDown />
           <h2 className="text-black text-2xl p-0 m-0">Lets Go</h2>
         </div>

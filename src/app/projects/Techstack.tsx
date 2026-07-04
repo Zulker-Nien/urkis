@@ -15,7 +15,8 @@ const techStackItems = [
 
 const Techstack = () => {
   const [ref, inView] = useInView({
-    rootMargin: "-50px 0px",
+    rootMargin: "-40px 0px",
+    once: true,
   });
   const selectedStack = projectStore(
     (state: projectType) => state.selectedStack
@@ -28,29 +29,31 @@ const Techstack = () => {
     techStackItems.length,
     techStackItems.map((_, index) => ({
       opacity: inView ? 1 : 0,
-      transform: inView ? "translateX(0)" : "translateX(100px)",
-      config: { tension: 120, friction: 14 },
-      delay: index * 100,
+      transform: inView ? "translateY(0px)" : "translateY(15px)",
+      config: { tension: 150, friction: 16 },
+      delay: index * 40, // Crisper sequential animation cascade
     }))
   );
 
   return (
-    <div className="w-full flex h-full m-0 p-0 ">
-      <div className="w-full flex items-center justify-center gap-8" ref={ref}>
-        {springs.map((techStyles, index) => (
-          <animated.h4
-            key={techStackItems[index]}
-            style={techStyles}
-            className={`min-w-max cursor-pointer ${
-              selectedStack === techStackItems[index]
-                ? "text-slate-950"
-                : "text-slate-200"
-            }`}
-            onClick={() => setSelectedStack(techStackItems[index])}
-          >
-            {techStackItems[index]}
-          </animated.h4>
-        ))}
+    <div className="w-full flex items-center justify-center" ref={ref}>
+      <div className="flex flex-wrap items-center justify-center gap-3 bg-slate-950/40 p-2 rounded-2xl border border-white/5 backdrop-blur-md">
+        {springs.map((techStyles, index) => {
+          const isSelected = selectedStack === techStackItems[index];
+          return (
+            <animated.button
+              key={techStackItems[index]}
+              style={techStyles}
+              onClick={() => setSelectedStack(techStackItems[index])}
+              className={`px-4 py-1.5 rounded-xl text-xs font-medium tracking-wide transition-all duration-300 ${isSelected
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-900/30 border border-blue-400/20"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent"
+                }`}
+            >
+              {techStackItems[index]}
+            </animated.button>
+          );
+        })}
       </div>
     </div>
   );

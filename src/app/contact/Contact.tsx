@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Images from "@/utils/image";
 import { useToast } from "@/hooks/use-toast";
@@ -39,6 +39,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!form.name || !form.email || !form.message) return;
     setLoading(true);
 
     emailjs
@@ -80,110 +81,135 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative h-full w-screen">
-      <div className="w-full h-full pb-0 lg:px-0 lg:px-2 inset-shadow-indigo-500">
-        <h5
-          className={`lg:h-1/4 lg:text-[4em] text-[2em] text-center text-slate-800`}
-        >
-          Connect with me
-        </h5>
-        <div className="w-full flex lg:flex-row flex-col items-center justify-center lg:px-4 lg:gap-16 gap-4 px-6">
-          <div className="lg:w-1/3 w-full flex flex-col gap-4">
-            <div className="flex items-center justify-center drop-shadow-[0_10px_0_rgba(255,213,1)] rounded-t-lg">
+    /* 
+      FIX: Background flows seamlessly out of your deep slate/zinc review floor 
+      into an absolute dark, premium footer canvas.
+    */
+    <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-slate-950 to-black relative w-screen pb-24 px-0 antialiased overflow-hidden">
+
+      {/* Sticky Header with matching backdrop blur architecture */}
+      <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-transparent backdrop-blur-sm pt-8 pb-12 text-center">
+        <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
+          <Mail className="w-7 h-7 text-amber-400 font-thin opacity-80" />
+          Connect With Me
+        </h2>
+        <p className="text-sm text-slate-400 font-light max-w-md mx-auto mt-2 px-4">
+          Let&apos;s build something premium. Drop a line below or reach out over official channels.
+        </p>
+      </div>
+
+      <div className="w-full max-w-6xl mx-auto flex lg:flex-row flex-col items-stretch justify-center lg:px-12 gap-8 px-6 mt-8">
+
+        {/* Left Column: Profile Card and Buttons */}
+        <div className="lg:w-1/2 w-full flex flex-col gap-4 bg-slate-900/30 border border-white/5 p-6 rounded-2xl backdrop-blur-md justify-between">
+          <div className="space-y-6">
+            <div className="flex items-center justify-center py-6 bg-slate-950/40 rounded-xl border border-white/5 shadow-inner">
               <Image
-                src={Images.LogoB}
+                src={Images.Logo} // Switched to match your main bright logo theme instead of dark variant
                 alt="Logo"
-                width={"300"}
+                width={220}
+                height={60}
+                className="opacity-90 object-contain"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
               />
             </div>
-            <Button variant={"outline"} className="w-full p-0">
-              <Mail /> zulkerb9b@gmail.com
-            </Button>
 
-            <Button variant={"outline"} className="w-full p-0">
-              <Phone /> +8801717755244
-            </Button>
-            <Link
-              href="https://www.linkedin.com/in/zulker-nien/"
-              passHref={true}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Button size="lg" className="w-full">
-                LinkedIn
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-center gap-3 bg-slate-950/50 border border-white/5 p-3 rounded-xl text-xs text-slate-300">
+                <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span className="truncate">zulkerb9b@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-3 bg-slate-950/50 border border-white/5 p-3 rounded-xl text-xs text-slate-300">
+                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span>+8801717755244</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2.5 pt-6 lg:pt-0">
+            <Link href="https://www.linkedin.com/in/zulker-nien/" passHref target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button size="lg" variant="outline" className="w-full bg-slate-950/40 border-white/5 text-slate-300 hover:bg-slate-900 hover:text-white flex items-center justify-center gap-2 rounded-xl text-sm">
+                <Linkedin className="w-4 h-4 text-sky-400" /> LinkedIn
               </Button>
             </Link>
-            <Link
-              href="https://github.com/Zulker-Nien"
-              passHref={true}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Button size="lg" className="w-full">
-                Github
+
+            <Link href="https://github.com/Zulker-Nien" passHref target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button size="lg" variant="outline" className="w-full bg-slate-950/40 border-white/5 text-slate-300 hover:bg-slate-900 hover:text-white flex items-center justify-center gap-2 rounded-xl text-sm">
+                <Github className="w-4 h-4 text-slate-100" /> Github
               </Button>
             </Link>
-            <Link
-              href="https://www.upwork.com/freelancers/~0130cad0881a233037"
-              passHref={true}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Button size="lg" className="w-full">
-                Upwork
+
+            <Link href="https://www.upwork.com/freelancers/~0130cad0881a233037" passHref target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button size="lg" className="w-full bg-amber-500 text-slate-950 hover:bg-amber-400 font-medium flex items-center justify-center gap-2 rounded-xl text-sm shadow-lg shadow-amber-950/20">
+                Upwork <ExternalLink className="w-3.5 h-3.5" />
               </Button>
             </Link>
           </div>
+        </div>
 
-          <div className="lg:w-1/3 w-full flex flex-col border p-4 rounded-xl bg-white/80 border-slate-300 lg:mb-0 mb-8">
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-8"
-            >
-              <Label className="flex flex-col">
-                <span className="text-slate-800 font-medium mb-4">
+        {/* Right Column: Clean Dark Glass Form */}
+        <div className="lg:w-1/2 w-full flex flex-col bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-md shadow-2xl shadow-black/40">
+          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col h-full justify-between gap-6">
+            <div className="space-y-5">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="name" className="text-xs uppercase tracking-widest text-slate-400 font-medium">
                   Your Name
-                </span>
+                </Label>
                 <Input
+                  id="name"
                   type="text"
                   name="name"
                   value={form.name}
                   onChange={handleChange}
                   placeholder="What's your good name?"
+                  required
+                  className="bg-slate-950/60 border-white/5 focus-visible:border-amber-500/50 text-slate-100 h-11 px-4 rounded-xl placeholder:text-slate-600 transition-colors"
                 />
-              </Label>
-              <Label className="flex flex-col">
-                <span className="text-slate-800 font-medium mb-4">
-                  Your email
-                </span>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="email" className="text-xs uppercase tracking-widest text-slate-400 font-medium">
+                  Your Email
+                </Label>
                 <Input
+                  id="email"
                   type="email"
                   name="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="What's your web address?"
+                  placeholder="What's your email address?"
+                  required
+                  className="bg-slate-950/60 border-white/5 focus-visible:border-amber-500/50 text-slate-100 h-11 px-4 rounded-xl placeholder:text-slate-600 transition-colors"
                 />
-              </Label>
-              <Label className="flex flex-col">
-                <span className="text-slate-800 font-medium mb-4">
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="message" className="text-xs uppercase tracking-widest text-slate-400 font-medium">
                   Your Message
-                </span>
+                </Label>
                 <Textarea
+                  id="message"
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="What you want to say?"
-                  className="min-h-64 max-h-64"
+                  placeholder="What would you like to say?"
+                  required
+                  className="min-h-[160px] bg-slate-950/60 border-white/5 focus-visible:border-amber-500/50 text-slate-100 p-4 rounded-xl placeholder:text-slate-600 transition-colors resize-none"
                 />
-              </Label>
+              </div>
+            </div>
 
-              <Button type="submit">{loading ? "Sending..." : "Send"}</Button>
-            </form>
-          </div>
+            <Button
+              type="submit"
+              disabled={loading}
+              className="w-full h-11 bg-slate-100 text-slate-950 hover:bg-white font-medium rounded-xl transition-all duration-200 disabled:opacity-50 tracking-wide mt-2"
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
         </div>
+
       </div>
     </div>
   );

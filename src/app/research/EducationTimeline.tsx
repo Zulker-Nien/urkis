@@ -4,6 +4,7 @@ import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import Image from "next/image";
 import { educationType } from "@/utils/types";
 import SpotlightCard from "@/components/SpotlightCard";
+
 const EducationTimeline = ({
   education,
   index,
@@ -12,37 +13,36 @@ const EducationTimeline = ({
   index: number;
 }) => {
   const [ref, inView] = useInView({
-    rootMargin: "-50px 0px",
+    rootMargin: "-60px 0px",
+    once: true,
   });
 
   const springStyles = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0)" : "translateY(50px)",
-    config: { tension: 120, friction: 14 },
+    transform: inView ? "translateY(0px)" : "translateY(30px)",
+    config: { tension: 140, friction: 18 },
   });
 
   return (
     <animated.div style={springStyles} ref={ref}>
-      {/* shadow-md blur-2xl bg-white/10 */}
       <VerticalTimelineElement
         position={index % 2 === 0 ? "left" : "right"}
         visible={true}
         contentStyle={{
           background: "transparent",
-          color: "#3d3d3d",
-          fontWeight: "800",
-          boxShadow: "0 0 0 0 #000",
+          boxShadow: "none",
           padding: "0px",
         }}
-        contentArrowStyle={{ borderRight: "7px solid #000" }}
+        contentArrowStyle={{ borderRight: "7px solid rgba(30, 27, 75, 0.8)" }}
         date={education.date}
-        dateClassName="!font-bold !text-black !opacity-1"
+        dateClassName="!font-light lg:!text-slate-300 !text-slate-400 !opacity-1 lg:mx-4"
         iconStyle={{
-          background: education.iconBg,
+          background: education.iconBg || "#0f172a",
+          boxShadow: "0 0 0 4px rgba(245, 158, 11, 0.3), inset 0 2px 4px rgba(0,0,0,0.5)",
           overflow: "hidden",
         }}
         icon={
-          <div className="flex justify-center items-center w-full h-full">
+          <div className="flex justify-center items-center w-full h-full p-2">
             <Image
               src={education.icon}
               alt={education.university}
@@ -53,35 +53,34 @@ const EducationTimeline = ({
           </div>
         }
       >
+        {/* Sleek High Contrast Education Glass Card */}
         <SpotlightCard
-          className="custom-spotlight-card h-full"
-          spotlightColor="rgba(255, 170, 0, 0.38)"
+          className="custom-spotlight-card h-full bg-slate-900/85 border border-amber-500/20 backdrop-blur-md p-5 rounded-2xl shadow-xl shadow-black/40 transition-all duration-300 hover:border-amber-400/40"
+          spotlightColor="rgba(245, 158, 11, 0.15)"
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-slate-200 lg:text-xl font-bold">
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-slate-100 lg:text-lg text-base font-semibold tracking-wide">
                 {education.title}
               </h3>
-              <h3 className="text-md font-bold text-orange-500 !m-0">
+              <h4 className="text-sm font-medium text-amber-400/90">
                 {education.university}
-              </h3>
+              </h4>
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <h3
-                className={`text-md font-bold text-slate-200 !m-0 ${
-                  education.cgpa === null && "hidden"
-                }`}
-              >
-                CGPA
-              </h3>
-              <h3 className="text-md font-bold text-orange-500 !m-0">
-                {education.cgpa}
-              </h3>
-            </div>
+
+            {education.cgpa !== null && (
+              <div className="flex flex-col items-end justify-center border-l border-white/5 pl-4 flex-shrink-0">
+                <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">CGPA</span>
+                <span className="text-base font-bold text-amber-400 tracking-wider">
+                  {education.cgpa}
+                </span>
+              </div>
+            )}
           </div>
         </SpotlightCard>
       </VerticalTimelineElement>
     </animated.div>
   );
 };
+
 export default EducationTimeline;

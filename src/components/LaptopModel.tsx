@@ -1,10 +1,11 @@
 "use client";
 import { useGLTF } from "@react-three/drei";
-import { useFrame, ThreeEvent } from "@react-three/fiber";
+import { useFrame, useThree, ThreeEvent } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { a as three } from "@react-spring/three";
 import { Interpolation } from "@react-spring/web";
+import { KTX2Loader } from "three-stdlib";
 
 interface ModelProps {
   open: boolean;
@@ -16,8 +17,18 @@ const vec = new THREE.Vector3();
 const LaptopModel = ({ open, hinge }: ModelProps) => {
   const [hovered, setHovered] = useState(false);
   const groupRef = useRef<THREE.Group>(null);
+  const gl = useThree((state) => state.gl);
   const { nodes, materials } = useGLTF(
-    window.location.origin + "/mac-draco.glb"
+    window.location.origin + "/mac-draco.glb",
+    true,
+    true,
+    (loader) => {
+      loader.setKTX2Loader(
+        new KTX2Loader()
+          .setTranscoderPath("/basis/")
+          .detectSupport(gl)
+      );
+    }
   );
 
   useEffect(
@@ -53,8 +64,6 @@ const LaptopModel = ({ open, hinge }: ModelProps) => {
       );
     }
   });
-
-  useGLTF.preload(window.location.origin + "/mac-draco.glb");
 
   return (
     <group

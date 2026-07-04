@@ -3,89 +3,98 @@ import React from "react";
 import EducationTimeline from "./EducationTimeline";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import { education, research } from "@/utils/constant";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, BookOpen, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Research = () => {
   return (
-    <div className="min-h-[150vh] bg-gradient-to-b from-orange-500/80 via-orange-600/80 to-orange-500/80 px-0">
-      <div className="h-full w-full flex flex-col gap-4">
-        <div className="h-full w-full flex flex-col relative">
-          <h5
-            className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-full drop-shadow-lg drop-shadow-black z-30 bg-gradient-to-b from-orange-500 from-30% to-transparent`}
-          >
-            Education
-          </h5>
-          <VerticalTimeline lineColor="#232d3b" className="flex flex-col gap-8">
-            {education.map((education, index) => (
-              <EducationTimeline
-                education={education}
-                key={index}
-                index={index}
-              />
-            ))}
-          </VerticalTimeline>
+    // REFACTORED BACKGROUND: Shifts seamlessly from dark blue to an ultra-clean charcoal slate canvas
+    <div className="min-h-screen bg-gradient-to-b from-blue-950 via-slate-950 to-slate-950 px-0 pb-24 antialiased overflow-hidden">
+      <div className="w-full flex flex-col gap-24">
+
+        {/* Education Subsection */}
+        <div className="w-full flex flex-col relative max-w-6xl mx-auto px-4">
+          <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-blue-950 via-blue-950/90 to-transparent backdrop-blur-sm pt-8 pb-12 text-center">
+            <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
+              <GraduationCap className="w-8 h-8 text-sky-400 font-thin" />
+              Education
+            </h2>
+          </div>
+
+          <div className="mt-4">
+            {/* Timeline line updated from amber to a subtle crisp slate border */}
+            <VerticalTimeline lineColor="rgba(148, 163, 184, 0.15)" className="flex flex-col gap-6">
+              {education.map((edu, index) => (
+                <EducationTimeline
+                  education={edu}
+                  key={index}
+                  index={index}
+                />
+              ))}
+            </VerticalTimeline>
+          </div>
         </div>
-        <div className="h-full flex flex-col gap-4 w-full relative">
-          <h5
-            className={`lg:text-[4em] text-[2em] text-center text-white sticky top-0 w-fulldrop-shadow-lg drop-shadow-black z-30 `}
-          >
-            Publications
-          </h5>
-          <div className="w-screen flex flex-wrap gap-8 items-center justify-between lg:px-80 lg:pb-32 lg:pb-0 pb-8">
-            {research.map((research, index) => (
-              <div
-                className="lg:w-1/4 w-3/4 flex-grow flex items-center justify-center gap-4 pl-4 pr-6"
-                key={index}
-              >
-                <div className="w-full h-[50vh] flex flex-col gap-2 bg-white p-4 shadow-md shadow-black hover:scale-[1.02] duration-300 rounded-md">
-                  <div className="h-3/4 w-full bg-yellow-500 relative">
-                    <div className="absolute inset-0 bg-white bg-[linear-gradient(to_bottom,rgba(0,0,0,0.1)_1px,transparent_1px)] bg-[length:100%_24px]">
-                      <h3 className="text-slate-800 text-md text-center font-semibold">
-                        {research.title}
-                      </h3>
-                    </div>
+
+        {/* Publications Subsection */}
+        <div className="w-full flex flex-col relative max-w-7xl mx-auto px-4 lg:px-12">
+          <div className="text-center space-y-3 mb-12">
+            <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
+              <BookOpen className="w-7 h-7 text-sky-400 font-thin" />
+              Publications
+            </h2>
+            <p className="text-sm text-slate-400 font-light max-w-md mx-auto">
+              Peer-reviewed academic research records, journals, and technical contributions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            {research.map((pub, index) => (
+              <div className="w-full group" key={index}>
+                {/* Modern Notebook / Glassmorphic Card Mix — Border accent swapped to cool slate/sky */}
+                <div className="w-full h-[45vh] min-h-[360px] flex flex-col bg-slate-900/50 hover:bg-slate-900/80 border border-white/5 hover:border-sky-500/30 shadow-xl shadow-black/20 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden">
+
+                  <div className="flex-1 rounded-xl bg-slate-950/40 border border-white/5 p-4 overflow-y-auto mb-4 relative bg-[linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[length:100%_20px]">
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-sky-400/60 block mb-2">Title</span>
+                    <h3 className="text-slate-100 text-sm font-medium leading-relaxed tracking-wide">
+                      {pub.title}
+                    </h3>
                   </div>
 
-                  <div className="h-1/4 text-slate-800 flex flex-col items-start justify-between text-md">
-                    <h3 className="h-1/4 font-semibold text-slate-500">
-                      Type: {research.type}
-                    </h3>
-                    <h3 className="h-1/2 font-semibold text-slate-800">
-                      {research.journal === undefined
-                        ? `Book: ${research.book}`
-                        : `Journal: ${research.journal}`}
-                    </h3>
-                    <div className="h-1/4 flex items-center justify-between w-full">
-                      <h3
-                        className={`font-semibold ${
-                          research.status === "Published"
-                            ? "text-green-500"
-                            : "text-orange-500"
-                        } `}
-                      >
-                        Status: {research.status}
-                      </h3>
-                      {research.link && (
-                        <Link
-                          href={`${research.link}`}
-                          passHref
-                          target="_blank"
-                        >
-                          <Button>
-                            View
-                            <ExternalLink />
+                  {/* Metadata and Actions Section */}
+                  <div className="space-y-3 pt-1 text-xs">
+                    <div className="flex justify-between items-center text-slate-400">
+                      <span>Type: <strong className="text-slate-300 font-normal">{pub.type}</strong></span>
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium tracking-wide border ${pub.status === "Published"
+                          ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                          : "bg-sky-500/10 text-sky-400 border-sky-500/20"
+                        }`}>
+                        {pub.status}
+                      </span>
+                    </div>
+
+                    <p className="text-slate-300 font-light line-clamp-2 leading-relaxed border-t border-white/5 pt-3">
+                      {pub.journal === undefined ? `Book: ${pub.book}` : `Journal: ${pub.journal}`}
+                    </p>
+
+                    <div className="flex items-center justify-end w-full pt-1">
+                      {pub.link && (
+                        <Link href={`${pub.link}`} passHref target="_blank">
+                          <Button size="sm" className="bg-slate-100 text-slate-950 hover:bg-white font-medium tracking-wide rounded-xl px-4 flex items-center gap-1.5 shadow-md">
+                            <span>View</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
                           </Button>
                         </Link>
                       )}
                     </div>
                   </div>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );

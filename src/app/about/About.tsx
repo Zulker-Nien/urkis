@@ -8,6 +8,7 @@ import { useSpring, a as web } from "@react-spring/web";
 import { Button } from "@/components/ui/button";
 import { Label } from "@radix-ui/react-label";
 import { coreSkills } from "@/utils/constant";
+import { ChevronDown, X } from "lucide-react"; // Imported for sleeker UI icons
 import {
   Tooltip,
   TooltipContent,
@@ -45,84 +46,87 @@ const About = () => {
   }, [openAboutSlider, setOpenAboutSlider]);
 
   return (
-    <div className=" h-[200vh] relative flex flex-col">
+    <div className="h-[200vh] relative flex flex-col antialiased">
+      {/* 
+        CRITICAL FIX: Background matches the exact premium palette depth of later sections. 
+        Flows perfectly from a crisp slate header, through an immersive amethyst midpoint, into the violet-900 base.
+      */}
       <div
-        className={` duration-300 bg-gradient-to-b from-violet-800/80 via-violet-500/80 via-75% to-violet-800/80 h-screen w-screen flex flex-col items-center justify-center gap-12 sticky top-0 lg:pr-0 pr-2`}
+        className={`duration-500 bg-gradient-to-b from-slate-950 via-violet-950 to-violet-900 h-screen w-screen flex flex-col items-center justify-center sticky top-0 overflow-hidden lg:pr-0 pr-2`}
       >
-        <div
-          className={`duration-300 flex justify-center items-center w-screen`}
-        >
+        {/* Main Logo / Title Animation Section */}
+        <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
           <div
-            className={`duration-300 origin-center ${
-              openAboutSlider ? "-translate-y-[300px]" : "translate-y-[0]"
-            } lg:text-5xl text-2xl text-slate-200`}
+            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-y-[28vh] scale-90 " : "translate-y-0"
+              } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
-            Zulker {`{`}
+            Zulker <span className="text-violet-300/60 font-thin">{`{`}</span>
           </div>
           <Image
-            className={`duration-300 ${
-              openAboutSlider
-                ? "lg:w-1/5 w-1/3 -translate-y-[300px]"
-                : "lg:w-1/3 w-1/2 translate-y-[0]"
-            } `}
+            className={`duration-500 ease-out ${openAboutSlider
+              ? "lg:w-1/6 w-1/3 -translate-y-[28vh] opacity-40 mix-blend-plus-lighter"
+              : "lg:w-1/4 w-1/2 translate-y-0"
+              }`}
             src={Images.Logo}
             alt="Logo"
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           />
           <div
-            className={`duration-300 lg:text-5xl text-2xl text-slate-200 ${
-              openAboutSlider ? "-translate-y-[300px]" : "translate-y-[0]"
-            } `}
+            className={`duration-500 transform ${openAboutSlider ? "-translate-y-[28vh] scale-90 " : "translate-y-0 "
+              } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
-            {`}`} Nien{" "}
+            <span className="text-violet-300/60 font-thin">{`}`}</span> Nien
           </div>
         </div>
+
+        {/* Scroll Indicator */}
         {!openAboutSlider && (
-          <div className="w-screen absolute flex bottom-0 items-end justify-end">
-            <h1 className="h-full lg:pr-48 pr-4 pt-48  text-slate-200 animate-bounce">
-              Keep on scrolling ⇣
-            </h1>
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-300/80 text-sm tracking-widest uppercase transition-opacity duration-300">
+            <span className="text-xs font-medium">Scroll</span>
+            <ChevronDown className="w-4 h-4 animate-bounce text-violet-200" />
           </div>
         )}
+
+        {/* Content Slider */}
         <web.div
           style={{
-            opacity: aboutTextStyle.open.to([1, 0], [1, 0]),
-            transform: aboutTextStyle.open.to(() => `translateY(-25%,0)`),
-            color: "#000",
+            opacity: aboutTextStyle.open.to([0, 1], [0, 1]),
+            transform: aboutTextStyle.open.to([0, 2], ["translateY(100px)", "translateY(0px)"]),
           }}
-          className={"flex flex-col lg:gap-8 absolute "}
+          className="flex flex-col lg:gap-6 absolute w-full max-w-5xl px-6 pointer-events-none"
         >
           {openAboutSlider && (
-            <div className="h-full lg:tracking-wide lg:text-xl text-center lg:px-72 px-4 pb-4 lg:pt-80 pt-64 text-slate-200">
-              <h1>
+            <div className="h-full flex flex-col items-center text-center pointer-events-auto mt-24 lg:mt-12">
+              <p className="max-w-3xl lg:text-lg text-base text-slate-100/90 font-light leading-relaxed tracking-wide">
                 I blend technology, design, and analysis to craft seamless
                 digital experiences. With a Master’s in Software Engineering and
                 experience across startups and industries, I merge technical
                 innovation with user-focused design to build impactful
                 solutions.
-              </h1>
-              <br />
-              <h1 className="font-bold pb-4">My Core Skills</h1>
-              <div className="w-full bg-slate-950/80 p-4 rounded-2xl">
-                <div className="w-full flex lg:flex-row flex-col items-center justify-between gap-4">
+              </p>
+
+              <h2 className="text-xs uppercase tracking-[0.2em] text-violet-200/70 font-semibold mt-10 mb-4">
+                Core Stack & Expertise
+              </h2>
+
+              {/* Modern Glassmorphism Card */}
+              <div className="w-full bg-slate-950/40 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl shadow-purple-950/20">
+                <div className="grid grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center items-center">
                   <TooltipProvider>
                     {coreSkills.map((skill, index) => (
                       <Tooltip delayDuration={0} key={index}>
-                        <TooltipTrigger
-                          key={index}
-                          className="lg:w-1/6 w-full h-full flex lg:flex-col flex-row items-center lg:justify-center gap-4 hover:scale-[1.1] duration-300 "
-                        >
-                          <div className="h-1/2 rounded-full bg-slate-950 p-4">
-                            <skill.icon className="lg:scale-[1.5]" />
+                        <TooltipTrigger className="group w-full flex flex-col items-center justify-center gap-2 transition-all duration-300">
+                          <div className="w-12 h-12 rounded-xl bg-slate-950/60 border border-white/5 flex items-center justify-center text-slate-300 group-hover:text-white group-hover:bg-violet-600/30 group-hover:border-violet-400/40 group-hover:scale-110 shadow-md transition-all duration-300">
+                            <skill.icon className="w-5 h-5" />
                           </div>
-                          <Label className="text-sm truncate">
+                          <Label className="text-xs text-slate-400 font-medium tracking-wide group-hover:text-slate-200 transition-colors pointer-events-none truncate max-w-[80px]">
                             {skill.name}
                           </Label>
                         </TooltipTrigger>
                         <TooltipContent
                           side="top"
-                          className="bg-yellow-500 text-slate-950 font-bold p-2 rounded-md text-md"
+                          className="bg-slate-900 border border-slate-800 text-slate-100 px-3 py-1.5 rounded-lg text-xs shadow-xl"
                         >
                           {skill.content}
                         </TooltipContent>
@@ -133,38 +137,40 @@ const About = () => {
               </div>
             </div>
           )}
-          <div className="min-w-screen py-4 px-8 gap-4 flex items-center justify-center sticky lg:bottom-20 bottom-0 ">
-            <Button
-              size={"lg"}
-              onClick={() => {
-                setViewCV(true);
-              }}
-            >
-              View CV
-            </Button>
-          </div>
+
+          {/* Action Button Container */}
+          {openAboutSlider && (
+            <div className="w-full py-4 flex items-center justify-center pointer-events-auto mt-6">
+              <Button
+                size="lg"
+                onClick={() => setViewCV(true)}
+                className="bg-white text-slate-950 hover:bg-slate-100 font-medium tracking-wide rounded-full px-8 shadow-lg shadow-black/10 transition-transform duration-200 active:scale-95"
+              >
+                View CV
+              </Button>
+            </div>
+          )}
         </web.div>
+
+        {/* Clean CV Lightbox Overlay */}
         {viewCV && (
-          <div className="absolute w-screen h-screen flex items-start justify-center">
-            <iframe
-              src="/Zulker_CV.pdf"
-              className="w-3/4 h-full"
-              title="Zulker CV"
-              seamless={true}
-            />
-            <div
-              className={`relative top-8 left-4 flex flex-col gap-1.5 items-end
-               justify-center rounded-md ease-in duration-100 cursor-pointer`}
-              onClick={() => {
-                setViewCV(false);
-              }}
-            >
-              <div
-                className={`rotate-45 origin-center translate-y-1.5 w-10 h-1.5 rounded-sm bg-white transition-all duration-300 ease-in-out `}
-              ></div>
-              <div
-                className={`-rotate-45 origin-center -translate-y-1.5 w-10 h-1.5 rounded-sm bg-white transition-all duration-300 ease-in-out`}
-              ></div>
+          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-lg flex items-center justify-center p-6 z-50 animate-in fade-in duration-300">
+            <div className="relative w-full max-w-4xl h-[85vh] bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">
+              <div className="w-full h-12 bg-slate-950/80 border-b border-white/5 flex items-center justify-between px-4">
+                <span className="text-xs uppercase tracking-widest text-slate-400 font-medium">Curriculum Vitae</span>
+                <button
+                  onClick={() => setViewCV(false)}
+                  className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-200"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <iframe
+                src="/Zulker_CV.pdf"
+                className="w-full flex-1 border-none"
+                title="Zulker CV"
+              />
             </div>
           </div>
         )}
