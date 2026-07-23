@@ -29,13 +29,13 @@ const LaptopModelContainer = () => {
   return (
     <div className="h-screen w-screen overflow-hidden relative">
       <Popover>
-        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-slate-200 backdrop-blur-md transition-all duration-200">
+        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-white/5 border border-slate-900 text-slate-900 hover:text-slate-800 backdrop-blur-md transition-all duration-200">
           <ShieldAlert size={20} className="animate-pulse" />
         </PopoverTrigger>
         <PopoverContent
           side="left"
           align="start"
-          className="bg-slate-950/95 border border-white/10 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-100 shadow-2xl z-40"
+          className="bg-slate-950/95 border border-white/10 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-900 shadow-2xl z-40"
         >
           <div className="space-y-3 text-sm">
             <h4 className="font-semibold tracking-wide text-amber-400 flex items-center gap-2">

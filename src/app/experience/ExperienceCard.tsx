@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/sheet";
 import { useState } from "react";
 import SpotlightCard from "@/components/SpotlightCard";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
 const ExperienceCard = ({
   experience,
@@ -32,10 +34,15 @@ const ExperienceCard = ({
     transform: inView ? "translateY(0px)" : "translateY(30px)",
     config: { tension: 140, friction: 18 },
   });
+  const [viewJRL, setViewJRL] = useState(false);
 
   return (
     <animated.div style={springStyles} ref={ref}>
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <Sheet open={isOpen}
+        onOpenChange={() => {
+          setIsOpen(!isOpen)
+          viewJRL && setViewJRL(false)
+        }}>
         <SheetTrigger asChild>
           <div className="cursor-pointer group">
             <VerticalTimelineElement
@@ -59,6 +66,8 @@ const ExperienceCard = ({
                   <Image
                     src={experience.icon}
                     alt={experience.company_name}
+                    height={24}
+                    width={24}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
@@ -83,7 +92,7 @@ const ExperienceCard = ({
         </SheetTrigger>
 
         {/* Sidebar Panel matching the deep theme aesthetics */}
-        <SheetContent className="bg-slate-950/95 border-l border-violet-500/10 backdrop-blur-md text-slate-100 flex flex-col gap-6 w-full sm:max-w-md">
+        <SheetContent className={`bg-slate-950/95 border-l border-violet-500/10 backdrop-blur-md text-slate-100 flex flex-col gap-6 w-full sm:max-w-md`}>
           <SheetHeader className="text-left space-y-4">
             <div className="w-20 h-20 rounded-2xl bg-slate-900 border border-violet-500/20 p-3 flex items-center justify-center shadow-lg">
               <Image
@@ -107,8 +116,43 @@ const ExperienceCard = ({
           <div className="flex-1 overflow-y-auto pr-2 text-slate-300 font-light text-sm leading-relaxed tracking-wide">
             {experience.points}
           </div>
+
+          {/* Action Button Container */}
+          {experience.jrl && (
+            <div className="w-full py-4 flex items-center justify-center pointer-events-auto mt-6">
+              <Button
+                size="lg"
+                onClick={() => setViewJRL(true)}
+                className="bg-white text-slate-950 hover:bg-slate-100 font-medium tracking-wide rounded-full px-8 shadow-lg shadow-black/10 transition-transform duration-200 active:scale-95"
+              >
+                View JRL
+              </Button>
+            </div>
+          )}
+          {viewJRL && (
+            <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-lg flex items-center justify-center p-6 z-50 animate-in fade-in duration-300">
+              <div className="relative w-full max-w-4xl h-[85vh] bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">
+                <div className="w-full h-12 bg-slate-950/80 border-b border-white/5 flex items-center justify-between px-4">
+                  <span className="text-xs uppercase tracking-widest text-slate-400 font-medium">Job Reference Letter</span>
+                  <button
+                    onClick={() => setViewJRL(false)}
+                    className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-200"
+                    aria-label="Close modal"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+                <iframe
+                  src={experience.jrl}
+                  className="w-full flex-1 border-none"
+                  title="Zulker CV"
+                />
+              </div>
+            </div>
+          )}
         </SheetContent>
       </Sheet>
+
     </animated.div>
   );
 };

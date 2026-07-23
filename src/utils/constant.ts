@@ -24,21 +24,24 @@ const experiences: experienceType = [
     company_name: "Quadque Technologies Ltd.",
     icon: Images.Quadque,
     iconBg: "#fff",
-    date: "Sep 2023 - Aug 2024",
+    date: "Dec 2023 - Jul 2024",
     points: [
       "During my time here, I was affiliated with two projects. A CRM software was already under development where I helped to update and add further features. But I am mostly proud of the Email Marketing application where I implemented all my knowledge that I accumulated this far into the journey of my career. Currently, more than 20 companies are using this application.",
     ],
+    jrl: "/JRL-Quadque.pdf",
   },
 
   {
     title: "Business Analyst",
-    company_name: "Inside Maps",
-    icon: Images.Insidemaps,
+    company_name: "Vcube",
+    icon: Images.Vcube,
     iconBg: "#fff",
     date: "Sep 2021 – Nov 2023",
     points: [
-      "As a Business Analyst at InsideMaps, I worked with a remote team to audit and resolve project issues, boosting completion rates and reducing customer complaints. I assigned projects based on team members' skills and created detailed analytics on Google Spreadsheets for US states, which improved project accuracy and reduced delays. I also strategically scheduled rework projects based on date, error rate, and completeness, contributing to the company's success.",
+      "As a Business Analyst at Vcube, I worked with a remote team to audit and resolve project issues, boosting completion rates and reducing customer complaints. I assigned projects based on team members' skills and created detailed analytics on Google Spreadsheets for US states, which improved project accuracy and reduced delays. I also strategically scheduled rework projects based on date, error rate, and completeness, contributing to the company's success.",
     ],
+
+    jrl: "/JRL-Vcube.pdf",
   },
 
   {
@@ -123,7 +126,7 @@ const research: researchType = [
     type: "Book Chapter",
     status: "Published",
     book: "Artificial Intelligence in e-Health Framework V1",
-    link: "https://www.sciencedirect.com/science/article/abs/pii/B9780443138164000164",
+    link: "https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780443138164000164",
   },
 ];
 const testimonials: testimonialType = [

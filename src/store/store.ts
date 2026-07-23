@@ -16,6 +16,7 @@ export const aboutStore = create<aboutType>((set) => ({
   setOpenAboutSlider: () =>
     set((state) => ({ openAboutSlider: !state.openAboutSlider })),
 }));
+
 export const sidebarStore = create<sidebarType>((set) => ({
   openSidebar: false,
   setOpenSidebar: () => set((state) => ({ openSidebar: !state.openSidebar })),

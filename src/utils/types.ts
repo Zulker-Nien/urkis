@@ -22,6 +22,7 @@ export type experienceType = {
   iconBg: string;
   date: string;
   points: string[];
+  jrl?: string;
 }[];
 export type educationType = {
   title: string;

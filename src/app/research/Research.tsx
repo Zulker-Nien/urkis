@@ -79,7 +79,7 @@ const Research = () => {
 
                     <div className="flex items-center justify-end w-full pt-1">
                       {pub.link && (
-                        <Link href={`${pub.link}`} passHref target="_blank">
+                        <Link href={`${pub.link}`} passHref target="_blank" rel="noopener noreferrer">
                           <Button size="sm" className="bg-slate-100 text-slate-950 hover:bg-white font-medium tracking-wide rounded-xl px-4 flex items-center gap-1.5 shadow-md">
                             <span>View</span>
                             <ExternalLink className="w-3.5 h-3.5" />

@@ -5,6 +5,7 @@ import { experiences } from "../../utils/constant";
 import ExperienceCard from "./ExperienceCard";
 
 const Experience = () => {
+  
   return (
     // Transitioning from the previous violet section into a rich, dark slate-violet hybrid background
     <div className="min-h-screen bg-gradient-to-b from-violet-900 via-slate-950 to-purple-950 relative pb-16 px-0 antialiased">
