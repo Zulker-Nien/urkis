@@ -57,14 +57,14 @@ const About = () => {
         {/* Main Logo / Title Animation Section */}
         <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
           <div
-            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-x-[13vh] md:-translate-x-0 -translate-y-[18vh] md:-translate-y-[28vh] scale-80 " : "translate-y-[13.5vh] md:translate-y-0 -translate-x-[17vh] md:-translate-x-0"
+            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-x-[13vh] md:-translate-x-0 -translate-y-[24vh] md:-translate-y-[28vh] scale-80 " : "translate-y-[13.5vh] md:translate-y-0 -translate-x-[17vh] md:-translate-x-0"
               } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
             Zulker <span className="text-violet-300/60 font-thin">{`{`}</span>
           </div>
           <Image
             className={`duration-500 ease-out ${openAboutSlider
-              ? "lg:w-1/6 w-1/3 -translate-y-[28vh] opacity-40 mix-blend-plus-lighter"
+              ? "lg:w-1/6 w-1/3 -translate-y-[34vh] md:-translate-y-[28vh] opacity-40 mix-blend-plus-lighter"
               : "lg:w-1/4 w-1/2 translate-y-0"
               }`}
             src={Images.Logo}
@@ -73,7 +73,7 @@ const About = () => {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           />
           <div
-            className={`duration-500 transform ${openAboutSlider ? "translate-x-[12vh] md:-translate-x-0 -translate-y-[38.5vh] md:-translate-y-[28vh] scale-90 " : "-translate-y-[15vh] md:translate-y-0 translate-x-[16vh] md:-translate-x-0"
+            className={`duration-500 transform ${openAboutSlider ? "translate-x-[12vh] md:-translate-x-0 -translate-y-[45vh] md:-translate-y-[28vh] scale-90 " : "-translate-y-[15vh] md:translate-y-0 translate-x-[16vh] md:-translate-x-0"
               } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
             <span className="text-violet-300/60 font-thin">{`}`}</span> Nien
