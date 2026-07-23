@@ -46,7 +46,7 @@ const About = () => {
   }, [openAboutSlider, setOpenAboutSlider]);
 
   return (
-    <div className="h-[200vh] relative flex flex-col antialiased">
+    <div className="h-[300vh] relative flex flex-col antialiased">
       {/* 
         CRITICAL FIX: Background matches the exact premium palette depth of later sections. 
         Flows perfectly from a crisp slate header, through an immersive amethyst midpoint, into the violet-900 base.
@@ -57,7 +57,7 @@ const About = () => {
         {/* Main Logo / Title Animation Section */}
         <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
           <div
-            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-y-[28vh] scale-90 " : "translate-y-0"
+            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-x-[13vh] md:-translate-x-0 -translate-y-[18vh] md:-translate-y-[28vh] scale-80 " : "translate-y-[13.5vh] md:translate-y-0 -translate-x-[17vh] md:-translate-x-0"
               } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
             Zulker <span className="text-violet-300/60 font-thin">{`{`}</span>
@@ -73,7 +73,7 @@ const About = () => {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           />
           <div
-            className={`duration-500 transform ${openAboutSlider ? "-translate-y-[28vh] scale-90 " : "translate-y-0 "
+            className={`duration-500 transform ${openAboutSlider ? "translate-x-[12vh] md:-translate-x-0 -translate-y-[38.5vh] md:-translate-y-[28vh] scale-90 " : "-translate-y-[15vh] md:translate-y-0 translate-x-[16vh] md:-translate-x-0"
               } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
             <span className="text-violet-300/60 font-thin">{`}`}</span> Nien

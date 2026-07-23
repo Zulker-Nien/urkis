@@ -38,31 +38,32 @@ const ProjectCard = ({
       className="group relative w-full rounded-2xl flex items-center justify-start overflow-hidden p-5 gap-6 bg-slate-900/50 hover:bg-slate-900/80 border border-white/5 hover:border-blue-500/30 transition-all duration-300 shadow-xl shadow-black/20"
     >
       {/* Project Thumbnail Image Container */}
-      <div className="relative aspect-square w-24 h-24 lg:w-28 lg:h-28 rounded-xl bg-slate-950/60 border border-white/5 overflow-hidden flex-shrink-0 flex items-center justify-center">
+      <div className="relative aspect-square w-24 h-24 lg:w-28 lg:h-28 rounded-xl bg-white border border-white/5 overflow-hidden flex-shrink-0 flex items-center justify-center">
         <Image
           src={image || Images.Logo}
-          fill
+          width={112}
+          height={112}
           alt={`${name} preview`}
-          className="object-cover p-2 transition-transform duration-500 group-hover:scale-110"
+          className="object-cover p-2 w-full transition-transform duration-500 group-hover:scale-110"
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
         />
       </div>
 
       {/* Details Area */}
-      <div className="flex-1 flex flex-col justify-center pr-10">
+      <div className="flex-1 flex flex-col justify-between h-full pr-10">
         <h3 className="text-slate-100 font-medium text-lg tracking-wide group-hover:text-blue-400 transition-colors">
           {name}
         </h3>
 
         {/* Sleek lowercase/minimal tags instead of heavy colors */}
         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
-          {tags.map((tag: tagType) => (
+          {tags.map((tag: tagType, index: number) => (
             <span
               key={`${name}-${tag.name}`}
-              className="text-xs font-mono font-medium text-blue-400/80"
+              className="text-xs font-mono font-medium text-white/70"
             >
-              #{tag.name.toLowerCase()}
+              {tag.name.toLowerCase()} {index < tags.length - 1 && "|"}
             </span>
           ))}
         </div>
