@@ -81,13 +81,8 @@ const Contact = () => {
   };
 
   return (
-    /* 
-      FIX: Background flows seamlessly out of your deep slate/zinc review floor 
-      into an absolute dark, premium footer canvas.
-    */
     <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-slate-950 to-black relative w-screen pb-24 px-0 antialiased overflow-hidden">
 
-      {/* Sticky Header with matching backdrop blur architecture */}
       <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-transparent backdrop-blur-sm pt-8 pb-12 text-center">
         <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
           <Mail className="w-7 h-7 text-amber-400 font-thin opacity-80" />
@@ -100,12 +95,11 @@ const Contact = () => {
 
       <div className="w-full max-w-6xl mx-auto flex lg:flex-row flex-col items-stretch justify-center lg:px-12 gap-8 px-6 mt-8">
 
-        {/* Left Column: Profile Card and Buttons */}
         <div className="lg:w-1/2 w-full flex flex-col gap-4 bg-slate-900/30 border border-white/5 p-6 rounded-2xl backdrop-blur-md justify-between">
           <div className="space-y-6">
             <div className="flex items-center justify-center py-6 bg-slate-950/40 rounded-xl border border-white/5 shadow-inner">
               <Image
-                src={Images.Logo} // Switched to match your main bright logo theme instead of dark variant
+                src={Images.Logo}
                 alt="Logo"
                 width={220}
                 height={60}
@@ -148,7 +142,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Right Column: Clean Dark Glass Form */}
         <div className="lg:w-1/2 w-full flex flex-col bg-slate-900/40 border border-white/5 p-6 rounded-2xl backdrop-blur-md shadow-2xl shadow-black/40">
           <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col h-full justify-between gap-6">
             <div className="space-y-5">

@@ -6,14 +6,8 @@ import { MessageSquareQuote } from "lucide-react";
 
 const TestimonialGrid = () => {
   return (
-    /* 
-      REFACTORED BACKGROUND: 
-      Starts at the exact solid slate-950 floor where the research section leaves off.
-      No sudden color breaks, transitioning smoothly into a crisp, deep zinc backdrop.
-    */
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-zinc-950 relative pb-24 px-0 antialiased overflow-hidden">
 
-      {/* Sticky Header with matching backdrop blur architecture */}
       <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-slate-950 via-slate-950/90 to-transparent backdrop-blur-sm pt-8 pb-12 text-center">
         <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
           <MessageSquareQuote className="w-7 h-7 text-cyan-400 font-thin opacity-80" />
@@ -24,7 +18,6 @@ const TestimonialGrid = () => {
         </p>
       </div>
 
-      {/* Grid Content */}
       <div className="w-full max-w-6xl mx-auto px-6 lg:px-12 mt-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => {

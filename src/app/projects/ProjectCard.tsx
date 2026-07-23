@@ -37,7 +37,6 @@ const ProjectCard = ({
       style={projectCardStyles}
       className="group relative w-full rounded-2xl flex items-center justify-start overflow-hidden p-5 gap-6 bg-slate-900/50 hover:bg-slate-900/80 border border-white/5 hover:border-blue-500/30 transition-all duration-300 shadow-xl shadow-black/20"
     >
-      {/* Project Thumbnail Image Container */}
       <div className="relative aspect-square w-24 h-24 lg:w-28 lg:h-28 rounded-xl bg-white border border-white/5 overflow-hidden flex-shrink-0 flex items-center justify-center">
         <Image
           src={image || Images.Logo}
@@ -50,13 +49,11 @@ const ProjectCard = ({
         />
       </div>
 
-      {/* Details Area */}
       <div className="flex-1 flex flex-col justify-between h-full pr-10">
         <h3 className="text-slate-100 font-medium text-lg tracking-wide group-hover:text-blue-400 transition-colors">
           {name}
         </h3>
 
-        {/* Sleek lowercase/minimal tags instead of heavy colors */}
         <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
           {tags.map((tag: tagType, index: number) => (
             <span
@@ -69,7 +66,6 @@ const ProjectCard = ({
         </div>
       </div>
 
-      {/* Floating Modern Actions Panel Container */}
       <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
         {source_code_link && (
           <button

@@ -45,10 +45,6 @@ const Projects = () => {
         </p>
       </div>
 
-      {/* <div className="z-30 mb-12">
-        {isLargeScreen ? <Techstack /> : <TechstackMobile />}
-      </div> */}
-
       <div className="w-full flex-1 flex items-start justify-center z-20 max-w-7xl mx-auto px-4 lg:px-12">
         <div
           className={`w-full transition-all duration-500 ${filteredProjects.length > 0

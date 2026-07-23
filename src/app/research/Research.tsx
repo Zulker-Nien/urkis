@@ -9,11 +9,9 @@ import Link from "next/link";
 
 const Research = () => {
   return (
-    // REFACTORED BACKGROUND: Shifts seamlessly from dark blue to an ultra-clean charcoal slate canvas
     <div className="min-h-screen bg-gradient-to-b from-blue-950 via-slate-950 to-slate-950 px-0 pb-24 antialiased overflow-hidden">
       <div className="w-full flex flex-col gap-24">
 
-        {/* Education Subsection */}
         <div className="w-full flex flex-col relative max-w-6xl mx-auto px-4">
           <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-blue-950 via-blue-950/90 to-transparent backdrop-blur-sm pt-8 pb-12 text-center">
             <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
@@ -23,7 +21,6 @@ const Research = () => {
           </div>
 
           <div className="mt-4">
-            {/* Timeline line updated from amber to a subtle crisp slate border */}
             <VerticalTimeline lineColor="rgba(148, 163, 184, 0.15)" className="flex flex-col gap-6">
               {education.map((edu, index) => (
                 <EducationTimeline
@@ -36,7 +33,6 @@ const Research = () => {
           </div>
         </div>
 
-        {/* Publications Subsection */}
         <div className="w-full flex flex-col relative max-w-7xl mx-auto px-4 lg:px-12">
           <div className="text-center space-y-3 mb-12">
             <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
@@ -51,7 +47,6 @@ const Research = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
             {research.map((pub, index) => (
               <div className="w-full group" key={index}>
-                {/* Modern Notebook / Glassmorphic Card Mix — Border accent swapped to cool slate/sky */}
                 <div className="w-full h-[45vh] min-h-[360px] flex flex-col bg-slate-900/50 hover:bg-slate-900/80 border border-white/5 hover:border-sky-500/30 shadow-xl shadow-black/20 rounded-2xl p-5 transition-all duration-300 relative overflow-hidden">
 
                   <div className="flex-1 rounded-xl bg-slate-950/40 border border-white/5 p-4 overflow-y-auto mb-4 relative bg-[linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[length:100%_20px]">
@@ -61,7 +56,6 @@ const Research = () => {
                     </h3>
                   </div>
 
-                  {/* Metadata and Actions Section */}
                   <div className="space-y-3 pt-1 text-xs">
                     <div className="flex justify-between items-center text-slate-400">
                       <span>Type: <strong className="text-slate-300 font-normal">{pub.type}</strong></span>

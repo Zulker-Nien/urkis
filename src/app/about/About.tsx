@@ -8,7 +8,7 @@ import { useSpring, a as web } from "@react-spring/web";
 import { Button } from "@/components/ui/button";
 import { Label } from "@radix-ui/react-label";
 import { coreSkills } from "@/utils/constant";
-import { ChevronDown, X } from "lucide-react"; // Imported for sleeker UI icons
+import { ChevronDown, X } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -47,14 +47,9 @@ const About = () => {
 
   return (
     <div className="h-[300vh] relative flex flex-col antialiased">
-      {/* 
-        CRITICAL FIX: Background matches the exact premium palette depth of later sections. 
-        Flows perfectly from a crisp slate header, through an immersive amethyst midpoint, into the violet-900 base.
-      */}
       <div
         className={`duration-500 bg-gradient-to-b from-slate-950 via-violet-950 to-violet-900 h-screen w-screen flex flex-col items-center justify-center sticky top-0 overflow-hidden lg:pr-0 pr-2`}
       >
-        {/* Main Logo / Title Animation Section */}
         <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
           <div
             className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-x-[13vh] md:-translate-x-0 -translate-y-[24vh] md:-translate-y-[28vh] scale-80 " : "translate-y-[13.5vh] md:translate-y-0 -translate-x-[17vh] md:-translate-x-0"
@@ -80,7 +75,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         {!openAboutSlider && (
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-300/80 text-sm tracking-widest uppercase transition-opacity duration-300">
             <span className="text-xs font-medium">Scroll</span>
@@ -88,7 +82,6 @@ const About = () => {
           </div>
         )}
 
-        {/* Content Slider */}
         <web.div
           style={{
             opacity: aboutTextStyle.open.to([0, 1], [0, 1]),
@@ -110,7 +103,6 @@ const About = () => {
                 Core Stack & Expertise
               </h2>
 
-              {/* Modern Glassmorphism Card */}
               <div className="w-full bg-slate-950/40 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl shadow-purple-950/20">
                 <div className="grid grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center items-center">
                   <TooltipProvider>
@@ -138,7 +130,6 @@ const About = () => {
             </div>
           )}
 
-          {/* Action Button Container */}
           {openAboutSlider && (
             <div className="w-full py-4 flex items-center justify-center pointer-events-auto mt-6">
               <Button
@@ -152,7 +143,6 @@ const About = () => {
           )}
         </web.div>
 
-        {/* Clean CV Lightbox Overlay */}
         {viewCV && (
           <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-lg flex items-center justify-center p-6 z-50 animate-in fade-in duration-300">
             <div className="relative w-full max-w-4xl h-[85vh] bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">

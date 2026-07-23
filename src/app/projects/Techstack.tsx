@@ -31,7 +31,7 @@ const Techstack = () => {
       opacity: inView ? 1 : 0,
       transform: inView ? "translateY(0px)" : "translateY(15px)",
       config: { tension: 150, friction: 16 },
-      delay: index * 40, // Crisper sequential animation cascade
+      delay: index * 40,
     }))
   );
 

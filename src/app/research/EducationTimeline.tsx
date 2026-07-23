@@ -53,7 +53,6 @@ const EducationTimeline = ({
           </div>
         }
       >
-        {/* Sleek High Contrast Education Glass Card */}
         <SpotlightCard
           className="custom-spotlight-card h-full bg-slate-900/85 border border-amber-500/20 backdrop-blur-md p-5 rounded-2xl shadow-xl shadow-black/40 transition-all duration-300 hover:border-amber-400/40"
           spotlightColor="rgba(245, 158, 11, 0.15)"
