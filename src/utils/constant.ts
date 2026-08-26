@@ -246,63 +246,59 @@ const projects: projectItem = [
       "https://www.feelthecelestial.com/NavLogo.svg",
     website: "https://feelthecelestial.com/",
   },
-  {
-    name: "Tecbix",
-    description:
-      "The beauty of three.js can be seen here. I have multiple implementations in mind. Currently learning 3d modelling on top of my UI/UX and graphics designing certification.",
-    tags: [
-      {
-        name: "reactjs",
-        color: "yellow-500",
-      },
-      {
-        name: "threejs",
-        color: "orange-500",
-      },
-      {
-        name: "typescript",
-        color: "blue-500",
-      },
-      {
-        name: "MobX",
-        color: "blue-500",
-      },
-    ],
-    image:
-      "https://github.com/Zulker-Nien/tecbix/blob/master/public/2.png?raw=true",
-    source_code_link: "https://github.com/Zulker-Nien/tecbix",
-    website: "https://tecbix-sandy.vercel.app/",
-  },
-  {
-    name: "Shawn Novel and Associates",
-    description:
-      "The beauty of three.js can be seen here. I have multiple implementations in mind. Currently learning 3d modelling on top of my UI/UX and graphics designing certification.",
-    tags: [
-      {
-        name: "reactjs",
-        color: "yellow-500",
-      },
-      {
-        name: "javascript",
-        color: "orange-500",
-      },
-      {
-        name: "MobX",
-        color: "blue-500",
-      },
-      {
-        name: "django",
-        color: "blue-500",
-      },
-    ],
-    image:
-      "https://scontent.fdac24-1.fna.fbcdn.net/v/t39.30808-6/301972539_606850620878364_8423124551965945664_n.jpg?stp=dst-jpg_tt6&cstp=mx900x900&ctp=s900x900&_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rzhe51gSLmsQ7kNvwEO6YWO&_nc_oc=AdqGrXHtFG8qMmFp90KgVWy7RRMKdqBGxhmv0n9kYtgx18b_EvlwQUGrqHl9MYTHX68&_nc_zt=23&_nc_ht=scontent.fdac24-1.fna&_nc_gid=JpvBpHV45vYuOWeIT6ZYaw&_nc_ss=7b2a8&oh=00_AQBqS1gSXq3S2dAIhRJga15Z0MQn187g9rhFMycLYClCaQ&oe=6A67D662",
-    website: "https://www.shawnnovel.com/",
-  },
-  
-  
- 
-  
+  // {
+  //   name: "Tecbix",
+  //   description:
+  //     "The beauty of three.js can be seen here. I have multiple implementations in mind. Currently learning 3d modelling on top of my UI/UX and graphics designing certification.",
+  //   tags: [
+  //     {
+  //       name: "reactjs",
+  //       color: "yellow-500",
+  //     },
+  //     {
+  //       name: "threejs",
+  //       color: "orange-500",
+  //     },
+  //     {
+  //       name: "typescript",
+  //       color: "blue-500",
+  //     },
+  //     {
+  //       name: "MobX",
+  //       color: "blue-500",
+  //     },
+  //   ],
+  //   image:
+  //     "https://github.com/Zulker-Nien/tecbix/blob/master/public/2.png?raw=true",
+  //   source_code_link: "https://github.com/Zulker-Nien/tecbix",
+  //   website: "https://tecbix-sandy.vercel.app/",
+  // },
+  // {
+  //   name: "Shawn Novel and Associates",
+  //   description:
+  //     "The beauty of three.js can be seen here. I have multiple implementations in mind. Currently learning 3d modelling on top of my UI/UX and graphics designing certification.",
+  //   tags: [
+  //     {
+  //       name: "reactjs",
+  //       color: "yellow-500",
+  //     },
+  //     {
+  //       name: "javascript",
+  //       color: "orange-500",
+  //     },
+  //     {
+  //       name: "MobX",
+  //       color: "blue-500",
+  //     },
+  //     {
+  //       name: "django",
+  //       color: "blue-500",
+  //     },
+  //   ],
+  //   image:
+  //     "https://scontent.fdac24-1.fna.fbcdn.net/v/t39.30808-6/301972539_606850620878364_8423124551965945664_n.jpg?stp=dst-jpg_tt6&cstp=mx900x900&ctp=s900x900&_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rzhe51gSLmsQ7kNvwEO6YWO&_nc_oc=AdqGrXHtFG8qMmFp90KgVWy7RRMKdqBGxhmv0n9kYtgx18b_EvlwQUGrqHl9MYTHX68&_nc_zt=23&_nc_ht=scontent.fdac24-1.fna&_nc_gid=JpvBpHV45vYuOWeIT6ZYaw&_nc_ss=7b2a8&oh=00_AQBqS1gSXq3S2dAIhRJga15Z0MQn187g9rhFMycLYClCaQ&oe=6A67D662",
+  //   website: "https://www.shawnnovel.com/",
+  // },
 ];
 const coreSkills: coreSkillsType = [
   {
