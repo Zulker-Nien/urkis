@@ -6,11 +6,28 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Github, Linkedin, ExternalLink } from "lucide-react";
-import Image from "next/image";
-import Images from "@/utils/image";
-import SectionHeading from "@/components/SectionHeading";
+import { Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import Fade from "@/components/Fade";
+import SectionIntro from "@/components/SectionIntro";
+
+const socials = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/zulker-nien/",
+    icon: Linkedin,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Zulker-Nien",
+    icon: Github,
+  },
+  {
+    label: "Upwork",
+    href: "https://www.upwork.com/freelancers/~0130cad0881a233037",
+    icon: ArrowUpRight,
+  },
+];
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -82,71 +99,61 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 relative w-screen pb-24 px-0 antialiased overflow-hidden">
+    <section id="contact" className="relative bg-zinc-950 overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.06),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
 
-      <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-transparent backdrop-blur-sm pt-8 pb-12">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.07),transparent_70%)]" />
-        <SectionHeading
-          index="06"
-          title="Connect With Me"
-          description="Let's build something premium. Drop a line below or reach out over official channels."
+      <div className="relative max-w-6xl mx-auto px-6 pt-24 lg:pt-32">
+        <SectionIntro
+          index="07 — Contact"
+          title="Let&apos;s build something."
         />
-      </div>
 
-      <div className="w-full max-w-6xl mx-auto flex lg:flex-row flex-col items-stretch justify-center lg:px-12 gap-8 px-6 mt-8">
+        <Fade className="mt-12 lg:mt-16">
+          <a
+            href="mailto:zulkerb9b@gmail.com"
+            className="block text-2xl sm:text-4xl lg:text-6xl font-extralight tracking-tight text-slate-100 hover:text-amber-400 transition-colors duration-300 break-all"
+          >
+            zulkerb9b@gmail.com
+          </a>
+          <p className="mt-3 font-mono text-sm text-zinc-500 tracking-wider">
+            +880 1717 755 244
+          </p>
+        </Fade>
 
-        <div className="lg:w-1/2 w-full flex flex-col gap-4 bg-black/40 border border-amber-400/10 p-6 rounded-2xl backdrop-blur-md justify-between">
-          <div className="space-y-6">
-            <div className="flex items-center justify-center py-6 bg-black/40 rounded-xl border border-white/5 shadow-inner">
-              <Image
-                src={Images.Logo}
-                alt="Logo"
-                width={220}
-                height={60}
-                className="opacity-90 object-contain"
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
-              />
+        <div className="grid gap-12 mt-14 lg:mt-20 lg:grid-cols-2 lg:gap-16">
+          <Fade>
+            <div>
+              {socials.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group border-t border-white/10 py-6 lg:py-7 flex items-center justify-between transition-colors duration-300 hover:bg-white/[0.02]"
+                >
+                  <span className="flex items-center gap-4 text-slate-200 font-light tracking-wide text-lg group-hover:text-amber-400 transition-colors duration-300">
+                    <social.icon className="w-5 h-5 text-amber-400" />
+                    {social.label}
+                  </span>
+                  <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                </Link>
+              ))}
+              <div className="border-t border-b border-white/10" />
             </div>
+          </Fade>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="flex items-center gap-3 bg-black/40 border border-white/5 p-3 rounded-xl text-xs text-slate-300">
-                <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span className="truncate">zulkerb9b@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-3 bg-black/40 border border-white/5 p-3 rounded-xl text-xs text-slate-300">
-                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>+8801717755244</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2.5 pt-6 lg:pt-0">
-            <Link href="https://www.linkedin.com/in/zulker-nien/" passHref target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button size="lg" variant="outline" className="w-full bg-black/40 border-amber-400/20 text-slate-300 hover:bg-amber-400/10 hover:text-amber-300 hover:border-amber-400/40 flex items-center justify-center gap-2 rounded-xl text-sm">
-                <Linkedin className="w-4 h-4 text-sky-400" /> LinkedIn
-              </Button>
-            </Link>
-
-            <Link href="https://github.com/Zulker-Nien" passHref target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button size="lg" variant="outline" className="w-full bg-black/40 border-amber-400/20 text-slate-300 hover:bg-amber-400/10 hover:text-amber-300 hover:border-amber-400/40 flex items-center justify-center gap-2 rounded-xl text-sm">
-                <Github className="w-4 h-4 text-slate-100" /> Github
-              </Button>
-            </Link>
-
-            <Link href="https://www.upwork.com/freelancers/~0130cad0881a233037" passHref target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button size="lg" className="w-full bg-amber-400 text-black hover:bg-amber-300 font-semibold flex items-center justify-center gap-2 rounded-xl text-sm shadow-lg shadow-amber-950/40">
-                Upwork <ExternalLink className="w-3.5 h-3.5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="lg:w-1/2 w-full flex flex-col bg-black/40 border border-amber-400/10 p-6 rounded-2xl backdrop-blur-md shadow-2xl shadow-black/60">
-          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col h-full justify-between gap-6">
-            <div className="space-y-5">
+          <Fade>
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-6"
+            >
               <div className="flex flex-col gap-2">
-                <Label htmlFor="name" className="text-xs uppercase tracking-widest text-slate-400 font-medium">
+                <Label
+                  htmlFor="name"
+                  className="text-xs uppercase tracking-widest text-zinc-500 font-medium font-mono"
+                >
                   Your Name
                 </Label>
                 <Input
@@ -157,12 +164,15 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What's your good name?"
                   required
-                  className="bg-black/60 border-white/10 focus-visible:border-amber-400/70 text-slate-100 h-11 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
+                  className="bg-black/40 border-white/10 focus-visible:border-amber-400/70 text-slate-100 h-12 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label htmlFor="email" className="text-xs uppercase tracking-widest text-slate-400 font-medium">
+                <Label
+                  htmlFor="email"
+                  className="text-xs uppercase tracking-widest text-zinc-500 font-medium font-mono"
+                >
                   Your Email
                 </Label>
                 <Input
@@ -173,12 +183,15 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What's your email address?"
                   required
-                  className="bg-black/60 border-white/10 focus-visible:border-amber-400/70 text-slate-100 h-11 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
+                  className="bg-black/40 border-white/10 focus-visible:border-amber-400/70 text-slate-100 h-12 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <Label htmlFor="message" className="text-xs uppercase tracking-widest text-slate-400 font-medium">
+                <Label
+                  htmlFor="message"
+                  className="text-xs uppercase tracking-widest text-zinc-500 font-medium font-mono"
+                >
                   Your Message
                 </Label>
                 <Textarea
@@ -188,23 +201,35 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What would you like to say?"
                   required
-                  className="min-h-[160px] bg-black/60 border-white/10 focus-visible:border-amber-400/70 text-slate-100 p-4 rounded-xl placeholder:text-zinc-600 transition-colors resize-none"
+                  className="min-h-[160px] bg-black/40 border-white/10 focus-visible:border-amber-400/70 text-slate-100 p-4 rounded-xl placeholder:text-zinc-600 transition-colors resize-none"
                 />
               </div>
-            </div>
 
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full h-11 bg-amber-400 text-black hover:bg-amber-300 font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 tracking-wide mt-2 shadow-lg shadow-amber-950/40"
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full h-12 bg-amber-400 text-black hover:bg-amber-300 font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 tracking-wide shadow-lg shadow-amber-950/40"
+              >
+                {loading ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          </Fade>
         </div>
-
       </div>
-    </div>
+
+      <Fade>
+        <div className="relative border-t border-white/10 mt-20">
+          <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span className="font-mono text-xs uppercase tracking-[0.4em] text-zinc-600">
+              Zulker Nien — est. 2020
+            </span>
+            <span className="font-mono text-xs uppercase tracking-[0.4em] text-amber-400/70">
+              Built on the web&apos;s edge ✦
+            </span>
+          </div>
+        </div>
+      </Fade>
+    </section>
   );
 };
 

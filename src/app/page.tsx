@@ -15,9 +15,9 @@ export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
 
   return (
-    <div className="snap-mandatory overflow-x-hidden overflow-y-scroll scroll-smooth h-screen w-screen">
+    <div className="h-screen w-screen overflow-x-hidden overflow-y-scroll scroll-smooth">
       <Toaster />
-      <div className=" snap-start h-screen">
+      <div className="h-screen">
         <LaptopModelContainer />
       </div>
       {openLaptop && (

@@ -1,171 +1,132 @@
 "use client";
-import { useEffect, useState } from "react";
-import { aboutStore } from "@/store/store";
-import Images from "@/utils/image";
-import { aboutType } from "@/utils/types";
+import { useState } from "react";
 import Image from "next/image";
-import { useSpring, a as web } from "@react-spring/web";
-import { Button } from "@/components/ui/button";
-import { Label } from "@radix-ui/react-label";
+import Images from "@/utils/image";
 import { coreSkills } from "@/utils/constant";
-import { ChevronDown, X } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
+import Fade from "@/components/Fade";
+
+const stats = [
+  { value: "6+", label: "Years of craft" },
+  { value: "20+", label: "Companies served" },
+  { value: "5.0", label: "Average rating" },
+  { value: "3", label: "Publications" },
+];
 
 const About = () => {
-  const openAboutSlider = aboutStore(
-    (state: aboutType) => state.openAboutSlider
-  );
-  const setOpenAboutSlider = aboutStore(
-    (state: aboutType) => state.setOpenAboutSlider
-  );
-  const aboutTextStyle = useSpring({ open: Number(openAboutSlider) });
   const [viewCV, setViewCV] = useState(false);
 
-  useEffect(() => {
-    const scrollContainer = document.querySelector(".snap-mandatory");
-
-    const handleScroll = () => {
-      const scrollY = scrollContainer?.scrollTop || 0;
-
-      if (scrollY > 1600 && !openAboutSlider) {
-        setOpenAboutSlider(true);
-      } else if (scrollY <= 1600 && openAboutSlider) {
-        setOpenAboutSlider(false);
-      }
-    };
-    scrollContainer?.addEventListener("scroll", handleScroll);
-
-    return () => {
-      scrollContainer?.removeEventListener("scroll", handleScroll);
-    };
-  }, [openAboutSlider, setOpenAboutSlider]);
-
   return (
-    <div className="h-[300vh] relative flex flex-col antialiased">
-      <div
-        className={`duration-500 bg-gradient-to-b from-[#1a1303] via-[#0d0c08] to-black h-screen w-screen flex flex-col items-center justify-center sticky top-0 overflow-hidden lg:pr-0 pr-2`}
-      >
-        <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
-          <div
-            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-y-[26vh] md:-translate-y-[28vh] scale-80" : "-translate-x-[10vw] md:-translate-x-0"
-              } lg:text-5xl text-3xl sm:text-4xl font-extralight text-slate-100`}
-          >
-            Zulker <span className="text-amber-400/60 font-thin">{`{`}</span>
+    <section id="about" className="relative bg-zinc-950 overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.10),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
+
+      <div className="relative max-w-6xl mx-auto px-6 pt-24 pb-16 lg:pt-36 lg:pb-20 flex flex-col gap-12 lg:gap-16">
+        <Fade>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-amber-400/60" />
+            <span className="font-mono text-xs uppercase tracking-[0.4em] text-amber-400">
+              {`/// 01 — About`}
+            </span>
           </div>
-          <Image
-            className={`duration-500 ease-out ${openAboutSlider
-              ? "lg:w-1/6 w-1/3 -translate-y-[34vh] md:-translate-y-[28vh] opacity-40 mix-blend-plus-lighter"
-              : "lg:w-1/4 w-1/2 translate-y-0"
-              }`}
-            src={Images.Logo}
-            alt="Logo"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
-          />
-          <div
-            className={`duration-500 transform ${openAboutSlider ? "-translate-y-[42vh] md:-translate-y-[28vh] scale-90" : "translate-x-[10vw] md:translate-x-0"
-              } lg:text-5xl text-3xl sm:text-4xl font-extralight text-slate-100`}
-          >
-            <span className="text-amber-400/60 font-thin">{`}`}</span> Nien
-          </div>
-        </div>
+        </Fade>
 
-        {!openAboutSlider && (
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-amber-200/70 text-sm tracking-widest uppercase transition-opacity duration-300">
-            <span className="text-xs font-medium">Scroll</span>
-            <ChevronDown className="w-4 h-4 animate-bounce text-amber-400" />
-          </div>
-        )}
+        <Fade>
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-extralight tracking-tight text-slate-100 leading-[1.05] max-w-4xl">
+            Design-minded engineer building{" "}
+            <span className="text-amber-400">on the web&apos;s edge.</span>
+          </h2>
+        </Fade>
 
-        <web.div
-          style={{
-            opacity: aboutTextStyle.open.to([0, 1], [0, 1]),
-            transform: aboutTextStyle.open.to([0, 2], ["translateY(100px)", "translateY(0px)"]),
-          }}
-          className="absolute inset-0 flex flex-col items-center overflow-y-auto px-6 pt-[26vh] md:pt-[30vh] pb-10 pointer-events-none"
-        >
-          {openAboutSlider && (
-            <div className="w-full flex flex-col items-center text-center pointer-events-auto">
-              <p className="max-w-3xl lg:text-lg text-base text-slate-100/90 font-light leading-relaxed tracking-wide">
-                I blend technology, design, and analysis to craft seamless
-                digital experiences. With a Master’s in Software Engineering and
-                experience across startups and industries, I merge technical
-                innovation with user-focused design to build impactful
-                solutions.
-              </p>
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
+          <Fade>
+            <p className="text-slate-300 font-light leading-relaxed text-lg max-w-xl">
+              I blend technology, design, and analysis to craft seamless digital
+              experiences. With a Master&apos;s in Software Engineering and
+              experience across startups and industries, I merge technical
+              innovation with user-focused design to build impactful solutions.
+            </p>
+          </Fade>
 
-              <h2 className="text-xs uppercase tracking-[0.2em] text-amber-400/80 font-semibold mt-10 mb-4">
-                Core Stack & Expertise
-              </h2>
-
-              <div className="w-full max-w-3xl bg-black/40 backdrop-blur-md border border-amber-400/10 p-6 rounded-2xl shadow-2xl shadow-black/60">
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 justify-items-center items-center">
-                  <TooltipProvider>
-                    {coreSkills.map((skill, index) => (
-                      <Tooltip delayDuration={0} key={index}>
-                        <TooltipTrigger className="group w-full flex flex-col items-center justify-center gap-2 transition-all duration-300">
-                          <div className="w-12 h-12 rounded-xl bg-black/60 border border-white/5 flex items-center justify-center text-slate-300 group-hover:text-amber-300 group-hover:bg-amber-400/15 group-hover:border-amber-400/40 group-hover:scale-110 shadow-md transition-all duration-300">
-                            <skill.icon className="w-5 h-5" />
-                          </div>
-                          <Label className="text-xs text-slate-400 font-medium tracking-wide group-hover:text-slate-200 transition-colors pointer-events-none truncate max-w-[80px]">
-                            {skill.name}
-                          </Label>
-                        </TooltipTrigger>
-                        <TooltipContent
-                          side="top"
-                          className="bg-slate-900 border border-slate-800 text-slate-100 px-3 py-1.5 rounded-lg text-xs shadow-xl"
-                        >
-                          {skill.content}
-                        </TooltipContent>
-                      </Tooltip>
-                    ))}
-                  </TooltipProvider>
+          <Fade>
+            <div className="h-px w-full bg-white/5 mb-8 lg:hidden lg:mb-0" />
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="border border-white/5 bg-zinc-900/40 rounded-2xl p-5 transition-colors duration-300 hover:border-amber-400/30"
+                >
+                  <div className="text-3xl font-extralight text-amber-400 tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="mt-1 text-xs uppercase tracking-widest text-slate-400 font-medium">
+                    {stat.label}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          )}
-
-          {openAboutSlider && (
-            <div className="w-full py-4 flex items-center justify-center pointer-events-auto mt-6">
+            <div className="mt-8">
               <Button
                 size="lg"
                 onClick={() => setViewCV(true)}
-                className="bg-amber-400 text-black hover:bg-amber-300 font-semibold tracking-wide rounded-full px-8 shadow-lg shadow-amber-950/40 transition-transform duration-200 active:scale-95"
+                className="bg-amber-400 text-black hover:bg-amber-300 font-semibold tracking-wide rounded-full px-8 shadow-lg shadow-amber-950/40 transition-all duration-300 active:scale-95"
               >
                 View CV
               </Button>
             </div>
-          )}
-        </web.div>
+          </Fade>
+        </div>
+      </div>
 
-        {viewCV && (
-          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-lg flex items-center justify-center p-6 z-50 animate-in fade-in duration-300">
-            <div className="relative w-full max-w-4xl h-[85vh] bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col">
-              <div className="w-full h-12 bg-slate-950/80 border-b border-white/5 flex items-center justify-between px-4">
-                <span className="text-xs uppercase tracking-widest text-slate-400 font-medium">Curriculum Vitae</span>
-                <button
-                  onClick={() => setViewCV(false)}
-                  className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-200"
-                  aria-label="Close modal"
+      <Fade>
+        <div className="relative border-y border-white/5 bg-black/30 py-5 overflow-hidden">
+          <div className="flex overflow-hidden">
+            <div className="marquee-track flex items-center w-max shrink-0">
+              {[...coreSkills, ...coreSkills].map((skill, index) => (
+                <span
+                  key={index}
+                  className="flex items-center gap-8 pr-8 text-slate-300 font-light text-sm tracking-wide uppercase whitespace-nowrap"
                 >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <iframe
-                src="/Zulker_CV.pdf"
-                className="w-full flex-1 border-none"
-                title="Zulker CV"
-              />
+                  {skill.name}
+                  <span className="text-amber-400">✦</span>
+                </span>
+              ))}
             </div>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      </Fade>
+
+      <Image
+        src={Images.Logo}
+        alt="Zulker Nien"
+        className="pointer-events-none absolute bottom-2 right-0 w-48 lg:w-64 opacity-[0.05] mix-blend-luminosity select-none"
+      />
+
+      {viewCV && (
+        <div className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
+          <div className="relative w-full max-w-4xl h-[85vh] bg-zinc-900 rounded-2xl overflow-hidden border border-amber-400/15 shadow-2xl shadow-black/60 flex flex-col">
+            <div className="w-full h-12 bg-black/60 border-b border-white/5 flex items-center justify-between px-5">
+              <span className="text-xs uppercase tracking-widest text-slate-400 font-medium font-mono">
+                Curriculum Vitae
+              </span>
+              <button
+                onClick={() => setViewCV(false)}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <iframe
+              src="/Zulker_CV.pdf"
+              className="w-full flex-1 border-none"
+              title="Zulker CV"
+            />
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 
