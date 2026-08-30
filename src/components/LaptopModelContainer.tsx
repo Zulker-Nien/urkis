@@ -29,20 +29,20 @@ const LaptopModelContainer = () => {
   return (
     <div className="h-screen w-screen overflow-hidden relative">
       <Popover>
-        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-white/5 border border-slate-900 text-slate-900 hover:text-slate-800 backdrop-blur-md transition-all duration-200">
+        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-zinc-900/80 border border-amber-400/40 text-amber-400 hover:text-amber-300 hover:border-amber-400/70 backdrop-blur-md transition-all duration-200">
           <ShieldAlert size={20} className="animate-pulse" />
         </PopoverTrigger>
         <PopoverContent
           side="left"
           align="start"
-          className="bg-slate-950/95 border border-white/10 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-900 shadow-2xl z-40"
+          className="bg-zinc-950/95 border border-amber-400/15 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-200 shadow-2xl z-40"
         >
           <div className="space-y-3 text-sm">
             <h4 className="font-semibold tracking-wide text-amber-400 flex items-center gap-2">
               <Sparkles className="w-4 h-4" /> Visual Experience Advised
             </h4>
             <p className="text-slate-400 font-light leading-relaxed">
-              This digital portfolio utilizes highly energetic contrast, deep black lines, and intentional physics simulations to reflect raw creative momentum.
+              This digital portfolio runs on deep black, electric gold, and intentional physics — a raw, creative momentum.
             </p>
             <p className="text-slate-400 font-light leading-relaxed">
               Interact directly with the 3D model environment to begin navigation.
@@ -53,13 +53,17 @@ const LaptopModelContainer = () => {
         </PopoverContent>
       </Popover>
       {openLaptop ? (
-        <div className="w-full absolute bottom-20 z-20 text-center flex flex-col lg:items-end items-center justify-center lg:px-64 lg:px-0">
+        <div className="w-full absolute bottom-20 z-20 text-center flex flex-col lg:items-end items-center justify-center lg:px-24">
           <ArrowDown />
-          <h2 className="text-black text-2xl p-0 m-0">Lets Go</h2>
+          <h2 className="text-black/80 text-sm uppercase tracking-[0.35em] p-0 m-0 font-medium">
+            Scroll to begin
+          </h2>
         </div>
       ) : (
         <div className="absolute bottom-20 z-20 text-center w-screen duration-100">
-          <h2 className="text-black text-2xl animate-pulse">Open the laptop</h2>
+          <h2 className="text-black/70 text-sm uppercase tracking-[0.35em] animate-pulse font-medium">
+            Click the laptop to open
+          </h2>
         </div>
       )}
       <web.main

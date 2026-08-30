@@ -48,14 +48,14 @@ const About = () => {
   return (
     <div className="h-[300vh] relative flex flex-col antialiased">
       <div
-        className={`duration-500 bg-gradient-to-b from-slate-950 via-violet-950 to-violet-900 h-screen w-screen flex flex-col items-center justify-center sticky top-0 overflow-hidden lg:pr-0 pr-2`}
+        className={`duration-500 bg-gradient-to-b from-[#1a1303] via-[#0d0c08] to-black h-screen w-screen flex flex-col items-center justify-center sticky top-0 overflow-hidden lg:pr-0 pr-2`}
       >
         <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
           <div
             className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-x-[13vh] md:-translate-x-0 -translate-y-[24vh] md:-translate-y-[28vh] scale-80 " : "translate-y-[13.5vh] md:translate-y-0 -translate-x-[17vh] md:-translate-x-0"
               } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
-            Zulker <span className="text-violet-300/60 font-thin">{`{`}</span>
+            Zulker <span className="text-amber-400/60 font-thin">{`{`}</span>
           </div>
           <Image
             className={`duration-500 ease-out ${openAboutSlider
@@ -71,14 +71,14 @@ const About = () => {
             className={`duration-500 transform ${openAboutSlider ? "translate-x-[12vh] md:-translate-x-0 -translate-y-[45vh] md:-translate-y-[28vh] scale-90 " : "-translate-y-[15vh] md:translate-y-0 translate-x-[16vh] md:-translate-x-0"
               } lg:text-5xl text-3xl font-extralight text-slate-100`}
           >
-            <span className="text-violet-300/60 font-thin">{`}`}</span> Nien
+            <span className="text-amber-400/60 font-thin">{`}`}</span> Nien
           </div>
         </div>
 
         {!openAboutSlider && (
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-300/80 text-sm tracking-widest uppercase transition-opacity duration-300">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-amber-200/70 text-sm tracking-widest uppercase transition-opacity duration-300">
             <span className="text-xs font-medium">Scroll</span>
-            <ChevronDown className="w-4 h-4 animate-bounce text-violet-200" />
+            <ChevronDown className="w-4 h-4 animate-bounce text-amber-400" />
           </div>
         )}
 
@@ -99,17 +99,17 @@ const About = () => {
                 solutions.
               </p>
 
-              <h2 className="text-xs uppercase tracking-[0.2em] text-violet-200/70 font-semibold mt-10 mb-4">
+              <h2 className="text-xs uppercase tracking-[0.2em] text-amber-400/80 font-semibold mt-10 mb-4">
                 Core Stack & Expertise
               </h2>
 
-              <div className="w-full bg-slate-950/40 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl shadow-purple-950/20">
+              <div className="w-full bg-black/40 backdrop-blur-md border border-amber-400/10 p-6 rounded-2xl shadow-2xl shadow-black/60">
                 <div className="grid grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center items-center">
                   <TooltipProvider>
                     {coreSkills.map((skill, index) => (
                       <Tooltip delayDuration={0} key={index}>
                         <TooltipTrigger className="group w-full flex flex-col items-center justify-center gap-2 transition-all duration-300">
-                          <div className="w-12 h-12 rounded-xl bg-slate-950/60 border border-white/5 flex items-center justify-center text-slate-300 group-hover:text-white group-hover:bg-violet-600/30 group-hover:border-violet-400/40 group-hover:scale-110 shadow-md transition-all duration-300">
+                          <div className="w-12 h-12 rounded-xl bg-black/60 border border-white/5 flex items-center justify-center text-slate-300 group-hover:text-amber-300 group-hover:bg-amber-400/15 group-hover:border-amber-400/40 group-hover:scale-110 shadow-md transition-all duration-300">
                             <skill.icon className="w-5 h-5" />
                           </div>
                           <Label className="text-xs text-slate-400 font-medium tracking-wide group-hover:text-slate-200 transition-colors pointer-events-none truncate max-w-[80px]">
@@ -135,7 +135,7 @@ const About = () => {
               <Button
                 size="lg"
                 onClick={() => setViewCV(true)}
-                className="bg-white text-slate-950 hover:bg-slate-100 font-medium tracking-wide rounded-full px-8 shadow-lg shadow-black/10 transition-transform duration-200 active:scale-95"
+                className="bg-amber-400 text-black hover:bg-amber-300 font-semibold tracking-wide rounded-full px-8 shadow-lg shadow-amber-950/40 transition-transform duration-200 active:scale-95"
               >
                 View CV
               </Button>

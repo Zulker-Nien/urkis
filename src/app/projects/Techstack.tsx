@@ -37,7 +37,7 @@ const Techstack = () => {
 
   return (
     <div className="w-full flex items-center justify-center" ref={ref}>
-      <div className="flex flex-wrap items-center justify-center gap-3 bg-slate-950/40 p-2 rounded-2xl border border-white/5 backdrop-blur-md">
+      <div className="flex flex-wrap items-center justify-center gap-3 bg-black/40 p-2 rounded-2xl border border-amber-400/10 backdrop-blur-md">
         {springs.map((techStyles, index) => {
           const isSelected = selectedStack === techStackItems[index];
           return (
@@ -46,8 +46,8 @@ const Techstack = () => {
               style={techStyles}
               onClick={() => setSelectedStack(techStackItems[index])}
               className={`px-4 py-1.5 rounded-xl text-xs font-medium tracking-wide transition-all duration-300 ${isSelected
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-900/30 border border-blue-400/20"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent"
+                  ? "bg-amber-400 text-black shadow-md shadow-amber-950/40 border border-amber-300/60"
+                  : "text-slate-400 hover:text-amber-300 hover:bg-amber-400/10 border border-transparent"
                 }`}
             >
               {techStackItems[index]}

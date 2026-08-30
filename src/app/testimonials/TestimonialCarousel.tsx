@@ -2,20 +2,19 @@
 
 import { testimonials } from "@/utils/constant";
 import SpotlightCard from "@/components/SpotlightCard";
-import { MessageSquareQuote } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
 
 const TestimonialGrid = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-zinc-950 relative pb-24 px-0 antialiased overflow-hidden">
+    <div className="min-h-screen bg-zinc-950 relative pb-24 px-0 antialiased overflow-hidden">
 
-      <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-slate-950 via-slate-950/90 to-transparent backdrop-blur-sm pt-8 pb-12 text-center">
-        <h2 className="lg:text-5xl text-3xl font-extralight tracking-tight text-slate-100 flex items-center justify-center gap-3">
-          <MessageSquareQuote className="w-7 h-7 text-cyan-400 font-thin opacity-80" />
-          Endorsements
-        </h2>
-        <p className="text-sm text-slate-400 font-light max-w-md mx-auto mt-2 px-4">
-          Notes from engineering leaders, product partners, and technical colleagues.
-        </p>
+      <div className="sticky top-0 w-full z-30 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-transparent pt-8 pb-12">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.07),transparent_70%)]" />
+        <SectionHeading
+          index="05"
+          title="Endorsements"
+          description="Notes from engineering leaders, product partners, and technical colleagues."
+        />
       </div>
 
       <div className="w-full max-w-6xl mx-auto px-6 lg:px-12 mt-4">
@@ -30,10 +29,10 @@ const TestimonialGrid = () => {
                   }`}
               >
                 <SpotlightCard
-                  className="custom-spotlight-card h-full flex flex-col justify-between bg-slate-900/40 hover:bg-slate-900/70 border border-white/5 hover:border-cyan-500/20 p-6 rounded-2xl shadow-xl shadow-black/20 transition-all duration-300 relative overflow-hidden"
-                  spotlightColor="rgba(0, 229, 255, 0.08)"
+                  className="custom-spotlight-card h-full flex flex-col justify-between bg-zinc-900/40 hover:bg-zinc-900/70 border border-amber-400/10 hover:border-amber-400/40 p-6 rounded-2xl shadow-xl shadow-black/60 transition-all duration-300 relative overflow-hidden"
+                  spotlightColor="rgba(251, 191, 36, 0.08)"
                 >
-                  <span className="absolute -top-4 -right-2 text-8xl font-serif text-cyan-500/[0.03] select-none pointer-events-none group-hover:text-cyan-500/[0.06] transition-colors duration-300">
+                  <span className="absolute -top-4 -right-2 text-8xl font-serif text-amber-400/[0.04] select-none pointer-events-none group-hover:text-amber-400/[0.08] transition-colors duration-300">
                     ”
                   </span>
 
@@ -43,17 +42,17 @@ const TestimonialGrid = () => {
                     </p>
                   </div>
 
-                  <div className="w-12 h-px bg-cyan-500/20 my-5 transition-all duration-300 group-hover:w-full group-hover:bg-cyan-500/10" />
+                  <div className="w-12 h-px bg-amber-400/30 my-5 transition-all duration-300 group-hover:w-full group-hover:bg-amber-400/20" />
 
                   <div className="relative z-10 flex flex-col gap-0.5">
                     <h4 className="text-slate-100 font-medium text-sm tracking-wide">
                       {testimonial.name}
                     </h4>
                     <div className="flex flex-wrap items-center gap-x-2 text-xs font-light">
-                      <span className="text-cyan-400/90 font-medium tracking-wide">
+                      <span className="text-amber-400 font-medium tracking-wide">
                         {testimonial.company}
                       </span>
-                      <span className="text-slate-500 hidden sm:inline">•</span>
+                      <span className="text-zinc-600 hidden sm:inline">•</span>
                       <span className="text-slate-400">
                         {testimonial.designation}
                       </span>

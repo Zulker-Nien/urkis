@@ -58,7 +58,7 @@ const ExperienceCard = ({
               dateClassName="!font-light lg:!text-slate-300 !text-slate-400 !opacity-1 lg:mx-4"
               iconStyle={{
                 background: experience.iconBg || "#0f172a",
-                boxShadow: "0 0 0 4px rgba(139, 92, 246, 0.3), inset 0 2px 4px rgba(0,0,0,0.5)",
+                boxShadow: "0 0 0 4px rgba(251, 191, 36, 0.3), inset 0 2px 4px rgba(0,0,0,0.5)",
                 overflow: "hidden",
               }}
               icon={
@@ -77,13 +77,13 @@ const ExperienceCard = ({
             >
               {/* Higher contrast cards that float distinctly on the new background */}
               <SpotlightCard
-                className="custom-spotlight-card h-full bg-slate-900/85 border border-violet-500/20 backdrop-blur-md p-5 rounded-2xl transition-all duration-300 group-hover:border-violet-400/50 group-hover:bg-slate-900 shadow-xl shadow-black/40"
-                spotlightColor="rgba(167, 139, 250, 0.15)"
+                className="custom-spotlight-card h-full bg-zinc-900/85 border border-amber-400/15 backdrop-blur-md p-5 rounded-2xl transition-all duration-300 group-hover:border-amber-400/50 group-hover:bg-zinc-900 shadow-xl shadow-black/40"
+                spotlightColor="rgba(251, 191, 36, 0.12)"
               >
                 <h3 className="text-slate-100 lg:text-lg text-base font-semibold tracking-wide">
                   {experience.title}
                 </h3>
-                <h4 className="text-sm font-medium text-violet-400 mt-1">
+                <h4 className="text-sm font-medium text-amber-400 mt-1">
                   {experience.company_name}
                 </h4>
               </SpotlightCard>
@@ -92,9 +92,9 @@ const ExperienceCard = ({
         </SheetTrigger>
 
         {/* Sidebar Panel matching the deep theme aesthetics */}
-        <SheetContent className={`bg-slate-950/95 border-l border-violet-500/10 backdrop-blur-md text-slate-100 flex flex-col gap-6 w-full sm:max-w-md`}>
+        <SheetContent className={`bg-zinc-950/95 border-l border-amber-400/10 backdrop-blur-md text-slate-100 flex flex-col gap-6 w-full sm:max-w-md`}>
           <SheetHeader className="text-left space-y-4">
-            <div className="w-20 h-20 rounded-2xl bg-slate-900 border border-violet-500/20 p-3 flex items-center justify-center shadow-lg">
+            <div className="w-20 h-20 rounded-2xl bg-zinc-900 border border-amber-400/20 p-3 flex items-center justify-center shadow-lg">
               <Image
                 src={experience.icon}
                 alt={experience.company_name}
@@ -106,7 +106,7 @@ const ExperienceCard = ({
                 {experience.company_name}
               </SheetTitle>
               <SheetDescription className="text-slate-400 font-light text-sm mt-1">
-                {experience.title} • <span className="text-violet-400 font-medium">{experience.date}</span>
+                {experience.title} • <span className="text-amber-400 font-medium">{experience.date}</span>
               </SheetDescription>
             </div>
           </SheetHeader>
@@ -123,7 +123,7 @@ const ExperienceCard = ({
               <Button
                 size="lg"
                 onClick={() => setViewJRL(true)}
-                className="bg-white text-slate-950 hover:bg-slate-100 font-medium tracking-wide rounded-full px-8 shadow-lg shadow-black/10 transition-transform duration-200 active:scale-95"
+                className="bg-amber-400 text-black hover:bg-amber-300 font-semibold tracking-wide rounded-full px-8 shadow-lg shadow-amber-950/40 transition-transform duration-200 active:scale-95"
               >
                 View JRL
               </Button>

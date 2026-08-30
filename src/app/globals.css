@@ -10,7 +10,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color:black;
+  background-color: #09090b;
+}
+
+::selection {
+  background-color: #fbbf24;
+  color: #09090b;
 }
 
 @layer utilities {
@@ -69,13 +74,13 @@ h4 {
 }
 
 ::-webkit-scrollbar {
-  background-color: black;
+  background-color: #09090b;
   width: 5px !important;
   scroll-behavior: smooth;
   z-index: 500;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: yellow;
+  background-color: #fbbf24;
   border-radius: 10px;
   scroll-behavior: smooth;
   z-index: 500;

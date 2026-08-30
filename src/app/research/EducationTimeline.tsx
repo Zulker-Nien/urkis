@@ -33,12 +33,12 @@ const EducationTimeline = ({
           boxShadow: "none",
           padding: "0px",
         }}
-        contentArrowStyle={{ borderRight: "7px solid rgba(30, 27, 75, 0.8)" }}
+        contentArrowStyle={{ borderRight: "7px solid rgba(24, 24, 27, 0.9)" }}
         date={education.date}
-        dateClassName="!font-light lg:!text-slate-300 !text-slate-400 !opacity-1 lg:mx-4"
+        dateClassName="!font-light lg:!text-zinc-300 !text-zinc-400 !opacity-1 lg:mx-4"
         iconStyle={{
-          background: education.iconBg || "#0f172a",
-          boxShadow: "0 0 0 4px rgba(245, 158, 11, 0.3), inset 0 2px 4px rgba(0,0,0,0.5)",
+          background: education.iconBg || "#18181b",
+          boxShadow: "0 0 0 4px rgba(251, 191, 36, 0.3), inset 0 2px 4px rgba(0,0,0,0.5)",
           overflow: "hidden",
         }}
         icon={
@@ -54,8 +54,8 @@ const EducationTimeline = ({
         }
       >
         <SpotlightCard
-          className="custom-spotlight-card h-full bg-slate-900/85 border border-amber-500/20 backdrop-blur-md p-5 rounded-2xl shadow-xl shadow-black/40 transition-all duration-300 hover:border-amber-400/40"
-          spotlightColor="rgba(245, 158, 11, 0.15)"
+          className="custom-spotlight-card h-full bg-zinc-900/85 border border-amber-400/15 backdrop-blur-md p-5 rounded-2xl shadow-xl shadow-black/60 transition-all duration-300 hover:border-amber-400/40"
+          spotlightColor="rgba(251, 191, 36, 0.12)"
         >
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-1">

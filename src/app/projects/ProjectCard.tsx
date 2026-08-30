@@ -35,7 +35,7 @@ const ProjectCard = ({
     <animated.div
       ref={ref}
       style={projectCardStyles}
-      className="group relative w-full rounded-2xl flex items-center justify-start overflow-hidden p-5 gap-6 bg-slate-900/50 hover:bg-slate-900/80 border border-white/5 hover:border-blue-500/30 transition-all duration-300 shadow-xl shadow-black/20"
+      className="group relative w-full rounded-2xl flex items-center justify-start overflow-hidden p-5 gap-6 bg-zinc-900/50 hover:bg-zinc-900/80 border border-amber-400/10 hover:border-amber-400/40 transition-all duration-300 shadow-xl shadow-black/60"
     >
       <div className="relative aspect-square w-24 h-24 lg:w-28 lg:h-28 rounded-xl bg-white border border-white/5 overflow-hidden flex-shrink-0 flex items-center justify-center">
         <Image
@@ -50,7 +50,7 @@ const ProjectCard = ({
       </div>
 
       <div className="flex-1 flex flex-col justify-between h-full pr-10">
-        <h3 className="text-slate-100 font-medium text-lg tracking-wide group-hover:text-blue-400 transition-colors">
+        <h3 className="text-slate-100 font-medium text-lg tracking-wide group-hover:text-amber-400 transition-colors">
           {name}
         </h3>
 
@@ -70,7 +70,7 @@ const ProjectCard = ({
         {source_code_link && (
           <button
             onClick={() => window.open(source_code_link, "_blank")}
-            className="w-9 h-9 flex justify-center items-center rounded-xl bg-slate-950/80 border border-white/5 text-slate-400 hover:text-white hover:bg-slate-900 hover:border-blue-500/30 transition-all duration-200"
+            className="w-9 h-9 flex justify-center items-center rounded-xl bg-black/80 border border-amber-400/10 text-slate-400 hover:text-amber-300 hover:bg-zinc-900 hover:border-amber-400/50 transition-all duration-200"
             title="View Source Code"
           >
             <Github className="w-4 h-4" />
@@ -79,7 +79,7 @@ const ProjectCard = ({
         {website && (
           <button
             onClick={() => window.open(website, "_blank")}
-            className="w-9 h-9 flex justify-center items-center rounded-xl bg-slate-950/80 border border-white/5 text-slate-400 hover:text-white hover:bg-slate-900 hover:border-blue-500/30 transition-all duration-200"
+            className="w-9 h-9 flex justify-center items-center rounded-xl bg-black/80 border border-amber-400/10 text-slate-400 hover:text-amber-300 hover:bg-zinc-900 hover:border-amber-400/50 transition-all duration-200"
             title="Live Website"
           >
             <Globe className="w-4 h-4" />
