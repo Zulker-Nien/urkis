@@ -6,11 +6,11 @@ import { projectType } from "@/utils/types";
 const techStackItems = [
   "All Projects",
   "Typescript",
-  "Reactjs",
   "Threejs",
   "Nextjs",
-  "Nodejs",
-  "GraphQL",
+  "Nestjs",
+  "Redis",
+  "PostgreSQL",
 ];
 
 const Techstack = () => {

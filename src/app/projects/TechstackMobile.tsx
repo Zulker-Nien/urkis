@@ -12,14 +12,12 @@ import { ChevronDown } from "lucide-react";
 
 const techStackItems = [
   "All Projects",
-  "Javascript",
   "Typescript",
-  "Reactjs",
   "Threejs",
   "Nextjs",
-  "Nodejs",
+  "Nestjs",
+  "Redis",
   "PostgreSQL",
-  "GraphQL",
 ];
 
 const TechstackMobile = () => {

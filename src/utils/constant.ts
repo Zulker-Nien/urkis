@@ -170,7 +170,7 @@ const projects: projectItem = [
         color: "orange-500",
       },
       {
-        name: "Next.js",
+        name: "Nextjs",
         color: "blue-500",
       },
       {
@@ -182,7 +182,7 @@ const projects: projectItem = [
         color: "blue-500",
       },
       {
-        name: "Meilisearch",
+        name: "Federated Search",
         color: "blue-500",
       },
       {
@@ -217,6 +217,10 @@ const projects: projectItem = [
     description:
       "",
     tags: [
+      {
+        name: "TypeScript",
+        color: "orange-500",
+      },
       {
         name: "nextjs",
         color: "yellow-500",
