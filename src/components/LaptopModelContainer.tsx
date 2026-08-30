@@ -82,7 +82,7 @@ const LaptopModelContainer = () => {
             ),
             color: "#000",
           }}
-          className={"lg:!text-[8rem] !text-[2rem]"}
+          className="!text-[1.6rem] sm:!text-[2.2rem] lg:!text-[8rem] !whitespace-normal lg:!whitespace-nowrap !leading-tight w-screen text-center px-4"
         >
           hello. This is Zulker.
         </web.h6>

@@ -52,8 +52,8 @@ const About = () => {
       >
         <div className="duration-500 flex lg:flex-row flex-col items-center justify-center w-screen tracking-tight font-light">
           <div
-            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-x-[13vh] md:-translate-x-0 -translate-y-[24vh] md:-translate-y-[28vh] scale-80 " : "translate-y-[13.5vh] md:translate-y-0 -translate-x-[17vh] md:-translate-x-0"
-              } lg:text-5xl text-3xl font-extralight text-slate-100`}
+            className={`duration-500 transform origin-center ${openAboutSlider ? "-translate-y-[26vh] md:-translate-y-[28vh] scale-80" : "-translate-x-[10vw] md:-translate-x-0"
+              } lg:text-5xl text-3xl sm:text-4xl font-extralight text-slate-100`}
           >
             Zulker <span className="text-amber-400/60 font-thin">{`{`}</span>
           </div>
@@ -68,8 +68,8 @@ const About = () => {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
           />
           <div
-            className={`duration-500 transform ${openAboutSlider ? "translate-x-[12vh] md:-translate-x-0 -translate-y-[45vh] md:-translate-y-[28vh] scale-90 " : "-translate-y-[15vh] md:translate-y-0 translate-x-[16vh] md:-translate-x-0"
-              } lg:text-5xl text-3xl font-extralight text-slate-100`}
+            className={`duration-500 transform ${openAboutSlider ? "-translate-y-[42vh] md:-translate-y-[28vh] scale-90" : "translate-x-[10vw] md:translate-x-0"
+              } lg:text-5xl text-3xl sm:text-4xl font-extralight text-slate-100`}
           >
             <span className="text-amber-400/60 font-thin">{`}`}</span> Nien
           </div>
@@ -87,10 +87,10 @@ const About = () => {
             opacity: aboutTextStyle.open.to([0, 1], [0, 1]),
             transform: aboutTextStyle.open.to([0, 2], ["translateY(100px)", "translateY(0px)"]),
           }}
-          className="flex flex-col lg:gap-6 absolute w-full max-w-5xl px-6 pointer-events-none"
+          className="absolute inset-0 flex flex-col items-center overflow-y-auto px-6 pt-[26vh] md:pt-[30vh] pb-10 pointer-events-none"
         >
           {openAboutSlider && (
-            <div className="h-full flex flex-col items-center text-center pointer-events-auto mt-24 lg:mt-12">
+            <div className="w-full flex flex-col items-center text-center pointer-events-auto">
               <p className="max-w-3xl lg:text-lg text-base text-slate-100/90 font-light leading-relaxed tracking-wide">
                 I blend technology, design, and analysis to craft seamless
                 digital experiences. With a Master’s in Software Engineering and
@@ -103,8 +103,8 @@ const About = () => {
                 Core Stack & Expertise
               </h2>
 
-              <div className="w-full bg-black/40 backdrop-blur-md border border-amber-400/10 p-6 rounded-2xl shadow-2xl shadow-black/60">
-                <div className="grid grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center items-center">
+              <div className="w-full max-w-3xl bg-black/40 backdrop-blur-md border border-amber-400/10 p-6 rounded-2xl shadow-2xl shadow-black/60">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 justify-items-center items-center">
                   <TooltipProvider>
                     {coreSkills.map((skill, index) => (
                       <Tooltip delayDuration={0} key={index}>
