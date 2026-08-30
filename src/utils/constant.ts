@@ -250,6 +250,30 @@ const projects: projectItem = [
       "https://www.feelthecelestial.com/NavLogo.svg",
     website: "https://feelthecelestial.com/",
   },
+  {
+    name: "IELTS Gram",
+    description:
+      "",
+    tags: [
+      {
+        name: "TypeScript",
+        color: "orange-500",
+      },
+      {
+        name: "nextjs",
+        color: "yellow-500",
+      },
+      {
+        name: "shadcn",
+        color: "blue-500",
+      },
+    ],
+    image:
+      "https://ielts-gram.vercel.app/logo.png",
+    website: "https://ielts-gram.vercel.app/",
+  },
+
+
   // {
   //   name: "Tecbix",
   //   description:
