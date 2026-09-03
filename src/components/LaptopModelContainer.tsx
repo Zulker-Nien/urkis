@@ -11,8 +11,12 @@ import { laptopType } from "@/utils/types";
 import ArrowDown from "./ArrowDown";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
+import { themeStore, THEMES } from "@/store/themeStore";
 
 const LaptopModelContainer = () => {
+  const theme = themeStore((s) => s.theme);
+  const openColor =
+    THEMES.find((t) => t.name === theme)?.swatch[0] ?? "#fbbf24";
   const isLargeScreen = useSyncExternalStore(
     (callback) => {
       const mq = window.matchMedia("(min-width: 1024px)");
@@ -29,16 +33,16 @@ const LaptopModelContainer = () => {
   return (
     <div className="h-screen w-screen overflow-hidden relative">
       <Popover>
-        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-zinc-900/80 border border-amber-400/40 text-amber-400 hover:text-amber-300 hover:border-amber-400/70 backdrop-blur-md transition-all duration-200">
+        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-zinc-900/80 border border-brand/40 text-brand hover:text-brand-light hover:border-brand/70 backdrop-blur-md transition-all duration-200">
           <ShieldAlert size={20} className="animate-pulse" />
         </PopoverTrigger>
         <PopoverContent
           side="left"
           align="start"
-          className="bg-zinc-950/95 border border-amber-400/15 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-200 shadow-2xl z-40"
+          className="bg-zinc-950/95 border border-brand/15 backdrop-blur-md p-5 rounded-2xl max-w-sm text-slate-200 shadow-2xl z-40"
         >
           <div className="space-y-3 text-sm">
-            <h4 className="font-semibold tracking-wide text-amber-400 flex items-center gap-2">
+            <h4 className="font-semibold tracking-wide text-brand flex items-center gap-2">
               <Sparkles className="w-4 h-4" /> Visual Experience Advised
             </h4>
             <p className="text-slate-400 font-light leading-relaxed">
@@ -68,7 +72,7 @@ const LaptopModelContainer = () => {
       )}
       <web.main
         style={{
-          background: props.open.to([0, 1], ["#f0f0f0cf", "#eab208cf"]),
+          background: props.open.to([0, 1], ["#f0f0f0cf", `${openColor}cf`]),
           padding: 0,
           margin: 0,
           height: "100%",

@@ -10,6 +10,7 @@ import Research from "./research/Research";
 import Contact from "./contact/Contact";
 import { Toaster } from "@/components/ui/toaster";
 import TestimonialCarousel from "./testimonials/TestimonialCarousel";
+import SettingsDialog from "@/components/SettingsDialog";
 
 export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <div className="h-screen w-screen overflow-x-hidden overflow-y-scroll scroll-smooth">
       <Toaster />
+      <SettingsDialog />
       <div className="h-screen">
         <LaptopModelContainer />
       </div>

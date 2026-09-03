@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ThemeInit from "@/components/ThemeInit";
 
 // import Sidebar from "@/components/Sidebar";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <ThemeInit />
       </body>
     </html>
   );

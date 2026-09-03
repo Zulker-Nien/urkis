@@ -39,12 +39,12 @@ const Experience = () => {
                     }
                   }}
                 >
-                  <div className="md:col-span-3 font-mono text-xs lg:text-sm text-amber-400/80 pt-1">
+                  <div className="md:col-span-3 font-mono text-xs lg:text-sm text-brand/80 pt-1">
                     {experience.date}
                   </div>
 
                   <div className="md:col-span-7 space-y-2">
-                    <h3 className="text-2xl lg:text-4xl font-extralight tracking-tight text-slate-100 group-hover:text-amber-400 transition-colors duration-300 leading-tight">
+                    <h3 className="text-2xl lg:text-4xl font-extralight tracking-tight text-slate-100 group-hover:text-brand transition-colors duration-300 leading-tight">
                       {experience.company_name}
                     </h3>
                     <p className="text-sm lg:text-base text-zinc-400 font-light">
@@ -59,7 +59,7 @@ const Experience = () => {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="text-slate-400 text-sm font-light leading-relaxed border-l-2 border-amber-400/30 pl-5">
+                        <p className="text-slate-400 text-sm font-light leading-relaxed border-l-2 border-brand/30 pl-5">
                           {experience.points}
                         </p>
                         {experience.jrl && (
@@ -70,7 +70,7 @@ const Experience = () => {
                                 e.stopPropagation();
                                 setViewJRL(index);
                               }}
-                              className="bg-amber-400 text-black hover:bg-amber-300 font-semibold rounded-full px-5 gap-2"
+                              className="bg-brand text-black hover:bg-brand-light font-semibold rounded-full px-5 gap-2"
                             >
                               View JRL
                               <FileText className="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ const Experience = () => {
                       />
                     </span>
                     <ChevronDown
-                      className={`w-4 h-4 text-amber-400 transition-transform duration-300 ${
+                      className={`w-4 h-4 text-brand transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -110,14 +110,14 @@ const Experience = () => {
 
       {viewJRL !== null && experiences[viewJRL]?.jrl && (
         <div className="fixed inset-0 z-50 bg-zinc-950/80 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
-          <div className="relative w-full max-w-4xl h-[85vh] bg-zinc-900 rounded-2xl overflow-hidden border border-amber-400/15 shadow-2xl shadow-black/60 flex flex-col">
+          <div className="relative w-full max-w-4xl h-[85vh] bg-zinc-900 rounded-2xl overflow-hidden border border-brand/15 shadow-2xl shadow-black/60 flex flex-col">
             <div className="w-full h-12 bg-black/60 border-b border-white/5 flex items-center justify-between px-5">
               <span className="text-xs uppercase tracking-widest text-slate-400 font-medium font-mono">
                 Job Reference Letter
               </span>
               <button
                 onClick={() => setViewJRL(null)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-amber-300 hover:bg-white/5 transition-all duration-200"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-brand-light hover:bg-white/5 transition-all duration-200"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />

@@ -112,7 +112,7 @@ const Contact = () => {
         <Fade className="mt-12 lg:mt-16">
           <a
             href="mailto:zulkerb9b@gmail.com"
-            className="block text-2xl sm:text-4xl lg:text-6xl font-extralight tracking-tight text-slate-100 hover:text-amber-400 transition-colors duration-300 break-all"
+            className="block text-2xl sm:text-4xl lg:text-6xl font-extralight tracking-tight text-slate-100 hover:text-brand transition-colors duration-300 break-all"
           >
             zulkerb9b@gmail.com
           </a>
@@ -132,11 +132,11 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="group border-t border-white/10 py-6 lg:py-7 flex items-center justify-between transition-colors duration-300 hover:bg-white/[0.02]"
                 >
-                  <span className="flex items-center gap-4 text-slate-200 font-light tracking-wide text-lg group-hover:text-amber-400 transition-colors duration-300">
-                    <social.icon className="w-5 h-5 text-amber-400" />
+                  <span className="flex items-center gap-4 text-slate-200 font-light tracking-wide text-lg group-hover:text-brand transition-colors duration-300">
+                    <social.icon className="w-5 h-5 text-brand" />
                     {social.label}
                   </span>
-                  <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                  <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-brand group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                 </Link>
               ))}
               <div className="border-t border-b border-white/10" />
@@ -164,7 +164,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What's your good name?"
                   required
-                  className="bg-black/40 border-white/10 focus-visible:border-amber-400/70 text-slate-100 h-12 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
+                  className="bg-black/40 border-white/10 focus-visible:border-brand/70 text-slate-100 h-12 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
                 />
               </div>
 
@@ -183,7 +183,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What's your email address?"
                   required
-                  className="bg-black/40 border-white/10 focus-visible:border-amber-400/70 text-slate-100 h-12 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
+                  className="bg-black/40 border-white/10 focus-visible:border-brand/70 text-slate-100 h-12 px-4 rounded-xl placeholder:text-zinc-600 transition-colors"
                 />
               </div>
 
@@ -201,14 +201,14 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="What would you like to say?"
                   required
-                  className="min-h-[160px] bg-black/40 border-white/10 focus-visible:border-amber-400/70 text-slate-100 p-4 rounded-xl placeholder:text-zinc-600 transition-colors resize-none"
+                  className="min-h-[160px] bg-black/40 border-white/10 focus-visible:border-brand/70 text-slate-100 p-4 rounded-xl placeholder:text-zinc-600 transition-colors resize-none"
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full h-12 bg-amber-400 text-black hover:bg-amber-300 font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 tracking-wide shadow-lg shadow-amber-950/40"
+                className="w-full h-12 bg-brand text-black hover:bg-brand-light font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 tracking-wide shadow-lg shadow-brand-dark/40"
               >
                 {loading ? "Sending..." : "Send Message"}
               </Button>
@@ -223,7 +223,7 @@ const Contact = () => {
             <span className="font-mono text-xs uppercase tracking-[0.4em] text-zinc-600">
               Zulker Nien — est. 2020
             </span>
-            <span className="font-mono text-xs uppercase tracking-[0.4em] text-amber-400/70">
+            <span className="font-mono text-xs uppercase tracking-[0.4em] text-brand/70">
               Built on the web&apos;s edge ✦
             </span>
           </div>

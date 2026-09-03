@@ -17,8 +17,8 @@ const SectionIntro = ({
   return (
     <Fade className={cn("relative", className)}>
       <div className="flex items-center gap-3">
-        <span className="h-px w-10 bg-gradient-to-r from-transparent to-amber-400/60" />
-        <span className="font-mono text-xs uppercase tracking-[0.4em] text-amber-400">
+        <span className="h-px w-10 bg-gradient-to-r from-transparent to-brand/60" />
+        <span className="font-mono text-xs uppercase tracking-[0.4em] text-brand">
           {`/// ${index}`}
         </span>
       </div>

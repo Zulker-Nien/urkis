@@ -24,16 +24,16 @@ const Research = () => {
                   {edu.date}
                 </div>
                 <div className="md:col-span-6">
-                  <h3 className="text-lg lg:text-2xl font-light tracking-tight text-slate-100 group-hover:text-amber-400 transition-colors duration-300">
+                  <h3 className="text-lg lg:text-2xl font-light tracking-tight text-slate-100 group-hover:text-brand transition-colors duration-300">
                     {edu.title}
                   </h3>
-                  <p className="text-sm text-amber-400/80 font-normal mt-0.5">
+                  <p className="text-sm text-brand/80 font-normal mt-0.5">
                     {edu.university}
                   </p>
                 </div>
                 <div className="md:col-span-3 md:text-right">
                   {edu.cgpa ? (
-                    <span className="inline-block border border-amber-400/25 text-amber-400 rounded-full px-3 py-1 text-xs font-mono">
+                    <span className="inline-block border border-brand/25 text-brand rounded-full px-3 py-1 text-xs font-mono">
                       CGPA {edu.cgpa}
                     </span>
                   ) : (
@@ -51,8 +51,8 @@ const Research = () => {
         <div className="mt-16 lg:mt-24 pb-16" id="publications">
           <Fade>
             <div className="flex items-center gap-3 mb-8">
-              <span className="h-px w-6 bg-gradient-to-r from-transparent to-amber-400/60" />
-              <span className="font-mono text-xs uppercase tracking-[0.4em] text-amber-400">
+              <span className="h-px w-6 bg-gradient-to-r from-transparent to-brand/60" />
+              <span className="font-mono text-xs uppercase tracking-[0.4em] text-brand">
                 {`/// 05 — Publications`}
               </span>
             </div>
@@ -67,12 +67,12 @@ const Research = () => {
                   </span>
 
                   <div className="md:col-span-8 space-y-2">
-                    <h3 className="text-xl lg:text-3xl font-extralight tracking-tight text-slate-100 leading-snug group-hover:text-amber-400 transition-colors duration-300">
+                    <h3 className="text-xl lg:text-3xl font-extralight tracking-tight text-slate-100 leading-snug group-hover:text-brand transition-colors duration-300">
                       {pub.title}
                     </h3>
                     <p className="font-mono text-xs text-zinc-500 uppercase tracking-wider">
                       {pub.type}
-                      <span className="text-amber-400/60"> — </span>
+                      <span className="text-brand/60"> — </span>
                       {pub.journal ? `Journal: ${pub.journal}` : `Book: ${pub.book}`}
                     </p>
                   </div>
@@ -80,7 +80,7 @@ const Research = () => {
                   <div className="md:col-span-3 flex flex-wrap items-start justify-end gap-3">
                     <span
                       className={`px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider border ${pub.status === "Published"
-                          ? "bg-amber-400/10 text-amber-400 border-amber-400/30"
+                          ? "bg-brand/10 text-brand border-brand/30"
                           : "bg-white/5 text-zinc-400 border-white/10"
                         }`}
                     >
@@ -91,7 +91,7 @@ const Research = () => {
                         href={pub.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-amber-300 transition-colors duration-200 mt-1"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-400 hover:text-brand-light transition-colors duration-200 mt-1"
                       >
                         View
                         <ExternalLink className="w-3 h-3" />

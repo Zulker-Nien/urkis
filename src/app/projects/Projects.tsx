@@ -55,7 +55,7 @@ const Projects = () => {
             filteredProjects.map((project, index) => (
               <Fade key={`${project.name}-${index}`} y={24}>
                 <div className="group border-t border-white/10 py-8 lg:py-10 grid gap-4 md:grid-cols-12 items-center transition-colors duration-300 hover:bg-white/[0.02]">
-                  <span className="md:col-span-1 font-mono text-sm text-amber-400/70">
+                  <span className="md:col-span-1 font-mono text-sm text-brand/70">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
@@ -65,9 +65,9 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="md:col-span-5 block"
                   >
-                    <h3 className="text-3xl md:text-4xl font-extralight tracking-tight text-slate-100 group-hover:text-amber-400 transition-all duration-300 group-hover:translate-x-2 flex flex-wrap items-center gap-3">
+                    <h3 className="text-3xl md:text-4xl font-extralight tracking-tight text-slate-100 group-hover:text-brand transition-all duration-300 group-hover:translate-x-2 flex flex-wrap items-center gap-3">
                       {project.name}
-                      <ArrowUpRight className="w-7 h-7 text-amber-400 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
+                      <ArrowUpRight className="w-7 h-7 text-brand opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
                     </h3>
                   </a>
 
@@ -78,7 +78,7 @@ const Projects = () => {
                         className="text-xs font-mono font-normal text-zinc-500 uppercase tracking-wider"
                       >
                         {tag.name.toLowerCase()}
-                        {i < Math.min(project.tags.length, 4) - 1 && <span className="text-amber-400/60"> / </span>}
+                        {i < Math.min(project.tags.length, 4) - 1 && <span className="text-brand/60"> / </span>}
                       </span>
                     ))}
                   </div>
@@ -90,7 +90,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Live Website"
-                        className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-amber-300 hover:border-amber-400/40 hover:bg-amber-400/10 transition-all duration-200"
+                        className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-brand-light hover:border-brand/40 hover:bg-brand/10 transition-all duration-200"
                       >
                         <Globe className="w-4 h-4" />
                       </a>
@@ -101,7 +101,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Source Code"
-                        className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-amber-300 hover:border-amber-400/40 hover:bg-amber-400/10 transition-all duration-200"
+                        className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-brand-light hover:border-brand/40 hover:bg-brand/10 transition-all duration-200"
                       >
                         <Github className="w-4 h-4" />
                       </a>
@@ -128,10 +128,10 @@ const Projects = () => {
               rel="noopener noreferrer"
               className="group border-t border-b border-white/10 py-8 flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors duration-300"
             >
-              <span className="text-slate-300 font-light tracking-wide text-lg lg:text-xl group-hover:text-amber-400 transition-colors duration-300">
+              <span className="text-slate-300 font-light tracking-wide text-lg lg:text-xl group-hover:text-brand transition-colors duration-300">
                 More experiments on GitHub
               </span>
-              <ArrowUpRight className="w-6 h-6 text-amber-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+              <ArrowUpRight className="w-6 h-6 text-brand group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </Link>
           </Fade>
         </div>
