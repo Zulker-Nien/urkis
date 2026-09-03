@@ -48,7 +48,7 @@ const Research = () => {
           <div className="border-t border-white/5" />
         </div>
 
-        <div className="mt-16 lg:mt-24 pb-16">
+        <div className="mt-16 lg:mt-24 pb-16" id="publications">
           <Fade>
             <div className="flex items-center gap-3 mb-8">
               <span className="h-px w-6 bg-gradient-to-r from-transparent to-amber-400/60" />
@@ -79,11 +79,10 @@ const Research = () => {
 
                   <div className="md:col-span-3 flex flex-wrap items-start justify-end gap-3">
                     <span
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider border ${
-                        pub.status === "Published"
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider border ${pub.status === "Published"
                           ? "bg-amber-400/10 text-amber-400 border-amber-400/30"
                           : "bg-white/5 text-zinc-400 border-white/10"
-                      }`}
+                        }`}
                     >
                       {pub.status}
                     </span>

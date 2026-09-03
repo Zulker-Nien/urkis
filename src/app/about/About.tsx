@@ -6,12 +6,13 @@ import { coreSkills } from "@/utils/constant";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import Fade from "@/components/Fade";
+import Link from "next/link";
 
 const stats = [
-  { value: "6+", label: "Years of craft" },
-  { value: "20+", label: "Companies served" },
-  { value: "5.0", label: "Average rating" },
-  { value: "3", label: "Publications" },
+  { value: "6+", label: "Years of craft", link: "/#experience" },
+  { value: "20+", label: "Companies served", link: "/#clients" },
+  { value: "★★★★★", label: "Topseller on Upwork", link: "https://www.upwork.com/freelancers/~0130cad0881a233037" },
+  { value: "3", label: "Publications", link: "/#publications" },
 ];
 
 const About = () => {
@@ -53,9 +54,12 @@ const About = () => {
             <div className="h-px w-full bg-white/5 mb-8 lg:hidden lg:mb-0" />
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat, index) => (
-                <div
+                <Link
                   key={index}
+                  href={stat.link}
                   className="border border-white/5 bg-zinc-900/40 rounded-2xl p-5 transition-colors duration-300 hover:border-amber-400/30"
+                  target={stat.value === "★★★★★" ? "_blank" : undefined}
+                  rel={stat.value === "★★★★★" ? "noopener noreferrer" : undefined}
                 >
                   <div className="text-3xl font-extralight text-amber-400 tracking-tight">
                     {stat.value}
@@ -63,7 +67,7 @@ const About = () => {
                   <div className="mt-1 text-xs uppercase tracking-widest text-slate-400 font-medium">
                     {stat.label}
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="mt-8">
