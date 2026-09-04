@@ -3,8 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeInit from "@/components/ThemeInit";
 
-// import Sidebar from "@/components/Sidebar";
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -41,7 +39,15 @@ export default function RootLayout({
       >
         {children}
         <ThemeInit />
+        <script
+          src="https://www.supportkori.com/widget.js"
+          data-id="urkis"
+          data-message="Support urkis"
+          data-color="#FFDD00"
+          data-position="right"
+        ></script>
       </body>
+      
     </html>
   );
 }
