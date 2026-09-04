@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ThemeInit from "@/components/ThemeInit";
+import SupportKoriWidget from "@/components/SupportKoriWidget";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,13 +40,7 @@ export default function RootLayout({
       >
         {children}
         <ThemeInit />
-        <script
-          src="https://www.supportkori.com/widget.js"
-          data-id="urkis"
-          data-message="Support urkis"
-          data-color="#FFDD00"
-          data-position="right"
-        ></script>
+        <SupportKoriWidget />
       </body>
       
     </html>
