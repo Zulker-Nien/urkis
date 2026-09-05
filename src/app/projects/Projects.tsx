@@ -59,7 +59,7 @@ const Projects = () => {
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <a
+                  <Link
                     href={project.website || project.source_code_link || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -69,7 +69,7 @@ const Projects = () => {
                       {project.name}
                       <ArrowUpRight className="w-7 h-7 text-brand opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
                     </h3>
-                  </a>
+                  </Link>
 
                   <div className="md:col-span-4 flex flex-wrap gap-x-3 gap-y-1">
                     {project.tags.slice(0, 4).map((tag, i) => (
@@ -85,7 +85,7 @@ const Projects = () => {
 
                   <div className="md:col-span-2 flex items-center gap-2 md:justify-end">
                     {project.website && (
-                      <a
+                      <Link
                         href={project.website}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -93,10 +93,10 @@ const Projects = () => {
                         className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-brand-light hover:border-brand/40 hover:bg-brand/10 transition-all duration-200"
                       >
                         <Globe className="w-4 h-4" />
-                      </a>
+                      </Link>
                     )}
                     {project.source_code_link && (
-                      <a
+                      <Link
                         href={project.source_code_link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -104,7 +104,7 @@ const Projects = () => {
                         className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-brand-light hover:border-brand/40 hover:bg-brand/10 transition-all duration-200"
                       >
                         <Github className="w-4 h-4" />
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>
