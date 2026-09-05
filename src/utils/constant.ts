@@ -272,6 +272,40 @@ const projects: projectItem = [
       "https://ielts-gram.vercel.app/logo.png",
     website: "https://ielts-gram.vercel.app/",
   },
+  {
+    name: "3D Model Viewer",
+    description:
+      "An in-browser 3D model viewer built with Next.js, React Three Fiber, and drei. Users can upload their own .glb, .gltf, .fbx, or .stl models, inspect them in a lights-and-camera-controlled studio scene, and review technical and diagnostics data such as file size, triangle and vertex counts, materials, and an embedded-camera switcher. When no model is loaded, a configurable parametric shape is shown instead.",
+    tags: [
+      {
+        name: "TypeScript",
+        color: "orange-500",
+      },
+      {
+        name: "Nextjs",
+        color: "yellow-500",
+      },
+      {
+        name: "Threejs",
+        color: "orange-500",
+      },
+      {
+        name: "react three fiber",
+        color: "blue-500",
+      },
+      {
+        name: "drei",
+        color: "blue-500",
+      },
+      {
+        name: "leva",
+        color: "blue-500",
+      },
+    ],
+    image:
+      "https://next-three-model.vercel.app/",
+    website: "https://next-three-model.vercel.app/",
+  },
 
 
   // {

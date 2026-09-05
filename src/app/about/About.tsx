@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Images from "@/utils/image";
 import { coreSkills } from "@/utils/constant";
@@ -17,6 +17,22 @@ const stats = [
 
 const About = () => {
   const [viewCV, setViewCV] = useState(false);
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const container = document.getElementById("scroll-container");
+    if (!container) return;
+    let lastY = container.scrollTop;
+    const onScroll = () => {
+      const y = container.scrollTop;
+      const delta = y - lastY;
+      lastY = y;
+      setRotation((r) => r + delta);
+    };
+    container.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => container.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section id="about" className="relative bg-zinc-950 overflow-hidden">
@@ -104,6 +120,7 @@ const About = () => {
       <Image
         src={Images.Logo}
         alt="Zulker Nien"
+        style={{ rotate: `${rotation}deg` }}
         className="pointer-events-none absolute bottom-2 right-0 w-48 lg:w-64 opacity-[0.05] mix-blend-luminosity select-none"
       />
 
