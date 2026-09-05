@@ -5,7 +5,7 @@ import Techstack from "./Techstack";
 import { projectStore } from "@/store/store";
 import { projectType, tagType } from "@/utils/types";
 import TechstackMobile from "./TechstackMobile";
-import { Globe, Github, ArrowUpRight } from "lucide-react";
+import { Globe, Github, FileText, ArrowUpRight } from "lucide-react";
 import Fade from "@/components/Fade";
 import SectionIntro from "@/components/SectionIntro";
 import Link from "next/link";
@@ -84,6 +84,15 @@ const Projects = () => {
                   </div>
 
                   <div className="md:col-span-2 flex items-center gap-2 md:justify-end">
+                    {project.slug && (
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        title="Feature Overview"
+                        className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 text-slate-400 hover:text-brand-light hover:border-brand/40 hover:bg-brand/10 transition-all duration-200"
+                      >
+                        <FileText className="w-4 h-4" />
+                      </Link>
+                    )}
                     {project.website && (
                       <Link
                         href={project.website}

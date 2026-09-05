@@ -51,6 +51,7 @@ export type projectItem = {
   image?: string;
   source_code_link?: string;
   website?: string;
+  slug?: string;
 }[];
 
 export type projectType = {

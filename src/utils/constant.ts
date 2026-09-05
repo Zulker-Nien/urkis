@@ -110,6 +110,20 @@ const education: educationType = [
 ];
 const research: researchType = [
   {
+    title: "Predicting suicide risks using Machine Learning among medical students in Bangladesh.",
+    type: "Thesis",
+    status: "Published",
+    journal: "UIU Archive",
+    link: "https://dspace.uiu.ac.bd/handle/52243/3206"
+  },
+  {
+    title: "Ai for screening common cancers",
+    type: "Book Chapter",
+    status: "Published",
+    book: "Artificial Intelligence in e-Health Framework V1",
+    link: "https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780443138164000164",
+  },
+  {
     title: "Use of Ai in advancing SRHR interventions",
     type: "Q1 Systematic Review",
     status: "In Peer Review",
@@ -120,13 +134,6 @@ const research: researchType = [
     type: "Q1 Systematic Review",
     status: "In Peer Review",
     journal: "Heliyon",
-  },
-  {
-    title: "Ai for screening common cancers",
-    type: "Book Chapter",
-    status: "Published",
-    book: "Artificial Intelligence in e-Health Framework V1",
-    link: "https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780443138164000164",
   },
 ];
 const testimonials: testimonialType = [
@@ -158,6 +165,7 @@ const testimonials: testimonialType = [
 const projects: projectItem = [
   {
     name: "The Deltagram",
+    slug: "the-deltagram",
     description:
       "The beauty of three.js can be seen here. I have multiple implementations in mind. Currently learning 3d modelling on top of my UI/UX and graphics designing certification.",
     tags: [
@@ -214,6 +222,7 @@ const projects: projectItem = [
 
   {
     name: "Celestial",
+    slug: "celestial",
     description:
       "",
     tags: [
@@ -274,6 +283,7 @@ const projects: projectItem = [
   },
   {
     name: "3D Model Viewer",
+    slug: "next-three-model",
     description:
       "An in-browser 3D model viewer built with Next.js, React Three Fiber, and drei. Users can upload their own .glb, .gltf, .fbx, or .stl models, inspect them in a lights-and-camera-controlled studio scene, and review technical and diagnostics data such as file size, triangle and vertex counts, materials, and an embedded-camera switcher. When no model is loaded, a configurable parametric shape is shown instead.",
     tags: [
