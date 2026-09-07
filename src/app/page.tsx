@@ -16,10 +16,7 @@ export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
 
   return (
-    <div
-      id="scroll-container"
-      className="h-screen w-screen overflow-x-hidden overflow-y-scroll scroll-smooth"
-    >
+    <div id="scroll-container" className="w-full">
       <Toaster />
       <SettingsDialog />
       <div className="h-screen">

@@ -20,18 +20,17 @@ const About = () => {
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
-    const container = document.getElementById("scroll-container");
-    if (!container) return;
-    let lastY = container.scrollTop;
+    if (typeof window === "undefined") return;
+    let lastY = window.scrollY;
     const onScroll = () => {
-      const y = container.scrollTop;
+      const y = window.scrollY;
       const delta = y - lastY;
       lastY = y;
       setRotation((r) => r + delta);
     };
-    container.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => container.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
