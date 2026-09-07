@@ -752,20 +752,6 @@ export const projectOverviews: ProjectOverview[] = [
         ],
       },
       {
-        title: "Architecture Notes",
-        blocks: [
-          {
-            type: "list",
-            items: [
-              "page.tsx — single client page hosting the R3F <Canvas> and all overlay/control wiring.",
-              "ModelUpload.tsx — upload UI, format-specific loaders, stats/hierarchy/camera extraction, and the three diagnostic panels.",
-              "useGltfWithKTX2.ts — singleton KTX2/Draco loaders wired into GLTFLoader.",
-              "RSC renders the static shell (layout.tsx); the 3D scene is fully client-side.",
-            ],
-          },
-        ],
-      },
-      {
         title: "Scripts",
         blocks: [
           {
