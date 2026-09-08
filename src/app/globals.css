@@ -143,6 +143,9 @@ h4 {
   scroll-behavior: smooth;
   z-index: 500;
 }
+body:has(#scroll-container)::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
 
 .blog-post {
   line-height: 1.75;
