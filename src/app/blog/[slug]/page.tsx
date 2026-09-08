@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Images from "@/utils/image";
+import { SITE_URL, SITE_NAME, AUTHOR } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await prisma.post.findFirst({ where: { slug, published: true } });
   if (!post) return { title: "Post not found" };
-  return { title: `${post.title} — Blog`, description: post.excerpt ?? undefined };
+  const url = `${SITE_URL}/blog/${post.slug}`;
+  const ogImage = post.coverImage ?? "/Zulker_Logo_W.png";
+  return {
+    title: post.title,
+    description: post.excerpt ?? undefined,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      url,
+      siteName: SITE_NAME,
+      title: post.title,
+      description: post.excerpt ?? undefined,
+      images: [{ url: ogImage, alt: `${post.title} — ${AUTHOR}` }],
+      publishedTime: post.createdAt.toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
+      authors: [AUTHOR],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt ?? undefined,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {

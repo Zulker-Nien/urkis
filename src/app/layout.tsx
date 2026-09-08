@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeInit from "@/components/ThemeInit";
 import SupportKoriWidget from "@/components/SupportKoriWidget";
+import { SITE_URL, SITE_NAME, AUTHOR, KEYWORDS, DESCRIPTION } from "@/lib/site";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,8 +17,40 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "The Urkis Website",
-  description: "Zulker's personal",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: DESCRIPTION,
+  applicationName: SITE_NAME,
+  creator: AUTHOR,
+  authors: [{ name: AUTHOR, url: SITE_URL }],
+  category: "technology",
+  keywords: KEYWORDS,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: DESCRIPTION,
+    images: [
+      {
+        url: "/Zulker_Logo_W.png",
+        alt: `${AUTHOR} — ${SITE_NAME}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: DESCRIPTION,
+    images: ["/Zulker_Logo_W.png"],
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/favicon/apple-touch-icon.png",

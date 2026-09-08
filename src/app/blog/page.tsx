@@ -3,12 +3,28 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Images from "@/utils/image";
+import { SITE_URL, SITE_NAME, DESCRIPTION, AUTHOR } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog — The Urkis Website",
-  description: "Notes and writeups by Zulker.",
+  title: "Blog",
+  description: DESCRIPTION,
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/blog`,
+    siteName: SITE_NAME,
+    title: "Blog",
+    description: DESCRIPTION,
+    images: [{ url: "/Zulker_Logo_W.png", alt: `${AUTHOR} — ${SITE_NAME}` }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog",
+    description: DESCRIPTION,
+    images: ["/Zulker_Logo_W.png"],
+  },
 };
 
 export default async function BlogPage() {
