@@ -17,9 +17,10 @@ export default function SupportKoriWidget() {
     script.id = "supportkori-widget";
     script.src = "https://www.supportkori.com/widget.js";
     script.dataset.id = "urkis";
-    script.dataset.message = "Support urkis";
+    script.dataset.message = "Buy me a coffee";
     script.dataset.color = color;
     script.dataset.position = "right";
+    script.className = "relative z-50";
     document.body.appendChild(script);
   }, [theme]);
 
