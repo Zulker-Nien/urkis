@@ -9,8 +9,9 @@ import { Environment, ContactShadows } from "@react-three/drei";
 import { laptopStore } from "@/store/store";
 import { laptopType } from "@/utils/types";
 import ArrowDown from "./ArrowDown";
+import Link from "next/link";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
+import { BookOpenIcon, BookOpenText, ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
 import { themeStore, THEMES } from "@/store/themeStore";
 
 const LaptopModelContainer = () => {
@@ -32,6 +33,12 @@ const LaptopModelContainer = () => {
 
   return (
     <div className="h-screen w-screen overflow-hidden relative">
+      <Link
+        href="/blog"
+        className="fixed left-6 top-6 z-50 p-3 rounded-full bg-zinc-900/80 border border-white/10 text-slate-400 hover:text-brand hover:border-brand/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40"
+      >
+        <BookOpenText size={16} />
+      </Link>
       <Popover>
         <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-zinc-900/80 border border-brand/40 text-brand hover:text-brand-light hover:border-brand/70 backdrop-blur-md transition-all duration-200">
           <ShieldAlert size={20} className="animate-pulse" />

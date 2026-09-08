@@ -12,6 +12,7 @@ import { Toaster } from "@/components/ui/toaster";
 import TestimonialCarousel from "./testimonials/TestimonialCarousel";
 import SettingsDialog from "@/components/SettingsDialog";
 
+
 export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
 
