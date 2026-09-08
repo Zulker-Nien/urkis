@@ -32,7 +32,7 @@ export default function SettingsDialog() {
         className="fixed bottom-6 left-6 z-50 p-3 rounded-full bg-zinc-900/80 border border-white/10 text-slate-400 hover:text-brand hover:border-brand/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40"
         aria-label="Open settings"
       >
-        <Settings className="w-5 h-5" />
+        <Settings size={20} />
       </button>
 
       {open && (
@@ -56,13 +56,11 @@ export default function SettingsDialog() {
                 defaultValue="theme"
                 className="flex flex-col sm:flex-row flex-1"
               >
-                <TabsList className="flex-row sm:flex-col w-full sm:w-44 shrink-0 items-stretch sm:items-stretch justify-start sm:justify-start gap-1 rounded-none border-b sm:border-b-0 sm:border-r border-white/5 bg-zinc-950/40 p-2 sm:p-3">
-                  <p className="hidden sm:block px-2 pt-1 pb-2 text-[10px] uppercase tracking-widest text-slate-600 font-mono">
-                    Themes
-                  </p>
+                <TabsList className="flex-row sm:flex-col w-full sm:w-44 items-stretch sm:items-stretch justify-start sm:justify-start gap-1 rounded-none border-b sm:border-b-0 sm:border-r border-white/5 bg-zinc-950/40 sm:p-3">
+
                   <TabsTrigger
                     value="theme"
-                    className="justify-center sm:justify-start gap-2.5 rounded-lg px-3 py-2 data-[state=active]:bg-zinc-900 data-[state=active]:text-brand"
+                    className="justify-center sm:justify-start gap-2.5 data-[state=active]:bg-zinc-900 data-[state=active]:text-brand"
                   >
                     <Palette className="w-4 h-4" />
                     Themes

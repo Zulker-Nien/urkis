@@ -37,10 +37,10 @@ const LaptopModelContainer = () => {
         href="/blog"
         className="fixed left-6 top-6 z-50 p-3 rounded-full bg-zinc-900/80 border border-white/10 text-slate-400 hover:text-brand hover:border-brand/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40"
       >
-        <BookOpenText size={16} />
+        <BookOpenText size={20} />
       </Link>
       <Popover>
-        <PopoverTrigger className="absolute right-6 top-6 lg:right-12 lg:top-8 z-30 p-2 rounded-xl bg-zinc-900/80 border border-brand/40 text-brand hover:text-brand-light hover:border-brand/70 backdrop-blur-md transition-all duration-200">
+        <PopoverTrigger className="absolute right-6 top-6 z-50 p-3 rounded-full bg-zinc-900/80 border border-white/10 text-slate-400 hover:text-brand hover:border-brand/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40">
           <ShieldAlert size={20} className="animate-pulse" />
         </PopoverTrigger>
         <PopoverContent

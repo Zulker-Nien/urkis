@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { themeStore, THEMES } from "@/store/themeStore";
 
 export default function SupportKoriWidget() {
   const theme = themeStore((s) => s.theme);
+  const hostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const color =
@@ -22,7 +23,36 @@ export default function SupportKoriWidget() {
     script.dataset.position = "right";
     script.className = "relative z-50";
     document.body.appendChild(script);
+
+    const setVisible = (visible: boolean) => {
+      document
+        .querySelectorAll<HTMLElement>(
+          ".sk-widget-btn, .sk-widget-iframe-container"
+        )
+        .forEach((el) => {
+          el.style.display = visible ? "" : "none";
+        });
+    };
+
+    const host = hostRef.current;
+    if (host) {
+      const observer = new IntersectionObserver(
+        (entries) => setVisible(entries[0]?.isIntersecting ?? true),
+        { threshold: 0 }
+      );
+      observer.observe(host);
+      return () => {
+        observer.disconnect();
+        const el = document.getElementById("supportkori-widget");
+        if (el) el.remove();
+        document
+          .querySelectorAll<HTMLElement>(
+            ".sk-widget-btn, .sk-widget-iframe-container"
+          )
+          .forEach((el) => el.remove());
+      };
+    }
   }, [theme]);
 
-  return null;
+  return <div ref={hostRef} className="h-px w-px" aria-hidden="true" />;
 }

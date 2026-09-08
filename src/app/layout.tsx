@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ThemeInit from "@/components/ThemeInit";
-import SupportKoriWidget from "@/components/SupportKoriWidget";
 import { SITE_URL, SITE_NAME, AUTHOR, KEYWORDS, DESCRIPTION } from "@/lib/site";
 
 const geistSans = localFont({
@@ -73,7 +72,6 @@ export default function RootLayout({
       >
         {children}
         <ThemeInit />
-        <SupportKoriWidget />
       </body>
       
     </html>
