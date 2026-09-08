@@ -12,6 +12,7 @@ import { Toaster } from "@/components/ui/toaster";
 import TestimonialCarousel from "./testimonials/TestimonialCarousel";
 import SettingsDialog from "@/components/SettingsDialog";
 import SupportKoriWidget from "@/components/SupportKoriWidget";
+import ScrollTimeline from "@/components/ScrollTimeline";
 
 export default function Home() {
   const openLaptop = laptopStore((state: laptopType) => state.openLaptop);
@@ -20,6 +21,7 @@ export default function Home() {
     <div id="scroll-container" className="w-full">
       <Toaster />
       <SettingsDialog />
+      <ScrollTimeline />
       <div className="h-screen">
         <SupportKoriWidget />
         <LaptopModelContainer />
