@@ -40,9 +40,9 @@ const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  const serviceId = process.env.SERVICEID;
-  const templateId = process.env.TEMPLATEID;
-  const publicKey = process.env.PUBLICKEY;
+  const serviceId = process.env.NEXT_PUBLIC_SERVICEID;
+  const templateId = process.env.NEXT_PUBLIC_TEMPLATEID;
+  const publicKey = process.env.NEXT_PUBLIC_PUBLICKEY;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
