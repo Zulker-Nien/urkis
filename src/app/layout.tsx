@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ThemeInit from "@/components/ThemeInit";
+import CursorSpotlight from "@/components/CursorSpotlight";
 import { SITE_URL, SITE_NAME, AUTHOR, KEYWORDS, DESCRIPTION } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -72,6 +73,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <CursorSpotlight />
         <ThemeInit />
       </body>
       <Analytics />
