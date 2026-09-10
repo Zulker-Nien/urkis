@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Linkedin, Github, ArrowUpRight } from "lucide-react";
+import { Linkedin, Github, ArrowUpRight, CalendarSearch } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import Fade from "@/components/Fade";
 import SectionIntro from "@/components/SectionIntro";
@@ -26,6 +26,11 @@ const socials = [
     label: "Upwork",
     href: "https://www.upwork.com/freelancers/~0130cad0881a233037",
     icon: ArrowUpRight,
+  },
+  {
+    label: "Calendly",
+    href: "https://calendly.com/zulkerb9b/30min",
+    icon: CalendarSearch,
   },
 ];
 
