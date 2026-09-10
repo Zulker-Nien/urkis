@@ -244,7 +244,8 @@ body:has(#scroll-container)::-webkit-scrollbar-thumb {
   }
 }
 .marquee-track {
-  animation: marquee 36s linear infinite;
+  animation: marquee 60s linear infinite;
+  width: max-content;
 }
 .marquee-track:hover {
   animation-play-state: paused;

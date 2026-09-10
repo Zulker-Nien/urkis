@@ -2,11 +2,16 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Images from "@/utils/image";
-import { coreSkills } from "@/utils/constant";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import Fade from "@/components/Fade";
 import Link from "next/link";
+
+type BlogPost = {
+  title: string;
+  slug: string;
+  createdAt: string;
+};
 
 const stats = [
   { value: "6+", label: "Years of craft", link: "/#experience" },
@@ -18,6 +23,14 @@ const stats = [
 const About = () => {
   const [viewCV, setViewCV] = useState(false);
   const [rotation, setRotation] = useState(0);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    fetch("/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch(() => { });
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -32,6 +45,10 @@ const About = () => {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+
+  const REPEAT = 6;
+  const loopedPosts = Array(REPEAT).fill(posts).flat();
 
   return (
     <section id="about" className="relative bg-zinc-950 overflow-hidden">
@@ -101,15 +118,21 @@ const About = () => {
       <Fade>
         <div className="relative border-y border-white/5 bg-black/30 py-5 overflow-hidden">
           <div className="flex overflow-hidden">
-            <div className="marquee-track flex items-center w-max shrink-0">
-              {[...coreSkills, ...coreSkills].map((skill, index) => (
-                <span
+            <div className="marquee-track flex items-end">
+              {[...loopedPosts, ...loopedPosts].map((post, index) => (
+                <Link
                   key={index}
-                  className="flex items-center gap-8 pr-8 text-slate-300 font-light text-sm tracking-wide uppercase whitespace-nowrap"
+                  href={`/blog/${post.slug}`}
+                  className="flex items-center gap-8 pr-8 flex-shrink-0 text-slate-300 font-light text-sm tracking-wide whitespace-nowrap hover:text-brand transition-colors duration-300"
                 >
-                  {skill.name}
+                  Read my latest blog on &ldquo;{post.title}&rdquo; —{" "}
+                  {new Date(post.createdAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
                   <span className="text-brand">✦</span>
-                </span>
+                </Link>
               ))}
             </div>
           </div>
