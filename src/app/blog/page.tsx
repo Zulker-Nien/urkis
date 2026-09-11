@@ -92,13 +92,6 @@ export default async function BlogPage() {
           />
         </Link>
         <div className="flex items-center gap-4">
-          <a
-            href="/rss.xml"
-            className="text-xs text-slate-500 hover:text-brand-light font-mono"
-            aria-label="RSS feed"
-          >
-            rss
-          </a>
           <Link href="/blog/admin" className="text-xs text-slate-500 hover:text-brand-light font-mono">
             admin
           </Link>
