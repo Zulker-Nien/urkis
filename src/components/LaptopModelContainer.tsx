@@ -13,7 +13,6 @@ import Link from "next/link";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { BookOpenIcon, BookOpenText, ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
 import { themeStore, THEMES } from "@/store/themeStore";
-import AvailabilityBanner from "./AvailabilityBanner";
 import ErrorBoundary from "./ErrorBoundary";
 import ModelLoader from "./ModelLoader";
 
@@ -42,7 +41,6 @@ const LaptopModelContainer = () => {
       >
         <BookOpenText size={20} />
       </Link>
-      <AvailabilityBanner />
       <Popover>
         <PopoverTrigger className="absolute right-6 top-6 z-50 p-3 rounded-full bg-zinc-900/80 border border-white/10 text-slate-400 hover:text-brand hover:border-brand/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40">
           <ShieldAlert size={20} className="animate-pulse" />
