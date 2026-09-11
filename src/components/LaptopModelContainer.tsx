@@ -13,6 +13,9 @@ import Link from "next/link";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { BookOpenIcon, BookOpenText, ShieldAlert, Sparkles, TriangleAlert } from "lucide-react";
 import { themeStore, THEMES } from "@/store/themeStore";
+import AvailabilityBanner from "./AvailabilityBanner";
+import ErrorBoundary from "./ErrorBoundary";
+import ModelLoader from "./ModelLoader";
 
 const LaptopModelContainer = () => {
   const theme = themeStore((s) => s.theme);
@@ -39,6 +42,7 @@ const LaptopModelContainer = () => {
       >
         <BookOpenText size={20} />
       </Link>
+      <AvailabilityBanner />
       <Popover>
         <PopoverTrigger className="absolute right-6 top-6 z-50 p-3 rounded-full bg-zinc-900/80 border border-white/10 text-slate-400 hover:text-brand hover:border-brand/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 shadow-lg shadow-black/40">
           <ShieldAlert size={20} className="animate-pulse" />
@@ -98,39 +102,59 @@ const LaptopModelContainer = () => {
           hello. This is Zulker.
         </web.h6>
 
-        <Canvas
-          className="h-full"
-          dpr={[1, 2]}
-          camera={{ position: [0, 0, 0], fov: 35 }}
+        <ErrorBoundary
+          fallback={
+            <div className="absolute inset-0 z-30 flex items-center justify-center">
+              <div className="flex flex-col items-center gap-6 text-center">
+                <p className="max-w-xs text-sm font-light leading-relaxed text-zinc-600">
+                  3D experience is not available on this device. You can still explore the portfolio.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setOpenLaptop(true)}
+                  className="rounded-full border border-zinc-300 bg-zinc-900/80 px-6 py-3 text-sm font-mono uppercase tracking-[0.3em] text-white transition-all hover:scale-105"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          }
         >
-          <three.pointLight
-            position={[10, 10, 10]}
-            intensity={1.5}
-            color={props.open.to([0, 1], ["#00", "#000"])}
-          />
-          <Suspense fallback={"loading"}>
-            <group
-              rotation={[0, Math.PI, 0]}
-              onClick={(e) => (e.stopPropagation(), setOpenLaptop(!open))}
-              scale={isLargeScreen ? [1, 1, 1] : [0.5, 0.5, 0.5]}
-            >
-              <LaptopModel
-                open={openLaptop}
-                hinge={props.open.to([0, 1], [1.575, -0.425])}
-              ></LaptopModel>
-            </group>
-            <Environment files="potsdamer_platz_1k.jpg" />
-          </Suspense>
-          <ContactShadows
-            rotation-x={Math.PI / 2}
-            position={[0, -4.5, 0]}
-            opacity={0.4}
-            width={20}
-            height={20}
-            blur={2}
-            far={4.5}
-          />
-        </Canvas>
+          <Canvas
+            className="h-full"
+            dpr={[1, 2]}
+            camera={{ position: [0, 0, 0], fov: 35 }}
+          >
+            <three.pointLight
+              position={[10, 10, 10]}
+              intensity={1.5}
+              color={props.open.to([0, 1], ["#00", "#000"])}
+            />
+            <Suspense fallback={null}>
+              <group
+                rotation={[0, Math.PI, 0]}
+                onClick={(e) => (e.stopPropagation(), setOpenLaptop(!open))}
+                scale={isLargeScreen ? [1, 1, 1] : [0.5, 0.5, 0.5]}
+              >
+                <LaptopModel
+                  open={openLaptop}
+                  hinge={props.open.to([0, 1], [1.575, -0.425])}
+                ></LaptopModel>
+              </group>
+              <Environment files="potsdamer_platz_1k.jpg" />
+            </Suspense>
+            <ContactShadows
+              rotation-x={Math.PI / 2}
+              position={[0, -4.5, 0]}
+              opacity={0.4}
+              width={20}
+              height={20}
+              blur={2}
+              far={4.5}
+            />
+          </Canvas>
+        </ErrorBoundary>
+        <ModelLoader />
       </web.main>
     </div>
   );

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
 import { AuthError, requireAdmin } from "@/lib/auth";
 
@@ -78,6 +79,10 @@ export async function POST(req: NextRequest) {
         published: body.published === true,
       },
     });
+
+    if (post.published) {
+      revalidatePath(`/blog/${post.slug}`);
+    }
 
     return NextResponse.json({ post }, { status: 201 });
   } catch (e) {

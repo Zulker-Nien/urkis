@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
 import { AuthError, requireAdmin } from "@/lib/auth";
 
@@ -83,6 +84,14 @@ export async function PATCH(req: NextRequest, { params }: RouteContext) {
     }
 
     const post = await prisma.post.update({ where: { id }, data });
+
+    if (existing.published || post.published) {
+      if (existing.slug !== post.slug) {
+        if (existing.published) revalidatePath(`/blog/${existing.slug}`);
+      }
+      if (post.published) revalidatePath(`/blog/${post.slug}`);
+    }
+
     return NextResponse.json({ post });
   } catch (e) {
     if (e instanceof AuthError) {
@@ -106,10 +115,12 @@ export async function DELETE(_req: NextRequest, { params }: RouteContext) {
   try {
     await requireAdmin();
     const { id } = await params;
+    const existing = await prisma.post.findUnique({ where: { id }, select: { slug: true, published: true } });
     const result = await prisma.post.deleteMany({ where: { id } });
     if (result.count === 0) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
+    if (existing?.published) revalidatePath(`/blog/${existing.slug}`);
     return NextResponse.json({ ok: true });
   } catch (e) {
     if (e instanceof AuthError) {
