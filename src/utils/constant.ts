@@ -316,7 +316,43 @@ const projects: projectItem = [
       "https://next-three-model.vercel.app/",
     website: "https://next-three-model.vercel.app/",
   },
-
+  {
+    name: "Function Point Estimator",
+    slug: "fpet",
+    description:
+      "A Function Point Estimator — turns a product's feature list into function-point-based software estimates (effort, duration, and price) using the IFPUG standard. Five-step wizard, 14 General System Characteristics, live currency conversion, and a branded PDF report — all running client-side.",
+    tags: [
+      {
+        name: "TypeScript",
+        color: "orange-500",
+      },
+      {
+        name: "Nextjs",
+        color: "blue-500",
+      },
+      {
+        name: "Zustand",
+        color: "blue-500",
+      },
+      {
+        name: "Base UI",
+        color: "blue-500",
+      },
+      {
+        name: "Tailwind CSS",
+        color: "blue-500",
+      },
+      {
+        name: "jsPDF",
+        color: "blue-500",
+      },
+      {
+        name: "IFPUG",
+        color: "blue-500",
+      },
+    ],
+    website: "https://fpet.vercel.app/",
+  },
 
   // {
   //   name: "Tecbix",

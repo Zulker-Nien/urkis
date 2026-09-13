@@ -767,4 +767,239 @@ export const projectOverviews: ProjectOverview[] = [
       },
     ],
   },
+  {
+    slug: "fpet",
+    title: "Function Point Estimator (FPET)",
+    tagline: "Scope. Score. Estimate.",
+    hero:
+      "A Function Point Estimator — a web tool that turns a product's feature list into a function-point-based software estimate (effort, duration, and price) using the IFPUG Function Point Analysis standard. Everything runs client-side: no database, account system, or backend.",
+    meta: [
+      { label: "Framework", value: "Next.js (App Router) · React · TypeScript" },
+      { label: "State", value: "Zustand (persisted to localStorage)" },
+      { label: "UI", value: "Base UI + Tailwind CSS" },
+      { label: "PDF", value: "jsPDF (client-side generation)" },
+      { label: "Rates", value: "open.er-api.com live + static fallback" },
+    ],
+    sections: [
+      {
+        title: "1. Overview",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Fpet collects a product's scope as a list of named features categorized by function type and complexity, scores the project against the 14 General System Characteristics (GSC) from the IFPUG standard, and lets you set delivery assumptions (daily rate, productivity, team size, contingency, currency).",
+          },
+          {
+            type: "list",
+            items: [
+              "Computes Unadjusted Function Points (UFP), the Value Adjustment Factor (VAF), Adjusted Function Points, effort in person-days, duration, and a full price breakdown.",
+              "Exports the whole report to a PDF with a brand watermark.",
+              "Persists the entire estimate in the browser, so refreshing or closing the tab doesn't lose work.",
+              "Everything runs client-side — no database, account system, or backend.",
+            ],
+          },
+          {
+            type: "callout",
+            title: "Estimation Model",
+            text: "UFP from 5 types × 3 complexities × IFPUG weights → Adjusted FP = UFP × VAF (0.65 + ΣGSC / 100) → Effort = Adjusted FP ÷ productivity → Duration = Effort ÷ team size → Base cost = Effort × daily rate; Total = Base + contingency%.",
+          },
+        ],
+      },
+      {
+        title: "2. Wizard Flow",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "The wizard follows a funnel laid out in the top navigation: Start → Add your features → Review your scope → Set delivery assumptions → Your project estimate. Each step has Back / Next actions (Next is disabled until the step is meaningful, e.g. at least one feature). The final step offers the report and PDF download instead.",
+          },
+          {
+            type: "table",
+            head: ["Route", "Step"],
+            rows: [
+              ["/", "Start — pick a template or begin blank"],
+              ["/features", "Add your features"],
+              ["/review", "Review your scope"],
+              ["/assumptions", "Set delivery assumptions"],
+              ["/summary", "Your project estimate"],
+            ],
+          },
+        ],
+      },
+      {
+        title: "3. Start Screen",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Landing Page — marketing site with contact form and CMS (16 features).",
+              "Admin Dashboard — internal tool with tables, filters, and reports (43 features).",
+              "E-commerce Store — storefront with cart, checkout, and payment (67 features).",
+              "Templates are seeded with real product terms instead of generic 'External Input 1' names (e.g. 'Add new user', 'Payment gateway API', 'Revenue forecast report').",
+              "Start with a blank estimate clears any previous progress and starts from zero features.",
+            ],
+          },
+        ],
+      },
+      {
+        title: "4. Features Step",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Feature entry (FpCounter): add a named feature, pick its function type and complexity in one go, then it joins the scope list.",
+          },
+          {
+            type: "table",
+            head: ["Function Type", "Meaning", "IFPUG Weights"],
+            rows: [
+              ["External Inputs (EI)", "Forms, screens, transaction messages", "3 · 4 · 6"],
+              ["External Outputs (EO)", "Reports, invoices, derived screens", "4 · 5 · 7"],
+              ["External Inquiries (EQ)", "Searches and lookups", "3 · 4 · 6"],
+              ["Internal Logical Files (ILF)", "Tables and databases you maintain", "7 · 10 · 15"],
+              ["External Interface Files (EIF)", "Third-party APIs and feeds", "5 · 7 · 10"],
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "Complexity levels: Low / Average / High, each with its weight multiplier.",
+              "Side-by-side layout on desktop: feature entry questionnaire left, 'Features in this estimate' list right — both panes scroll independently within the viewport height. On mobile the two stack with normal page scrolling.",
+              "The estimate stays hidden until scope is complete.",
+              "Each scope item has controls for editing name, type, and complexity, plus removal.",
+            ],
+          },
+        ],
+      },
+      {
+        title: "5. Review Step",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "A read-only scope review list of every feature in the estimate — confirming each feature is represented correctly before assumptions shape the final number.",
+          },
+        ],
+      },
+      {
+        title: "6. Assumptions Step",
+        blocks: [
+          {
+            type: "subheading",
+            text: "General System Characteristics (GSC)",
+          },
+          {
+            type: "paragraph",
+            text: "Two panels side by side on desktop: the 14 IFPUG characteristics (Data Communications, Distributed Data Processing, Performance, Transaction Rate, End-User Efficiency, Complex Processing, Reusability, Facilitate Change, etc.), each scored on a 0–5 degree slider: 0 Not present · 1 Incidental · 2 Moderate · 3 Average · 4 Significant · 5 Strong. Defaults to 3 (Average).",
+          },
+          {
+            type: "list",
+            items: [
+              "Live sum of ratings.",
+              "Resulting VAF computed as 0.65 + sum / 100.",
+            ],
+          },
+          {
+            type: "subheading",
+            text: "Delivery Parameters (ParamsPanel)",
+          },
+          {
+            type: "table",
+            head: ["Parameter", "Details"],
+            rows: [
+              ["Daily rate", "Billing rate per person-day"],
+              ["Productivity", "Function points per person-day (default 2)"],
+              ["Team size", "People working in parallel"],
+              ["Contingency %", "Added on top of base cost (default 20%)"],
+              ["Currency", "Selector — BDT first, then USD, EUR, GBP, INR, JPY, AUD, CAD, SEK"],
+            ],
+          },
+        ],
+      },
+      {
+        title: "7. Summary Step",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Adjusted FP and its size bucket (Low < 15, Average ≥ 15, High ≥ 35) with a color-coded badge.",
+              "Effort in person-days (Adjusted FP ÷ productivity).",
+              "Duration in days (Effort ÷ team size).",
+              "Price card: base cost, plus contingency, grand total.",
+              "Detailed cost line items reading from the current parameters.",
+              "Download PDF button that generates the full report.",
+            ],
+          },
+        ],
+      },
+      {
+        title: "8. Currency Conversion",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Bangladeshi Taka (৳ BDT) is the first currency in the selector, followed by USD, EUR, GBP, INR, JPY, AUD, CAD, SEK. The daily rate is stored and displayed in the chosen currency; switching currency converts the stored daily rate so the estimate's price reflects the new currency.",
+          },
+          {
+            type: "list",
+            items: [
+              "Conversion happens against a common base — every currency has a rate relative to USD.",
+              "Live rates are fetched once on app load from the free open.er-api.com endpoint (v6/latest/USD, no API key).",
+              "If the fetch fails or is slow, the app silently falls back to a bundled static rate table, so the feature works offline too.",
+            ],
+          },
+        ],
+      },
+      {
+        title: "9. PDF Report Download",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "The summary screen's Download PDF produces function-point-estimate-<date>.pdf entirely in the browser (jsPDF).",
+          },
+          {
+            type: "list",
+            items: [
+              "Personal-branded header band with the report title and date.",
+              "Overview — UFP, VAF (+ formula), Adjusted FP, effort, team size, duration, base cost, contingency, and total.",
+              "Scope table — every feature with #, name, function type, complexity, and weighted FP.",
+              "Function point count matrix — the 5×3 count matrix plus FP per type and total UFP.",
+              "GSC ratings — all 14 characteristics with their degree, plus the sum and VAF.",
+              "Delivery assumptions and a cost breakdown with the calculation shown for each line.",
+              "Brand logo drawn as a low-opacity watermark on every page.",
+              "Paginated with headers, footers, and 'Page X of Y' numbering; each page keeps the watermark.",
+            ],
+          },
+        ],
+      },
+      {
+        title: "10. Persistence, UI & Polish",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "All state (features, counts, GSC ratings, parameters, currency rates) is held in a Zustand store persisted to localStorage under the key fpet-estimation.",
+              "Reloading the page restores the entire estimate; legacy-saved data (counts without a feature list) is migrated back into features automatically.",
+              "Reset clears everything back to defaults.",
+              "Responsive: desktop is a two-column, viewport-fitted layout; mobile stacks with normal scrolling.",
+              "Dark mode: full light/dark theme toggled from the header, respecting prefers-color-scheme on first load.",
+              "Brand watermarks: the Zulker logo spins slowly in the bottom-right of the background (the 'W' variant in dark mode, the standard logo in light mode).",
+              "Custom 404 page for unmatched routes with actions to return to the estimator.",
+            ],
+          },
+        ],
+      },
+      {
+        title: "11. Technical Stack",
+        blocks: [
+          {
+            type: "table",
+            head: ["Layer", "Technology"],
+            rows: [
+              ["Framework", "Next.js (App Router) + React · TypeScript"],
+              ["State", "Zustand (with persist) for client state"],
+              ["UI", "Base UI (@base-ui/react) primitives wrapped in local components/ui/*, styled with Tailwind CSS"],
+              ["PDF", "jsPDF for the client-side PDF export"],
+              ["Rates", "open.er-api.com live fetch with static-rate fallback"],
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
