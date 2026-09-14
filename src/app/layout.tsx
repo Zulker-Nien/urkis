@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [
       {
-        url: "/Zulker_Logo_W.png",
+        url: "/Zulker_Logo.png",
         alt: `${AUTHOR} — ${SITE_NAME}`,
       },
     ],
@@ -69,6 +69,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-6913121045023551"></meta>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
