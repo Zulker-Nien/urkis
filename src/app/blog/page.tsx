@@ -6,6 +6,7 @@ import Images from "@/utils/image";
 import { SITE_URL, SITE_NAME, DESCRIPTION, AUTHOR } from "@/lib/site";
 import { getReadingTime } from "@/lib/blog";
 import BlogFilter from "@/components/BlogFilter";
+import AdSenseSidebar from "@/components/AdSenseSidebar";
 
 export const dynamic = "force-dynamic";
 
@@ -117,6 +118,7 @@ export default async function BlogPage() {
           <BlogFilter posts={summaries} allTags={allTags} />
         )}
       </main>
+      <AdSenseSidebar />
     </div>
   );
 }

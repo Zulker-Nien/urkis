@@ -6,6 +6,7 @@ import Image from "next/image";
 import Images from "@/utils/image";
 import { SITE_URL, SITE_NAME, AUTHOR } from "@/lib/site";
 import { getReadingTime } from "@/lib/blog";
+import AdSenseSidebar from "@/components/AdSenseSidebar";
 
 export const revalidate = 3600;
 
@@ -147,6 +148,7 @@ export default async function BlogPostPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </main>
+      <AdSenseSidebar />
     </div>
   );
 }
