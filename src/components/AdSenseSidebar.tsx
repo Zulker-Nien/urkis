@@ -17,14 +17,20 @@ function AdUnit() {
   }, []);
 
   return (
-    <ins
-      className="adsbygoogle pointer-events-auto block"
-      style={{ minHeight: 600 }}
-      data-ad-client={ADSENSE_CLIENT}
-      data-ad-slot={ADSENSE_SLOT}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    />
+    <div className="relative h-[600px] w-full">
+      <div className="absolute inset-0 flex animate-pulse items-center justify-center rounded-2xl border border-white/5 bg-zinc-900/50">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-600">
+          ad
+        </span>
+      </div>
+      <ins
+        className="adsbygoogle pointer-events-auto relative z-10 block h-full w-full"
+        data-ad-client={ADSENSE_CLIENT}
+        data-ad-slot={ADSENSE_SLOT}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
   );
 }
 
