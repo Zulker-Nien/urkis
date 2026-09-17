@@ -43,6 +43,60 @@ const EMPTY_FORM = {
   published: false,
 };
 
+const LOGO_URL = "/Zulker_Logo_W.png";
+const WATERMARKABLE = new Set(["image/png", "image/jpeg", "image/webp"]);
+
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Could not load image"));
+    img.src = src;
+  });
+}
+
+function encodeCanvas(canvas: HTMLCanvasElement, type: string): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(
+      (blob) => (blob ? resolve(blob) : reject(new Error("Could not encode image"))),
+      type,
+      type === "image/png" ? undefined : 0.92
+    );
+  });
+}
+
+async function watermarkImage(file: File): Promise<File> {
+  if (!WATERMARKABLE.has(file.type)) return file;
+  const sourceUrl = URL.createObjectURL(file);
+  try {
+    const [source, logo] = await Promise.all([
+      loadImage(sourceUrl),
+      loadImage(LOGO_URL),
+    ]);
+    const canvas = document.createElement("canvas");
+    canvas.width = source.naturalWidth;
+    canvas.height = source.naturalHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(source, 0, 0);
+
+    const minDim = Math.min(canvas.width, canvas.height);
+    const size = Math.max(48, Math.round(minDim * 0.12));
+    const pad = Math.max(16, Math.round(canvas.width * 0.03));
+    const x = canvas.width - size - pad;
+    const y = canvas.height - size - pad;
+
+    ctx.globalAlpha = 0.92;
+    ctx.drawImage(logo, x, y, size, size);
+    ctx.globalAlpha = 1;
+
+    const blob = await encodeCanvas(canvas, file.type);
+    return new File([blob], file.name, { type: file.type });
+  } finally {
+    URL.revokeObjectURL(sourceUrl);
+  }
+}
+
 export default function BlogAdminPage() {
   const [view, setView] = useState<View>("loading");
   const [login, setLogin] = useState<string | null>(null);
@@ -115,7 +169,7 @@ export default function BlogAdminPage() {
     setUploadingCover(true);
     setError(null);
     try {
-      const { url } = await uploadToBlob(file);
+      const { url } = await uploadToBlob(await watermarkImage(file));
       setForm((f) => ({ ...f, coverImage: url }));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed");
@@ -131,7 +185,7 @@ export default function BlogAdminPage() {
     setUploadingImage(true);
     setError(null);
     try {
-      const { url } = await uploadToBlob(file);
+      const { url } = await uploadToBlob(await watermarkImage(file));
       const alt = file.name.replace(/\.[^.]+$/, "") || "image";
       const snippet = `\n![${alt}](${url})\n`;
       const textarea = contentRef.current;
